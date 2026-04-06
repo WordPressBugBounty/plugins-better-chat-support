@@ -5,7 +5,7 @@
 	"category": "better-chat-support-block",
 	"icon": "format-status",
 	"description": "Messenger button block for Better Chat Support plugin.",
-	"textdomain": "chat-help",
+	"textdomain": "better-chat-support",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",

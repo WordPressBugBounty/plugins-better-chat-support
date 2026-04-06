@@ -582,7 +582,7 @@ class Help
                         <span class="themeatelier-section-subtitle">
                             <?php
                             // translators: %s: Number of people using Eventful (e.g., 1300+).
-                            echo sprintf(esc_html__('Already, %s people are using Better Chat Support on their websites to turn visitors into customers with powerful video greetings — why won’t you?', 'better-chat-support'), '<b>1000+</b>'); ?>
+                            echo sprintf(esc_html__('Already, %s people are using Better Chat Support on their websites to turn visitors into customers with powerful video greetings — why won’t you?', 'better-chat-support'), '<b>2000+</b>'); ?>
                         </span>
                         <div class="themeatelier-upgrade-to-pro-btn">
                             <div class="themeatelier-action-btn">

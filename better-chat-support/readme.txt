@@ -3,8 +3,9 @@ Contributors: themeatelier, faysal61, shshakib2001
 Tags: messenger chat, messenger, customer care, facebook messenger, facebook
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
-Tested up to: 6.9
-Stable tag: 1.2.22
+Tested up to: 7.0
+Requires PHP: 7.0.0
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +66,17 @@ The Better Messenger Chat Support plugin is a popular solution for businesses lo
 
 👉 **Lifetime update** The premium plugin is totally lifetime deal with lifetime new update. There is no need for yearly renewals.
 
+
+## External services
+Darkify uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users.
+
+Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
+
+Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
+
+
 == OTHER AMAZING PRODUCTS FROM ThemeAtelier ==
 
 
@@ -112,6 +124,19 @@ Yes. The plugin is totally translation ready. If it's not support in your langua
 4. Admin panel
 
 == Changelog ==
+= 1.3.2 – 01 April, 2026 =
+* Added: Floating Chat Layout field.
+* Improved: Option dependency logic.
+* Tested up to: WordPress 7.0.
+
+= 1.3.1 – 11 March, 2026 =
+* Added: Custom CSS and JavaScrip option under setting to the Advance tag.
+* Added: More bubble position.
+* Added: Visibility option for bubble.
+* Fixed: Agent availability issue.
+* Fixed: Device visibility issue.
+* Update: Moved Clean-up Data on Deletion setting to the Advance tab. 
+
 = 1.2.22 – January 27, 2026 =
 * Removed: Appsero integration.
 * Update: Some codebase.

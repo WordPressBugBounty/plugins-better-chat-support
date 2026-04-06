@@ -16,10 +16,10 @@ namespace ThemeAtelier\BetterChatSupport\Admin;
 use ThemeAtelier\BetterChatSupport\Admin\DBUpdates;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ReviewNotice;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ThemeAtelier_Offer_Banner;
-use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportBackup;
 use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportHelp;
 use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportOptions;
 use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportShortcode;
+use ThemeAtelier\BetterChatSupport\Admin\Views\Settings;
 
 /**
  * The admin class
@@ -73,6 +73,7 @@ class Admin
         // Move initialization to after_setup_theme hook
         add_action('after_setup_theme', array($this, 'init_components'));
         add_action('after_setup_theme', array($this, 'mcs_shortcode_options'));
+        add_action('after_setup_theme', array($this, 'mcs_settings_options'));
         add_action('after_setup_theme', array($this, 'mcs_help_options'));
         add_filter('admin_footer_text', array($this, 'admin_footer'), 1, 2);
         $active_plugins = get_option('active_plugins');
@@ -97,6 +98,10 @@ class Admin
     public function mcs_shortcode_options()
     {
         BetterChatSupportShortcode::options('mcs_shortcode');
+    }
+    public function mcs_settings_options()
+    {
+        Settings::options('mcs_settings');
     }
     public function mcs_help_options()
     {
@@ -127,6 +132,14 @@ class Admin
         );
         add_submenu_page(
             'mcs',
+            esc_html__('Settings', 'better-chat-support'),
+            __('Settings', 'better-chat-support'),
+            'manage_options',
+            'settings',
+            [$this, 'shortcodes_options']
+        );
+        add_submenu_page(
+            'mcs',
             esc_html__('Help', 'better-chat-support'),
             __('Help', 'better-chat-support'),
             'manage_options',
@@ -137,7 +150,10 @@ class Admin
         add_submenu_page(
             'mcs',
             esc_html__('Upgrade To Premium', 'better-chat-support'),
-            sprintf('<span style="color: #35b747;font-weight:bold;" class="better-chat-support-get-pro-text">%s</span>', __('Upgrade To Pro! 👑', 'better-chat-support')),
+            sprintf(
+                '<span style="color: #35b747;font-weight:bold;" class="better-chat-support-get-pro-text">%s</span>',
+                __('Upgrade To Pro! 👑', 'better-chat-support')
+            ),
             'manage_options',
             BETTER_CHAT_SUPPORT_DEMO_URL . '?utm_source=better_chat_support_plugin&utm_medium=submenu_page&utm_campaign=new_year_2026'
         );

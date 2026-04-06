@@ -6211,3 +6211,25 @@ margin-right: 0px;
   align-items: center;
   justify-content: center;
 }
+
+/**** PRO CSS ****/
+.better-chat-support-pro-only {
+  position: relative;
+  /* pointer-events: none; */
+  opacity: 0.75;
+}
+
+.better-chat-support-pro-only::after {
+  content: "PRO";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  font-weight: 600;
+  z-index: 999;
+  background-color: #cbd6df;
+  color: #5e6e7d;
+  padding: 2px 8px;
+  font-size: 10px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}

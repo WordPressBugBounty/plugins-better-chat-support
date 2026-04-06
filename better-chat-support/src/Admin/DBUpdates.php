@@ -25,6 +25,7 @@ class DBUpdates
      */
     private static $updates = array(
         '1.2.21' => 'updates/update-1.2.21.php',
+        '1.3.0' => 'updates/update-1.3.0.php',
     );
     
     /**
@@ -47,8 +48,8 @@ class DBUpdates
         $activation_date   = get_option('better_chat_support_activation_date');
 
         if (false === $installed_version) {
-            update_option('better_chat_support_version', '1.2.20');
-            update_option('better_chat_support_db_version', '1.2.20');
+            update_option('better_chat_support_version', BETTER_CHAT_SUPPORT_VERSION);
+            update_option('better_chat_support_db_version', BETTER_CHAT_SUPPORT_VERSION);
         }
         if (false === $first_version) {
             update_option('better_chat_support_first_version', BETTER_CHAT_SUPPORT_VERSION);

@@ -33,31 +33,33 @@ class BetterChatSupportGeneral
             'icon'   => 'icofont-facebook-messenger',
             'fields' => array(
 
-                // changing chat type
-                array(
-                    'type' => 'switcher',
-                    'id'   => 'enable_floating_chat',
-                    'title' => esc_html__('Enable Floating Chat', 'better-chat-support'),
-                    'desc' => esc_html__('Turn ON to show floating chat bubble on your website.', 'better-chat-support'),
-                    'default' => true,
-                ),
+
                 array(
                     'id'         => 'opt-chat-type',
-                    'type'       => 'button_set',
-                    'title'      => esc_html__('Bubble Type', 'better-chat-support'),
-                    'desc' => esc_html__('Choose how the chat bubble handles users', 'better-chat-support'),
+                    'type'       => 'layout_preset',
+                    'title'      => esc_html__('Floating Chat Layout(s)', 'better-chat-support'),
+                    'title_help' => esc_html__('With "No Floating Chat" option, you won\'t be able to use the floating chat feature. However, you can still access and enjoy other functionalities such as the WooCommerce button, shortcodes, and button blocks provided by the plugin.', 'better-chat-support'),
                     'default' => 'single',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
                     'options'    => array(
+                     'off' => array(
+                            'image'           => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Framework/assets/images/off.svg',
+                            'text'            => esc_html__('No Floating Chat', 'chat-help'),
+                            'option_demo_url' => '',
+                        ),
                         'single'  => array(
+                            'image'           => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Framework/assets/images/single_agent.svg',
+                            'option_demo_url' =>  BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode',
                             'text'  => esc_html__('Single User', 'better-chat-support'),
                         ),
                         'multi' => array(
+                            'image'           => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Framework/assets/images/multi_grid.svg',
+                            'option_demo_url' =>  BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode',
                             'text' => esc_html__('Multiple Users', 'better-chat-support'),
                             'pro_only' => true,
                         ),
                     ),
                 ),
+
 
                 // adding contact number
                 array(
@@ -66,7 +68,7 @@ class BetterChatSupportGeneral
                     'title' => esc_html__('Facebook ID', 'better-chat-support'),
                     'title_help'  => esc_html__('Add your profile or page ID to receive messages.', 'better-chat-support'),
                     'desc'  => esc_html__('If your link is facebook.com/themeatelier, just use themeatelier in this field.', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                     'placeholder'   => 'E.g. themeatelier',
                 ),
 
@@ -78,7 +80,7 @@ class BetterChatSupportGeneral
                     'desc' => esc_html__('Select your local timezone. Availability schedules will be applied based on this timezone.)', 'better-chat-support'),
                     'chosen'      => true,
                     'placeholder' => esc_html__('Select Timezone', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                     'options' => $timezones,
                 ),
 
@@ -88,7 +90,7 @@ class BetterChatSupportGeneral
                     'type'  => 'tabbed',
                     'title' => esc_html__('Availability', 'better-chat-support'),
                     'title_help' => esc_html__('Set your daily availability using 24-hour format (e.g., 09:00 to 18:00). To mark a full day as offline, set both From and To values to 00:00.', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                     // sunday
                     'tabs'  => array(
                         array(
@@ -224,7 +226,7 @@ class BetterChatSupportGeneral
                     'title_help' => esc_html__('Upload an agent photo to display inside the chat bubble.', 'better-chat-support'),
                     'library' => 'image',
                     'preview' => true,
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                     'default' => [
                         'url' => BETTER_CHAT_SUPPORT_DIR_URL . 'assets/image/user.webp',
                     ],
@@ -237,7 +239,7 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Agent Name', 'better-chat-support'),
                     'title_help' => esc_html__('Enter the agent name to display inside the chat bubble.', 'better-chat-support'),
                     'default' => esc_html__('John Doe', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // agent subtitle
@@ -247,7 +249,7 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Subtitle', 'better-chat-support'),
                     'title_help' => esc_html__('Enter a subtitle to display below the agent’s name in the chat bubble.', 'better-chat-support'),
                     'default' => esc_html__('Typically replies within a day', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // agent subtitle
@@ -257,7 +259,7 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Message From Agent', 'better-chat-support'),
                     'title_help' => esc_html__('Add a custom message to display inside the agent’s message box.', 'better-chat-support'),
                     'default' => esc_html__('Hello, Welcome to the site. Please click below button for chatting me through messenger.', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // before chat icon
@@ -267,7 +269,7 @@ class BetterChatSupportGeneral
                     'title' => esc_html__('Icon for Send Message Button', 'better-chat-support'),
                     'default' => 'icofont-facebook-messenger',
                     'title_help' => esc_html__('Select an icon to display before the send message button text.', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // agent subtitle
@@ -277,7 +279,7 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Send Message Button Label', 'better-chat-support'),
                     'title_help' => esc_html__('Enter the text to display on the send message button.', 'better-chat-support'),
                     'default' => esc_html__('Send a message', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
                 // Autometically show popup
                 array(
@@ -286,7 +288,7 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Auto Open Popup', 'better-chat-support'),
                     'title_help' => esc_html__('Enable this option to automatically open the chat popup when the page loads. Useful for drawing visitor attention without requiring a click.', 'better-chat-support'),
                     'default' => false,
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // Bubble position
@@ -295,12 +297,14 @@ class BetterChatSupportGeneral
                     'type'    => 'button_set',
                     'title'   => esc_html__('Bubble Position', 'better-chat-support'),
                     'title_help' => esc_html__('Select the screen position where the floating chat button will appear.', 'better-chat-support'),
-                    'default' => 'right',
+                    'default' => 'bottom_right',
                     'options'    => array(
-                        'right'  => esc_html__('Bottom Right', 'better-chat-support'),
-                        'left' => esc_html__('Bottom Left', 'better-chat-support'),
+                        'bottom_right'  => esc_html__('Bottom Right', 'better-chat-support'),
+                        'bottom_left' => esc_html__('Bottom Left', 'better-chat-support'),
+                        'middle_right' => esc_html__('Middle Right', 'better-chat-support'),
+                        'middle_left' => esc_html__('Middle Left', 'better-chat-support'),
                     ),
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
                 array(
                     'id'    => 'right_bottom',
@@ -314,7 +318,8 @@ class BetterChatSupportGeneral
                         'bottom'  => '30',
                         'unit'   => 'px',
                     ),
-                    'dependency' => array('enable_floating_chat|bubble-position', '==|==', 'true|right'),
+                    
+                    'dependency' => array('opt-chat-type|bubble-position', '!=|==', 'off|bottom_right'),
                 ),
                 array(
                     'id'    => 'left_bottom',
@@ -328,22 +333,45 @@ class BetterChatSupportGeneral
                         'bottom'  => '30',
                         'unit'   => 'px',
                     ),
-                    'dependency' => array('enable_floating_chat|bubble-position', '==|==', 'true|left'),
+                    'dependency' => array('opt-chat-type|bubble-position', '!=|==', 'off|bottom_left'),
                 ),
-                // bubble visibility
+
                 array(
-                    'id'      => 'bubble-visibility',
-                    'type'    => 'button_set',
-                    'title'   => esc_html__('Device Visibility', 'better-chat-support'),
-                    'title_help' => '<b>' . esc_html__('Everywhere', 'better-chat-support') . '</b> - ' . esc_html__('Visible on all devices.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Desktop Only', 'better-chat-support') . '</b> - ' . esc_html__('Visible on devices wider than 991px.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Tablet Only', 'better-chat-support') . '</b> - ' . esc_html__(' Visible on devices between 576px and 991px.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Mobile Only', 'better-chat-support') . '</b> - ' . esc_html__('Visible on devices smaller than 576px.', 'better-chat-support'),
-                    'default' => 'everywhere',
-                    'options'    => array(
-                        'everywhere'  => esc_html__('Everywhere', 'better-chat-support'),
-                        'desktop' => esc_html__('Desktop Only', 'better-chat-support'),
-                        'tablet' => esc_html__('Tablet Only', 'better-chat-support'),
-                        'mobile' => esc_html__('Mobile Only', 'better-chat-support'),
+                    'id'    => 'right_middle',
+                    'type'  => 'spacing',
+                    'title' => esc_html__('Margin from Middle Right', 'better-chat-support'),
+                    'title_help' =>
+                    '<div class="better-chat-support-info-label">' .
+                        esc_html__('Set the margin (spacing) of the floating chat button from the right edge of the screen when positioned in the middle. Adjust to fine-tune its placement.', 'better-chat-support') .
+                        '</div>',
+
+                    'top'   => false,
+                    'left'  => false,
+                    'bottom'  => false,
+                    'default'  => array(
+                        'right'    => '20',
+                        'unit'   => 'px',
                     ),
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('bubble-position', '==', 'middle_right', 'any'),
+                ),
+
+                array(
+                    'id'    => 'left_middle',
+                    'type'  => 'spacing',
+                    'title' => esc_html__('Margin from Middle Left', 'better-chat-support'),
+                    'title_help' =>
+                    '<div class="better-chat-support-info-label">' .
+                        esc_html__('Set the margin (spacing) of the floating chat button from the left edge of the screen when positioned in the middle. Adjust to fine-tune its placement.', 'better-chat-support') .
+                        '</div>',
+
+                    'top'   => false,
+                    'right' => false,
+                    'bottom' => false,
+                    'default'  => array(
+                        'left' => '20',
+                        'unit' => 'px',
+                    ),
+                    'dependency' => array('bubble-position', '==', 'middle_left', 'any'),
                 ),
 
                 // Header content position
@@ -366,7 +394,7 @@ class BetterChatSupportGeneral
                             'pro_only' => true,
                         ),
                     ),
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // Header content position
@@ -380,7 +408,7 @@ class BetterChatSupportGeneral
                         'left'  => esc_html__('Left', 'better-chat-support'),
                         'center' => esc_html__('Center', 'better-chat-support'),
                     ),
-                    'dependency' => array('enable_floating_chat|opt-chat-type', '==|any', 'true|single'),
+                    'dependency' => array('opt-chat-type|opt-chat-type', '!=|any', 'off|single'),
                 ),
                 // changing bubble animations
                 array(
@@ -405,7 +433,7 @@ class BetterChatSupportGeneral
                         'random' => esc_html__('Random (Pro)', 'better-chat-support'),
                     ),
                     'default'     => '1',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
                 array(
                     'id'      => 'opt-button-style',
@@ -424,7 +452,7 @@ class BetterChatSupportGeneral
                         '9' => BETTER_CHAT_SUPPORT_DIR_URL . '/src/Admin/Framework/assets/images/button-9.svg',
                     ),
                     'default' => '1',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // Circle button icon
@@ -434,7 +462,7 @@ class BetterChatSupportGeneral
                     'title' => esc_html__('Icon For Circle Button', 'better-chat-support'),
                     'title_help' => esc_html__('Select an icon to display inside the circular chat button.', 'better-chat-support'),
                     'default' => 'icofont-facebook-messenger',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // Circle button icon close
@@ -444,7 +472,7 @@ class BetterChatSupportGeneral
                     'title' => esc_html__('Icon For Circle Button Close', 'better-chat-support'),
                     'title_help' => esc_html__('Select the icon to display when the circular chat button is in the close state.', 'better-chat-support'),
                     'default' => 'icofont-close',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // changeing circle animations
@@ -460,7 +488,7 @@ class BetterChatSupportGeneral
                         '4'     => esc_html__('Slide Up (Pro)', 'better-chat-support'),
                     ),
                     'default'     => '1',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
 
                 // Bubble text
@@ -470,20 +498,501 @@ class BetterChatSupportGeneral
                     'title'   => esc_html__('Bubble Text', 'better-chat-support'),
                     'subtitle' => esc_html__('Change text to show in bubble', 'better-chat-support'),
                     'default' => esc_html__('How may I help you?', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat|opt-button-style', '==|any', 'true|2,3,4,5,6,7'),
+                    'dependency' => array('opt-chat-type|opt-button-style', '!=|any', 'off|2,3,4,5,6,7'),
+                ),
+                // bubble visibility
+                array(
+                    'id'      => 'bubble-visibility',
+                    'type'    => 'button_set',
+                    'title'   => esc_html__('Device Visibility', 'better-chat-support'),
+                    'title_help' => '<b>' . esc_html__('Everywhere', 'better-chat-support') . '</b> - ' . esc_html__('Visible on all devices.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Desktop Only', 'better-chat-support') . '</b> - ' . esc_html__('Visible on devices wider than 991px.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Tablet Only', 'better-chat-support') . '</b> - ' . esc_html__(' Visible on devices between 576px and 991px.', 'better-chat-support') . '<br>' . '<b>' . esc_html__('Mobile Only', 'better-chat-support') . '</b> - ' . esc_html__('Visible on devices smaller than 576px.', 'better-chat-support'),
+                    'default' => 'everywhere',
+                    'options'    => array(
+                        'everywhere'  => esc_html__('Everywhere', 'better-chat-support'),
+                        'desktop' => esc_html__('Desktop Only', 'better-chat-support'),
+                        'tablet' => esc_html__('Tablet Only', 'better-chat-support'),
+                        'mobile' => esc_html__('Mobile Only', 'better-chat-support'),
+                    ),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
+                ),
+
+                array(
+                    'id'       => 'visibility',
+                    'type'     => 'checkbox',
+                    'class'    => 'better_chat_support_column_2 visibility',
+                    'title' => esc_html__('Visibility By', 'better-chat-support'),
+                    'title_help' =>
+                    '<div class="better-chat-support-info-label">' .
+                        esc_html__('Select where the chat bubble should be visible. You can enable it by specific content types such as pages, posts, products, categories, or tags.', 'better-chat-support') .
+                        '</div>',
+                    'options' => array(
+                        'theme_page'       => esc_html__('Theme Pages', 'better-chat-support'),
+                        'page'             => esc_html__('Pages', 'better-chat-support'),
+                        'posts'            => esc_html__('Posts', 'better-chat-support'),
+                        'product'          => esc_html__('Products', 'better-chat-support'),
+                        'category'         => esc_html__('Post Categories', 'better-chat-support'),
+                        'tags'             => esc_html__('Post Tags', 'better-chat-support'),
+                        'product_category' => esc_html__('Product Categories', 'better-chat-support'),
+                        'product_tags'     => esc_html__('Product Tags', 'better-chat-support'),
+                    ),
+                    'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
                 array(
-                    'id'      => 'cleanup_data_deletion',
-                    'type'    => 'checkbox',
-                    'title' => esc_html__('Clean-up Data on Deletion', 'better-chat-support'),
-                    'title_help' => esc_html__('Enable this option to completely remove all Messenger Chat Support plugin data when the plugin is deleted from your site.', 'better-chat-support'),
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                    'id'            => 'visibility_by_theme_page',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|theme_page', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Theme Pages', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'theme_page_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected items.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'theme_page_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Theme Pages', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all theme pages at once, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'      => 'theme_page',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Theme Pages', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select a specific theme page where the chat bubble visibility rule should apply. Options include Blog, 404, or Search pages.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'post_page'   => esc_html__('Blog Page', 'better-chat-support'),
+                                        '404_page'    => esc_html__('404 Page', 'better-chat-support'),
+                                        'search_page' => esc_html__('Search Page', 'better-chat-support'),
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'dependency'    => array('theme_page_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_page',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|page', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Pages', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'page_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected pages.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'page_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Pages', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all pages across your site, instead of selecting individual pages.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'page',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Pages', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific pages where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => 'pages',
+                                    'query_args'  => array(
+                                        'posts_per_page' => -1,
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => false,
+                                    'empty_message'    => esc_html__('You don\'t have any pages available.', 'better-chat-support'),
+                                    'dependency'    => array('page_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_posts',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|posts', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Posts', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'posts_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected posts.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'posts_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Posts', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all posts across your site, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'posts',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Posts', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific posts where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'posts',
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any posts available.', 'better-chat-support'),
+                                    'dependency'    => array('posts_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_product',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|product', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Products', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'product_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected products.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'product_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Products', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all products across your store, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'product',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Products', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific products where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'posts',
+                                    'query_args'  => array(
+                                        'post_type' => 'product',
+                                        'posts_per_page' => 1000,
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any products available.', 'better-chat-support'),
+                                    'dependency'    => array('product_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_category',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|category', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Post Categories', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'category_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected post categories.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'category_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Post Categories', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all post categories, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'category',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Post Categories', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific post categories where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'categories',
+                                    'query_args'  => array(
+                                        'posts_per_page' => 1000,
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any post categories available.', 'better-chat-support'),
+                                    'dependency'    => array('category_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_tags',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|tags', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Post Tags', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'tags_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to include or exclude the selected post tags from displaying the chat bubble.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'   => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'tags_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Post Tags', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all post tags, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'tags',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Post Tags', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific post tags where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'tags',
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any post tags available.', 'better-chat-support'),
+                                    'dependency'    => array('tags_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_product_category',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|product_category', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Product Categories', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'product_category_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected product categories.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'product_category_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Product Categories', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all product categories, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'product_category',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Product Categories', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific product categories where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'categories',
+                                    'query_args'  => array(
+                                        'taxonomy' => 'product_cat'
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any product category available.', 'better-chat-support'),
+                                    'dependency'    => array('product_category_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
+                ),
+                array(
+                    'id'            => 'visibility_by_product_tags',
+                    'type'          => 'accordion',
+                    'class'         => 'padding-t-0',
+                    'dependency'    => array('opt-chat-type|visibility', '!=|any', 'off|product_tags', 'any'),
+                    'accordions'    => array(
+                        array(
+                            'title'     => esc_html__('Product Tags', 'better-chat-support'),
+                            'fields'    => array(
+                                array(
+                                    'id'    => 'product_tags_target',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Target', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected product tags.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'include' => esc_html__('Include', 'better-chat-support'),
+                                        'exclude' => esc_html__('Exclude', 'better-chat-support'),
+                                    ),
+                                ),
+                                array(
+                                    'id'    => 'product_tags_all',
+                                    'type'  => 'checkbox',
+                                    'title' => esc_html__('All Product Tags', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Enable this option to apply the chat bubble visibility rule to all product tags, instead of selecting them individually.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                ),
+                                // Include specific
+                                array(
+                                    'id'    => 'product_tags',
+                                    'type'  => 'select',
+                                    'title' => esc_html__('Product Tags', 'better-chat-support'),
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select one or more specific product tags where the chat bubble visibility rule should apply.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/11-others/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options'    => 'tags',
+                                    'query_args'  => array(
+                                        'taxonomy' => 'product_tag'
+                                    ),
+                                    'chosen'      => true,
+                                    'multiple'     => true,
+                                    'sortable'    => true,
+                                    'empty_message'    => esc_html__('You don\'t have any product tags available.', 'better-chat-support'),
+                                    'dependency'    => array('product_tags_all', '!=', 'true', 'any'),
+                                ),
+                            )
+                        ),
+                    )
                 ),
                 array(
                     'title'       => esc_html__('Backup', 'better-chat-support'),
                     'title_help' => esc_html__('Export or import plugin settings for backup or migration purposes.', 'better-chat-support'),
                     'type' => 'backup',
-                    'dependency' => array('enable_floating_chat', '==', 'true'),
+                   'dependency' => array('opt-chat-type', '!=', 'off'),
                 ),
             )
         ));

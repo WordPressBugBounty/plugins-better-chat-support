@@ -16,6 +16,8 @@
 
 namespace ThemeAtelier\BetterChatSupport\Frontend;
 
+use ThemeAtelier\BetterChatSupport\Includes\Helpers;
+
 /**
  * The Frontend class to manage all public facing stuffs.
  *
@@ -55,49 +57,66 @@ class Frontend
 
     public function enqueue_scripts()
     {
+        $mcs_settings = get_option('mcs_settings');
+        $mcs_custom_css = isset($mcs_settings['mcs_custom_css']) ? $mcs_settings['mcs_custom_css'] : '';
+        $mcs_custom_js = isset($mcs_settings['mcs_custom_js']) ? $mcs_settings['mcs_custom_js'] : '';
         wp_enqueue_style('icofont');
         wp_enqueue_style('mcs-main');
+
+        $custom_css = '';
+        if ($mcs_custom_css) {
+            $custom_css .= $mcs_custom_css;
+        }
+        wp_add_inline_style('mcs-main', $custom_css);
         /********************
 				Js Enqueue
          ********************/
         wp_enqueue_script('moment');
         wp_enqueue_script('moment-timezone');
         wp_enqueue_script('mcs-main');
+
+        if (!empty($mcs_custom_js)) {
+            wp_add_inline_script('mcs-main', $mcs_custom_js);
+        }
     }
 
     public function better_chat_support_chat_popup()
     {
         $options = get_option('mcs-opt');
-        $enable_floating_chat = isset($options['enable_floating_chat']) ? $options['enable_floating_chat'] : '1';
+        $enable_floating_chat = isset($options['opt-chat-type']) ? $options['opt-chat-type'] : '';
         $fbId = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
-        $optAvailablity = $options['opt-availablity'];
-        $circle_animation = isset($options['circle-animation']) ? $options['circle-animation'] : '1';
-        $animation = isset($options['select-animation']) ? $options['select-animation'] : '1';
-        $sunday_from = $optAvailablity ? $optAvailablity['availablity-sunday']['from'] : '00:00';
-        $sunday_to = $optAvailablity ? $optAvailablity['availablity-sunday']['to'] : '23:59';
+        $optAvailability = isset($options['opt-availablity']) ? $options['opt-availablity'] : '';
+        $user_availability = Helpers::user_availability($optAvailability);
+        $random = wp_rand(1, 13);
+        $select_animation = isset($options['select-animation']) ? $options['select-animation'] : 'random';
+        if ('random' === $select_animation) {
+            $select_animation = $random;
+        }
 
-        $monday_from = $optAvailablity ? $optAvailablity['availablity-monday']['from'] : '00:00';
-        $monday_to = $optAvailablity ? $optAvailablity['availablity-monday']['to'] : '23:59';
+        $bubble_visibility = isset($options['bubble-visibility']) ? $options['bubble-visibility'] : 'everywhere';
+        $auto_show_popup = isset($options['autoshow-popup']) ? $options['autoshow-popup'] : '';
+        if ($auto_show_popup) {
+            $auto_show_popup = 'mSupport-show';
+        }
+        $bubble_style = isset($options['bubble-style']) ? $options['bubble-style'] : '';
+        if ($bubble_style === 'dark') {
+            $bubble_style = 'dark-mode ';
+        } elseif ($bubble_style === 'night') {
+            $bubble_style = 'night-mode ';
+        }
+        $bubble_position = isset($options['bubble-position']) ? $options['bubble-position'] : 'mSupport-right';
+        $select_timezone = isset($options['select-timezone']) ? $options['select-timezone'] : '';
+        $header_content_position = isset($options['header-content-position']) ? $options['header-content-position'] : 'left';
+        $agent_photo = isset($options['agent-photo']) ? $options['agent-photo'] : '';
+        $agent_photo_url = isset($agent_photo['url']) ? $agent_photo['url'] : '';
+        $agent_name = isset($options['agent-name']) ? $options['agent-name'] : '';
+        $agent_subtitle = isset($options['agent-subtitle']) ? $options['agent-subtitle'] : '';
+        $agent_message = isset($options['agent-message']) ? $options['agent-message'] : '';
+        $before_chat_icon = isset($options['before-chat-icon']) ? $options['before-chat-icon'] : 'icofont-facebook-messenger';
+        $chat_button_text = isset($options['chat-button-text']) ? $options['chat-button-text'] : 'Send a message';
+        $facebook_id = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
+        $circle_animation = isset($options['circle-animation']) ? $options['circle-animation'] : '';
 
-        $tuesday_from = $optAvailablity ? $optAvailablity['availablity-tuesday']['from'] : '00:00';
-        $tuesday_to = $optAvailablity ? $optAvailablity['availablity-tuesday']['to'] : '23:59';
-
-        $wednesday_from = $optAvailablity ? $optAvailablity['availablity-wednesday']['from'] : '00:00';
-        $wednesday_to = $optAvailablity ? $optAvailablity['availablity-wednesday']['to'] : '23:59';
-
-        $thursday_from = $optAvailablity ? $optAvailablity['availablity-thursday']['from'] : '00:00';
-        $thursday_to = $optAvailablity ? $optAvailablity['availablity-thursday']['to'] : '23:59';
-        $friday_from = $optAvailablity ? $optAvailablity['availablity-friday']['from'] : '00:00';
-        $friday_to = $optAvailablity ? $optAvailablity['availablity-friday']['to'] : '23:59';
-        $saturday_from = $optAvailablity ? $optAvailablity['availablity-saturday']['from'] : '00:00';
-        $saturday_to = $optAvailablity ? $optAvailablity['availablity-saturday']['to'] : '23:59';
-        $sunday = ($sunday_from ? $sunday_from : "0:00") . "-" . ($sunday_to ? $sunday_to : "23:59");
-        $monday = ($monday_from ? $monday_from : "0:00") . "-" . ($monday_to ? $monday_to : "23:59");
-        $tuesday = ($tuesday_from ? $tuesday_from : "0:00") . "-" . ($tuesday_to ? $tuesday_to : "23:59");
-        $wednesday = ($wednesday_from ? $wednesday_from : "0:00") . "-" . ($wednesday_to ? $wednesday_to : "23:59");
-        $thursday = ($thursday_from ? $thursday_from : "0:00") . "-" . ($thursday_to ? $thursday_to : "23:59");
-        $friday = ($friday_from ? $friday_from : "0:00") . "-" . ($friday_to ? $friday_to : "23:59");
-        $saturday = ($saturday_from ? $saturday_from : "0:00") . "-" . ($saturday_to ? $saturday_to : "23:59");
         $bubbleType = null;
         $buttonLabel = $options['bubble-text'];
         if ($options['opt-button-style'] === '1') {
@@ -167,41 +186,67 @@ class Frontend
         $left_bottom_value_left   = isset($left_bottom['left']) ? $left_bottom['left'] : '30';
         $left_bottom_unit         = isset($left_bottom['unit']) ? $left_bottom['unit'] : 'px';
 
-        if ($enable_floating_chat && $fbId) {
-?>
-            <div style="--right_bottom_value_bottom: <?php echo esc_attr($right_bottom_value_bottom . $right_bottom_unit); ?>; --right_bottom_value_right: <?php echo esc_attr($right_bottom_value_right . $right_bottom_unit); ?>; --left_bottom_value_bottom: <?php echo esc_attr($left_bottom_value_bottom . $left_bottom_unit); ?>; --left_bottom_value_left: <?php echo esc_attr($left_bottom_value_left . $left_bottom_unit); ?>;" class="mSupport mSupport-<?php if (isset($options['bubble-visibility'])) { echo esc_attr($options['bubble-visibility']); }; ?>-only <?php if ($options['autoshow-popup']) : ?>mSupport-show<?php endif; if ($options['bubble-position'] === 'left') { ?>mSupport-left<?php } ?>">
-                <?php echo wp_kses_post($bubbleType); ?>
-                <div
-                    class="mSupport__popup animation<?php echo esc_attr($animation); ?> chat-availability"
-                    <?php if ($options['select-timezone']) { ?> data-timezone="<?php echo esc_attr($options['select-timezone']); ?>" <?php } ?>
-                    data-availability='{ "sunday":"<?php echo esc_attr($sunday); ?>", "monday":"<?php echo esc_attr($monday); ?>", "tuesday":"<?php echo esc_attr($tuesday); ?>", "wednesday":"<?php echo esc_attr($wednesday); ?>", "thursday":"<?php echo esc_attr($thursday); ?>", "friday":"<?php echo esc_attr($friday); ?>", "saturday":"<?php echo esc_attr($saturday); ?>" }'>
-                    <div class="mSupport__popup--header <?php echo esc_attr('header-' . $options['header-content-position']); ?>">
-                        <?php if ($options['agent-photo']['url']) : ?>
-                            <div class="image">
-                                <img src="<?php echo esc_attr($options['agent-photo']['url']); ?>" />
-                            </div>
-                        <?php endif; ?>
-                        <div class="info">
-                            <div class="info__name"><?php echo esc_html($options['agent-name']); ?></div>
-                            <div class="info__title"><?php echo esc_html($options['agent-subtitle']); ?></div>
-                        </div>
-                    </div>
-                    <div class="mSupport__popup--content">
-                        <div class="current-time"></div>
-                        <div class="sms">
+        $right_middle              = isset($options['right_middle']) ? $options['right_middle'] : array();
+        $right_middle_value_right = isset($right_middle['right']) ? $right_middle['right'] : '30';
+        $right_middle_unit         = isset($right_middle['unit']) ? $right_middle['unit'] : 'px';
 
-                            <div class="sms__text">
-                                <?php echo esc_html($options['agent-message']); ?>
-                            </div>
+        $left_middle              = isset($options['left_middle']) ? $options['left_middle'] : array();
+        $left_middle_value_left = isset($left_middle['left']) ? $left_middle['left'] : '30';
+        $left_middle_unit         = isset($left_middle['unit']) ? $left_middle['unit'] : 'px';
+
+        $positions = '
+        --right_bottom_value_bottom: ' . esc_attr($right_bottom_value_bottom . $right_bottom_unit) . '; --right_bottom_value_right: ' . esc_attr($right_bottom_value_right . $right_bottom_unit) . '; --left_bottom_value_bottom: ' . esc_attr($left_bottom_value_bottom . $left_bottom_unit) . '; --left_bottom_value_left: ' . esc_attr($left_bottom_value_left . $left_bottom_unit) . '; --right_middle_value_right: ' . esc_attr($right_middle_value_right . $right_middle_unit) . '; --left_middle_value_left: ' . esc_attr($left_middle_value_left . $left_middle_unit) . ';
+        ';
+
+        $should_display_element = Helpers::should_display_element($options);
+
+        if ($should_display_element) {
+
+            if ('off' !== $enable_floating_chat && $fbId) {
+?>
+                <div
+                    style="<?php echo wp_kses_post($positions); ?>" class="mSupport_bubble mSupport mSupport-<?php echo esc_attr($bubble_visibility); ?>-only <?php echo esc_attr($auto_show_popup . ' ' . $bubble_style . ' ' . $bubble_position); ?>">
+                    <?php echo wp_kses_post($bubbleType); ?>
+                    <div
+                        class="mSupport__popup animation<?php echo esc_attr($select_animation) ?> chat-availability"
+                        <?php if ($select_timezone) { ?> data-timezone="<?php echo esc_attr($select_timezone); ?>" <?php } ?>
+                        data-availability="<?php echo esc_attr($user_availability) ?>">
+                        <div class="mSupport__popup--header <?php echo esc_attr('header-' . $header_content_position); ?>">
+                            <?php if ($agent_photo_url) :
+                                echo '<div class="image">';
+                                echo '<img src="' . esc_attr($agent_photo_url) . '" alt="' . esc_html($agent_name) . '" />';
+                                echo '</div>';
+                            endif;
+                            if ($agent_name || $agent_subtitle) {
+                                echo '<div class="info">';
+                                if ($agent_name) {
+                                    echo '<div class="info__name">' . esc_html($agent_name) . '</div>';
+                                }
+                                if ($agent_subtitle) {
+                                    echo '<div class="info__title">' . esc_html($agent_subtitle) . '</div>';
+                                }
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
-                        <div class="mSupport__send-message">
-                            <i class="<?php echo esc_html($options['before-chat-icon']); ?>"></i><?php echo esc_html($options['chat-button-text']); ?>
-                            <a href="https://www.m.me/<?php echo esc_attr($options['opt-fbid']); ?>" target="_blank"></a>
+                        <div class="mSupport__popup--content">
+                            <div class="current-time"></div>
+                            <?php if ($agent_message) : ?>
+                                <div class="sms">
+                                    <div class="sms__text">
+                                        <?php echo esc_html($agent_message); ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <div class="mSupport__send-message">
+                                <i class="<?php echo esc_attr($before_chat_icon); ?>"></i><?php echo esc_html($chat_button_text); ?>
+                                <a href="https://www.m.me/<?php echo esc_attr($facebook_id); ?>" target="_blank"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 <?php
+            }
         }
     }
 }

@@ -1,12 +1,12 @@
 <?php
 /*
  *  Plugin Name:    Better Chat Support For Messenger
- *  Plugin URI:     https://themeatelier.net/plugins/chat-plugins/
+ *  Plugin URI:     https://themeatelier.net/downloads/better-chat-support-for-messenger/
  *  Description:    Can easily create Bubble & buttons for messenger chat in any WordPress site. Gutenberg, Elementor and shortcodes supported. 
  *  Author:         ThemeAtelier
  *  Author URI:     http://themeatelier.net/
  *  Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above.
- *  Version:       1.2.22
+ *  Version:       1.3.2
  * Text Domain:  better-chat-support
  * Domain Path:  /languages
  */
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '1.2.22');
+    define('BETTER_CHAT_SUPPORT_VERSION', '1.3.1');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));
@@ -86,3 +86,21 @@ if (! (is_plugin_active('better-chat-support-pro/better-chat-support-pro.php') |
     add_action('block_categories_all', 'better_chat_support_plugin_block_categories', 10, 2);
 }
 
+
+/**
+ * Initialize the plugin tracker
+ *
+ * @return void
+ */
+function better_chat_support_appsero_init()
+{
+
+    if (!class_exists('MessengerChatSupportAppSero\Insights')) {
+        require_once BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Admin/appsero/Client.php';
+    }
+    $client = new MessengerChatSupportAppSero\Client('1becaa75-d9c0-4be4-bdba-311b0a0c5550', 'Messenger chat support', __FILE__);
+    // Active insights
+    $client->insights()->init();
+}
+
+better_chat_support_appsero_init();

@@ -6,8 +6,8 @@
  * @link       https://themeatelier.net
  * @since      1.0.0
  *
- * @package chat-help-pro
- * @subpackage chat-help-pro/src/Admin/Views/Advance
+ * @package better-chat-support
+ * @subpackage better-chat-support
  * @author     ThemeAtelier<themeatelierbd@gmail.com>
  */
 
@@ -26,6 +26,7 @@ function better_chat_support_delete_plugin_data()
 	// Delete plugin option settings.
 	$options = [
 		'mcs-opt',
+		'mcs_settings',
 		'better_chat_support_version',
 		'better_chat_support_db_version',
 		'better_chat_support_first_version',

@@ -3245,9 +3245,12 @@
     return this.each(function () {
 
       var $this = $(this),
-        $siblings = $this.find('.better-chat-support--sibling'),
+        $siblings = $this.find('.better-chat-support--sibling:not(.better-chat-support-pro-only)'),
         multiple = $this.data('multiple') || false;
-
+      $this
+        .find(".better-chat-support--sibling.better-chat-support-pro-only")
+        .find("input")
+        .prop("disable", true);
       $siblings.on('click', function () {
 
         var $sibling = $(this);

@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-27 06:02+0000\n"
+"POT-Creation-Date: 2026-04-01 09:32+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -18,44 +18,44 @@ msgstr ""
 msgid "Better Chat Support block"
 msgstr ""
 
-#: src/Admin/Admin.php:110, src/Admin/Admin.php:111
+#: src/Admin/Admin.php:115, src/Admin/Admin.php:116
 msgid "Messenger"
 msgstr ""
 
-#: src/Admin/Admin.php:122, src/Admin/Admin.php:123, src/Admin/Views/BetterChatSupportShortcode.php:52
+#: src/Admin/Admin.php:127, src/Admin/Admin.php:128, src/Admin/Views/BetterChatSupportShortcode.php:52
 msgid "Shortcodes"
 msgstr ""
 
-#: src/Admin/Admin.php:130, src/Admin/Admin.php:131
-msgid "Help"
-msgstr ""
-
-#: src/Admin/Admin.php:139
-msgid "Upgrade To Premium"
-msgstr ""
-
-#: src/Admin/Admin.php:140
-msgid "Upgrade To Pro! 👑"
-msgstr ""
-
-#: src/Admin/Admin.php:157
+#: src/Admin/Admin.php:135, src/Admin/Admin.php:136, src/Admin/Admin.php:173
 msgid "Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:158
+#: src/Admin/Admin.php:143, src/Admin/Admin.php:144
+msgid "Help"
+msgstr ""
+
+#: src/Admin/Admin.php:152
+msgid "Upgrade To Premium"
+msgstr ""
+
+#: src/Admin/Admin.php:155
+msgid "Upgrade To Pro! 👑"
+msgstr ""
+
+#: src/Admin/Admin.php:174
 msgid "Support"
 msgstr ""
 
-#: src/Admin/Admin.php:162
+#: src/Admin/Admin.php:178
 msgid "Go Pro"
 msgstr ""
 
-#: src/Admin/Admin.php:181, src/Admin/HelpPage/Help.php:454
+#: src/Admin/Admin.php:197, src/Admin/HelpPage/Help.php:454
 msgid "Live Demo"
 msgstr ""
 
 #. translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link
-#: src/Admin/Admin.php:200
+#: src/Admin/Admin.php:216
 msgid "<i>Enjoying %1$sBetter Chat Support for Messenger?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>"
 msgstr ""
 
@@ -263,7 +263,7 @@ msgstr ""
 msgid "Dark and Night Layout Mode"
 msgstr ""
 
-#: src/Admin/HelpPage/Help.php:553, src/Admin/Views/BetterChatSupportGeneral.php:454
+#: src/Admin/HelpPage/Help.php:553, src/Admin/Views/BetterChatSupportGeneral.php:482
 msgid "Transition Effect for Circle Icon"
 msgstr ""
 
@@ -417,403 +417,663 @@ msgstr ""
 msgid "Get connected with"
 msgstr ""
 
+#: src/Admin/Views/Advance.php:32
+msgid "Advance"
+msgstr ""
+
+#: src/Admin/Views/Advance.php:38
+msgid "Clean-up Data on Deletion"
+msgstr ""
+
+#: src/Admin/Views/Advance.php:39
+msgid "Enable this option to completely remove all Messenger Chat Support plugin data when the plugin is deleted from your site."
+msgstr ""
+
+#: src/Admin/Views/Advance.php:44
+msgid "Custom CSS"
+msgstr ""
+
+#: src/Admin/Views/Advance.php:45
+msgid "Add your own custom CSS to override or extend the default styling of the chat box."
+msgstr ""
+
+#: src/Admin/Views/Advance.php:54
+msgid "Custom JavaScript"
+msgstr ""
+
+#: src/Admin/Views/Advance.php:55
+msgid "Add your own custom JavaScript to extend or customize chat box behavior."
+msgstr ""
+
 #: src/Admin/Views/BetterChatSupportGeneral.php:32
 msgid "General"
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:40
-msgid "Enable Floating Chat"
+msgid "Floating Chat Layout(s)"
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:41
-msgid "Turn ON to show floating chat bubble on your website."
+msgid "With \"No Floating Chat\" option, you won't be able to use the floating chat feature. However, you can still access and enjoy other functionalities such as the WooCommerce button, shortcodes, and button blocks provided by the plugin."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:47
-msgid "Bubble Type"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:48
-msgid "Choose how the chat bubble handles users"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:53
+#: src/Admin/Views/BetterChatSupportGeneral.php:52
 msgid "Single User"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:56
+#: src/Admin/Views/BetterChatSupportGeneral.php:57
 msgid "Multiple Users"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:66, src/Frontend/elementor-widgets/widgets/buttons.php:40
+#: src/Admin/Views/BetterChatSupportGeneral.php:68, src/Frontend/elementor-widgets/widgets/buttons.php:40
 msgid "Facebook ID"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:67
+#: src/Admin/Views/BetterChatSupportGeneral.php:69
 msgid "Add your profile or page ID to receive messages."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:68
+#: src/Admin/Views/BetterChatSupportGeneral.php:70
 msgid "If your link is facebook.com/themeatelier, just use themeatelier in this field."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:77, src/Frontend/elementor-widgets/widgets/buttons.php:156
+#: src/Admin/Views/BetterChatSupportGeneral.php:79, src/Frontend/elementor-widgets/widgets/buttons.php:156
 msgid "Timezone"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:78
+#: src/Admin/Views/BetterChatSupportGeneral.php:80
 msgid "Select your local timezone. Availability schedules will be applied based on this timezone.)"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:80
+#: src/Admin/Views/BetterChatSupportGeneral.php:82
 msgid "Select Timezone"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:89
+#: src/Admin/Views/BetterChatSupportGeneral.php:91
 msgid "Availability"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:90
+#: src/Admin/Views/BetterChatSupportGeneral.php:92
 msgid "Set your daily availability using 24-hour format (e.g., 09:00 to 18:00). To mark a full day as offline, set both From and To values to 00:00."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:95, src/Frontend/elementor-widgets/widgets/buttons.php:764
+#: src/Admin/Views/BetterChatSupportGeneral.php:97, src/Frontend/elementor-widgets/widgets/buttons.php:764
 msgid "Sunday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:112, src/Frontend/elementor-widgets/widgets/buttons.php:802
+#: src/Admin/Views/BetterChatSupportGeneral.php:114, src/Frontend/elementor-widgets/widgets/buttons.php:802
 msgid "Monday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:129, src/Frontend/elementor-widgets/widgets/buttons.php:839
+#: src/Admin/Views/BetterChatSupportGeneral.php:131, src/Frontend/elementor-widgets/widgets/buttons.php:839
 msgid "Tuesday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:146, src/Frontend/elementor-widgets/widgets/buttons.php:876
+#: src/Admin/Views/BetterChatSupportGeneral.php:148, src/Frontend/elementor-widgets/widgets/buttons.php:876
 msgid "Wednesday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:164, src/Frontend/elementor-widgets/widgets/buttons.php:913
+#: src/Admin/Views/BetterChatSupportGeneral.php:166, src/Frontend/elementor-widgets/widgets/buttons.php:913
 msgid "Thursday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:182, src/Frontend/elementor-widgets/widgets/buttons.php:950
+#: src/Admin/Views/BetterChatSupportGeneral.php:184, src/Frontend/elementor-widgets/widgets/buttons.php:950
 msgid "Friday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:200, src/Frontend/elementor-widgets/widgets/buttons.php:986
+#: src/Admin/Views/BetterChatSupportGeneral.php:202, src/Frontend/elementor-widgets/widgets/buttons.php:986
 msgid "Saturday"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:223
+#: src/Admin/Views/BetterChatSupportGeneral.php:225
 msgid "Agent Photo"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:224
+#: src/Admin/Views/BetterChatSupportGeneral.php:226
 msgid "Upload an agent photo to display inside the chat bubble."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:237
+#: src/Admin/Views/BetterChatSupportGeneral.php:239
 msgid "Agent Name"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:238
+#: src/Admin/Views/BetterChatSupportGeneral.php:240
 msgid "Enter the agent name to display inside the chat bubble."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:239
+#: src/Admin/Views/BetterChatSupportGeneral.php:241
 msgid "John Doe"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:247
+#: src/Admin/Views/BetterChatSupportGeneral.php:249
 msgid "Subtitle"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:248
+#: src/Admin/Views/BetterChatSupportGeneral.php:250
 msgid "Enter a subtitle to display below the agent’s name in the chat bubble."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:249
+#: src/Admin/Views/BetterChatSupportGeneral.php:251
 msgid "Typically replies within a day"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:257
+#: src/Admin/Views/BetterChatSupportGeneral.php:259
 msgid "Message From Agent"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:258
+#: src/Admin/Views/BetterChatSupportGeneral.php:260
 msgid "Add a custom message to display inside the agent’s message box."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:259
+#: src/Admin/Views/BetterChatSupportGeneral.php:261
 msgid "Hello, Welcome to the site. Please click below button for chatting me through messenger."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:267
+#: src/Admin/Views/BetterChatSupportGeneral.php:269
 msgid "Icon for Send Message Button"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:269
+#: src/Admin/Views/BetterChatSupportGeneral.php:271
 msgid "Select an icon to display before the send message button text."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:277
+#: src/Admin/Views/BetterChatSupportGeneral.php:279
 msgid "Send Message Button Label"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:278
+#: src/Admin/Views/BetterChatSupportGeneral.php:280
 msgid "Enter the text to display on the send message button."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:279
+#: src/Admin/Views/BetterChatSupportGeneral.php:281
 msgid "Send a message"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:286
+#: src/Admin/Views/BetterChatSupportGeneral.php:288
 msgid "Auto Open Popup"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:287
+#: src/Admin/Views/BetterChatSupportGeneral.php:289
 msgid "Enable this option to automatically open the chat popup when the page loads. Useful for drawing visitor attention without requiring a click."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:296
+#: src/Admin/Views/BetterChatSupportGeneral.php:298
 msgid "Bubble Position"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:297
+#: src/Admin/Views/BetterChatSupportGeneral.php:299
 msgid "Select the screen position where the floating chat button will appear."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:300
+#: src/Admin/Views/BetterChatSupportGeneral.php:302
 msgid "Bottom Right"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:301
+#: src/Admin/Views/BetterChatSupportGeneral.php:303
 msgid "Bottom Left"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:308
+#: src/Admin/Views/BetterChatSupportGeneral.php:304
+msgid "Middle Right"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:305
+msgid "Middle Left"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:312
 msgid "Margin From Bottom Right"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:309
+#: src/Admin/Views/BetterChatSupportGeneral.php:313
 msgid "Set the margin (spacing) of the floating chat button from the bottom and right edges of the screen. Adjust to reposition the button as needed."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:322
+#: src/Admin/Views/BetterChatSupportGeneral.php:327
 msgid "Margin from Bottom Left"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:323
+#: src/Admin/Views/BetterChatSupportGeneral.php:328
 msgid "Set the margin (spacing) of the floating chat button from the bottom and left edges of the screen. Adjust to reposition the button as needed."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:337
-msgid "Device Visibility"
+#: src/Admin/Views/BetterChatSupportGeneral.php:342
+msgid "Margin from Middle Right"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:338, src/Admin/Views/BetterChatSupportGeneral.php:341, src/Frontend/elementor-widgets/widgets/buttons.php:1034
-msgid "Everywhere"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338
-msgid "Visible on all devices."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338, src/Admin/Views/BetterChatSupportGeneral.php:342
-msgid "Desktop Only"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338
-msgid "Visible on devices wider than 991px."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338, src/Admin/Views/BetterChatSupportGeneral.php:343
-msgid "Tablet Only"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338
-msgid " Visible on devices between 576px and 991px."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338, src/Admin/Views/BetterChatSupportGeneral.php:344
-msgid "Mobile Only"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:338
-msgid "Visible on devices smaller than 576px."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:353
-msgid "Select Bubble Layout Mode"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:354
-msgid "Choose a color mode for the chat bubble. This controls the overall appearance and theme style of the bubble."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:358
-msgid "Light mode"
+#: src/Admin/Views/BetterChatSupportGeneral.php:345
+msgid "Set the margin (spacing) of the floating chat button from the right edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:361
-msgid "Dark mode"
+msgid "Margin from Middle Left"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:365
-msgid "Night mode"
+#: src/Admin/Views/BetterChatSupportGeneral.php:364
+msgid "Set the margin (spacing) of the floating chat button from the left edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:376
-msgid "Bubble Header Content Position"
+#: src/Admin/Views/BetterChatSupportGeneral.php:381
+msgid "Select Bubble Layout Mode"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:377
-msgid "Choose the alignment for the header content."
+#: src/Admin/Views/BetterChatSupportGeneral.php:382
+msgid "Choose a color mode for the chat bubble. This controls the overall appearance and theme style of the bubble."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:380, src/Frontend/elementor-widgets/widgets/buttons.php:1280, src/Admin/Framework/fields/typography/typography.php:173
-msgid "Left"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:381, src/Frontend/elementor-widgets/widgets/buttons.php:1284, src/Admin/Framework/fields/typography/typography.php:174
-msgid "Center"
+#: src/Admin/Views/BetterChatSupportGeneral.php:386
+msgid "Light mode"
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:389
-msgid "Select Animation For Bubble"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:390
-msgid "Choose an animation style for how the chat bubble appears on the screen. You can pick a specific effect or select \"Random\" to apply a different animation each time."
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:392
-msgid "Fade Right"
+msgid "Dark mode"
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:393
-msgid "Fade Down"
+msgid "Night mode"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:394
-msgid "Fade In Scale (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:395
-msgid "Rotation (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:396
-msgid "Slide Fall (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:397
-msgid "Slide Down (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:398
-msgid "Ease Down (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:399
-msgid "Rotate Left (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:400
-msgid "Flip Horizontal (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:401
-msgid "Flip Vertical (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:402
-msgid "Flip Up (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:403
-msgid "Super Scaled (Pro)"
-msgstr ""
-
-#: src/Admin/Views/BetterChatSupportGeneral.php:404, src/Admin/Views/BetterChatSupportGeneral.php:460
-msgid "Slide Up (Pro)"
+#: src/Admin/Views/BetterChatSupportGeneral.php:404
+msgid "Bubble Header Content Position"
 msgstr ""
 
 #: src/Admin/Views/BetterChatSupportGeneral.php:405
+msgid "Choose the alignment for the header content."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:408, src/Frontend/elementor-widgets/widgets/buttons.php:1280, src/Admin/Framework/fields/typography/typography.php:173
+msgid "Left"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:409, src/Frontend/elementor-widgets/widgets/buttons.php:1284, src/Admin/Framework/fields/typography/typography.php:174
+msgid "Center"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:417
+msgid "Select Animation For Bubble"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:418
+msgid "Choose an animation style for how the chat bubble appears on the screen. You can pick a specific effect or select \"Random\" to apply a different animation each time."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:420
+msgid "Fade Right"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:421
+msgid "Fade Down"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:422
+msgid "Fade In Scale (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:423
+msgid "Rotation (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:424
+msgid "Slide Fall (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:425
+msgid "Slide Down (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:426
+msgid "Ease Down (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:427
+msgid "Rotate Left (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:428
+msgid "Flip Horizontal (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:429
+msgid "Flip Vertical (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:430
+msgid "Flip Up (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:431
+msgid "Super Scaled (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:432, src/Admin/Views/BetterChatSupportGeneral.php:488
+msgid "Slide Up (Pro)"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:433
 msgid "Random (Pro)"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:413
+#: src/Admin/Views/BetterChatSupportGeneral.php:441
 msgid "Flating Button Style"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:414
+#: src/Admin/Views/BetterChatSupportGeneral.php:442
 msgid "Choose a style for the floating chat button from the available design options."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:434
+#: src/Admin/Views/BetterChatSupportGeneral.php:462
 msgid "Icon For Circle Button"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:435
+#: src/Admin/Views/BetterChatSupportGeneral.php:463
 msgid "Select an icon to display inside the circular chat button."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:444
+#: src/Admin/Views/BetterChatSupportGeneral.php:472
 msgid "Icon For Circle Button Close"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:445
+#: src/Admin/Views/BetterChatSupportGeneral.php:473
 msgid "Select the icon to display when the circular chat button is in the close state."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:455
+#: src/Admin/Views/BetterChatSupportGeneral.php:483
 msgid "Select the animation effect used when toggling the circular chat button between open and close states."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:457
+#: src/Admin/Views/BetterChatSupportGeneral.php:485
 msgid "Slide Down"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:458
+#: src/Admin/Views/BetterChatSupportGeneral.php:486
 msgid "Fade"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:459
+#: src/Admin/Views/BetterChatSupportGeneral.php:487
 msgid "Rotate (Pro)"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:470
+#: src/Admin/Views/BetterChatSupportGeneral.php:498
 msgid "Bubble Text"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:471
+#: src/Admin/Views/BetterChatSupportGeneral.php:499
 msgid "Change text to show in bubble"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:472
+#: src/Admin/Views/BetterChatSupportGeneral.php:500
 msgid "How may I help you?"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:478
-msgid "Clean-up Data on Deletion"
+#: src/Admin/Views/BetterChatSupportGeneral.php:507
+msgid "Device Visibility"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:479
-msgid "Enable this option to completely remove all Messenger Chat Support plugin data when the plugin is deleted from your site."
+#: src/Admin/Views/BetterChatSupportGeneral.php:508, src/Admin/Views/BetterChatSupportGeneral.php:511, src/Frontend/elementor-widgets/widgets/buttons.php:1034
+msgid "Everywhere"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:483
+#: src/Admin/Views/BetterChatSupportGeneral.php:508
+msgid "Visible on all devices."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508, src/Admin/Views/BetterChatSupportGeneral.php:512
+msgid "Desktop Only"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508
+msgid "Visible on devices wider than 991px."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508, src/Admin/Views/BetterChatSupportGeneral.php:513
+msgid "Tablet Only"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508
+msgid " Visible on devices between 576px and 991px."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508, src/Admin/Views/BetterChatSupportGeneral.php:514
+msgid "Mobile Only"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:508
+msgid "Visible on devices smaller than 576px."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:523
+msgid "Visibility By"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:526
+msgid "Select where the chat bubble should be visible. You can enable it by specific content types such as pages, posts, products, categories, or tags."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:529, src/Admin/Views/BetterChatSupportGeneral.php:547, src/Admin/Views/BetterChatSupportGeneral.php:577
+msgid "Theme Pages"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:530, src/Admin/Views/BetterChatSupportGeneral.php:604, src/Admin/Views/BetterChatSupportGeneral.php:634
+msgid "Pages"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:531, src/Admin/Views/BetterChatSupportGeneral.php:661, src/Admin/Views/BetterChatSupportGeneral.php:691
+msgid "Posts"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:532, src/Admin/Views/BetterChatSupportGeneral.php:715, src/Admin/Views/BetterChatSupportGeneral.php:745
+msgid "Products"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:533, src/Admin/Views/BetterChatSupportGeneral.php:773, src/Admin/Views/BetterChatSupportGeneral.php:803
+msgid "Post Categories"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:534, src/Admin/Views/BetterChatSupportGeneral.php:830, src/Admin/Views/BetterChatSupportGeneral.php:860
+msgid "Post Tags"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:535, src/Admin/Views/BetterChatSupportGeneral.php:884, src/Admin/Views/BetterChatSupportGeneral.php:914
+msgid "Product Categories"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:536, src/Admin/Views/BetterChatSupportGeneral.php:941, src/Admin/Views/BetterChatSupportGeneral.php:971
+msgid "Product Tags"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:552, src/Admin/Views/BetterChatSupportGeneral.php:609, src/Admin/Views/BetterChatSupportGeneral.php:666, src/Admin/Views/BetterChatSupportGeneral.php:720, src/Admin/Views/BetterChatSupportGeneral.php:778, src/Admin/Views/BetterChatSupportGeneral.php:835, src/Admin/Views/BetterChatSupportGeneral.php:889, src/Admin/Views/BetterChatSupportGeneral.php:946
+msgid "Target"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:555
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected items."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:557, src/Admin/Views/BetterChatSupportGeneral.php:571, src/Admin/Views/BetterChatSupportGeneral.php:582, src/Admin/Views/BetterChatSupportGeneral.php:614, src/Admin/Views/BetterChatSupportGeneral.php:628, src/Admin/Views/BetterChatSupportGeneral.php:639, src/Admin/Views/BetterChatSupportGeneral.php:671, src/Admin/Views/BetterChatSupportGeneral.php:685, src/Admin/Views/BetterChatSupportGeneral.php:696, src/Admin/Views/BetterChatSupportGeneral.php:725, src/Admin/Views/BetterChatSupportGeneral.php:739, src/Admin/Views/BetterChatSupportGeneral.php:750, src/Admin/Views/BetterChatSupportGeneral.php:783, src/Admin/Views/BetterChatSupportGeneral.php:797, src/Admin/Views/BetterChatSupportGeneral.php:808, src/Admin/Views/BetterChatSupportGeneral.php:840, src/Admin/Views/BetterChatSupportGeneral.php:854, src/Admin/Views/BetterChatSupportGeneral.php:865, src/Admin/Views/BetterChatSupportGeneral.php:894, src/Admin/Views/BetterChatSupportGeneral.php:908, src/Admin/Views/BetterChatSupportGeneral.php:919, src/Admin/Views/BetterChatSupportGeneral.php:951, src/Admin/Views/BetterChatSupportGeneral.php:965, src/Admin/Views/BetterChatSupportGeneral.php:976
+msgid "Open Docs"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:559, src/Admin/Views/BetterChatSupportGeneral.php:616, src/Admin/Views/BetterChatSupportGeneral.php:673, src/Admin/Views/BetterChatSupportGeneral.php:727, src/Admin/Views/BetterChatSupportGeneral.php:785, src/Admin/Views/BetterChatSupportGeneral.php:842, src/Admin/Views/BetterChatSupportGeneral.php:896, src/Admin/Views/BetterChatSupportGeneral.php:953
+msgid "Include"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:560, src/Admin/Views/BetterChatSupportGeneral.php:617, src/Admin/Views/BetterChatSupportGeneral.php:674, src/Admin/Views/BetterChatSupportGeneral.php:728, src/Admin/Views/BetterChatSupportGeneral.php:786, src/Admin/Views/BetterChatSupportGeneral.php:843, src/Admin/Views/BetterChatSupportGeneral.php:897, src/Admin/Views/BetterChatSupportGeneral.php:954
+msgid "Exclude"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:566
+msgid "All Theme Pages"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:569
+msgid "Enable this option to apply the chat bubble visibility rule to all theme pages at once, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:580
+msgid "Select a specific theme page where the chat bubble visibility rule should apply. Options include Blog, 404, or Search pages."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:584
+msgid "Blog Page"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:585
+msgid "404 Page"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:586
+msgid "Search Page"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:612
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected pages."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:623
+msgid "All Pages"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:626
+msgid "Enable this option to apply the chat bubble visibility rule to all pages across your site, instead of selecting individual pages."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:637
+msgid "Select one or more specific pages where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:647
+msgid "You don't have any pages available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:669
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected posts."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:680
+msgid "All Posts"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:683
+msgid "Enable this option to apply the chat bubble visibility rule to all posts across your site, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:694
+msgid "Select one or more specific posts where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:701
+msgid "You don't have any posts available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:723
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected products."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:734
+msgid "All Products"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:737
+msgid "Enable this option to apply the chat bubble visibility rule to all products across your store, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:748
+msgid "Select one or more specific products where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:759
+msgid "You don't have any products available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:781
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected post categories."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:792
+msgid "All Post Categories"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:795
+msgid "Enable this option to apply the chat bubble visibility rule to all post categories, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:806
+msgid "Select one or more specific post categories where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:816
+msgid "You don't have any post categories available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:838
+msgid "Choose whether to include or exclude the selected post tags from displaying the chat bubble."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:849
+msgid "All Post Tags"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:852
+msgid "Enable this option to apply the chat bubble visibility rule to all post tags, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:863
+msgid "Select one or more specific post tags where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:870
+msgid "You don't have any post tags available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:892
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected product categories."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:903
+msgid "All Product Categories"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:906
+msgid "Enable this option to apply the chat bubble visibility rule to all product categories, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:917
+msgid "Select one or more specific product categories where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:927
+msgid "You don't have any product category available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:949
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected product tags."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:960
+msgid "All Product Tags"
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:963
+msgid "Enable this option to apply the chat bubble visibility rule to all product tags, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:974
+msgid "Select one or more specific product tags where the chat bubble visibility rule should apply."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:984
+msgid "You don't have any product tags available."
+msgstr ""
+
+#: src/Admin/Views/BetterChatSupportGeneral.php:992
 msgid "Backup"
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportGeneral.php:484
+#: src/Admin/Views/BetterChatSupportGeneral.php:993
 msgid "Export or import plugin settings for backup or migration purposes."
 msgstr ""
 
-#: src/Admin/Views/BetterChatSupportHelp.php:29, src/Admin/Views/BetterChatSupportHelp.php:31, src/Admin/Views/BetterChatSupportOptions.php:623, src/Admin/Views/BetterChatSupportOptions.php:625, src/Admin/Views/BetterChatSupportShortcode.php:29, src/Admin/Views/BetterChatSupportShortcode.php:31, src/Frontend/elementor-widgets/elementor-widget.php:129
+#: src/Admin/Views/BetterChatSupportHelp.php:29, src/Admin/Views/BetterChatSupportHelp.php:31, src/Admin/Views/BetterChatSupportOptions.php:623, src/Admin/Views/BetterChatSupportOptions.php:625, src/Admin/Views/BetterChatSupportShortcode.php:29, src/Admin/Views/BetterChatSupportShortcode.php:31, src/Admin/Views/Settings.php:29, src/Admin/Views/Settings.php:31, src/Frontend/elementor-widgets/elementor-widget.php:129
 msgid "Messenger Chat Support"
 msgstr ""
 
