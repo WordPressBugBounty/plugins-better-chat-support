@@ -89,7 +89,7 @@ if (! class_exists('BetterChatSupport')) {
 
       // Setup admin option framework
       $params = array();
-      if (class_exists('BetterChatSupportOptions') && ! empty(self::$args['admin_options'])) {
+      if (class_exists('Options') && ! empty(self::$args['admin_options'])) {
         foreach (self::$args['admin_options'] as $key => $value) {
           if (! empty(self::$args['sections'][$key]) && ! isset(self::$inited[$key])) {
 
@@ -97,7 +97,7 @@ if (! class_exists('BetterChatSupport')) {
             $params['sections'] = self::$args['sections'][$key];
             self::$inited[$key] = true;
 
-            \BetterChatSupportOptions::instance($key, $params);
+            \Options::instance($key, $params);
 
             if (! empty($value['show_in_customizer'])) {
               $value['output_css'] = false;
@@ -111,7 +111,7 @@ if (! class_exists('BetterChatSupport')) {
 
       // Setup metabox option framework
       $params = array();
-      if (class_exists('BetterChatSupportMetabox') && ! empty(self::$args['metabox_options'])) {
+      if (class_exists('Metabox') && ! empty(self::$args['metabox_options'])) {
         foreach (self::$args['metabox_options'] as $key => $value) {
           if (! empty(self::$args['sections'][$key]) && ! isset(self::$inited[$key])) {
 
@@ -119,7 +119,7 @@ if (! class_exists('BetterChatSupport')) {
             $params['sections'] = self::$args['sections'][$key];
             self::$inited[$key] = true;
 
-            \BetterChatSupportMetabox::instance($key, $params);
+            \Metabox::instance($key, $params);
           }
         }
       }
@@ -275,8 +275,8 @@ if (! class_exists('BetterChatSupport')) {
       // Include free version classes
       self::include_plugin_file('Classes/abstract.class.php');
       self::include_plugin_file('Classes/fields.class.php');
-      self::include_plugin_file('Classes/BetterChatSupportOptions.php');
-      self::include_plugin_file('Classes/BetterChatSupportMetabox.php');
+      self::include_plugin_file('Classes/Options.php');
+      self::include_plugin_file('Classes/Metabox.php');
 
       // Include all framework fields
       $fields = apply_filters('BetterChatSupport_fields', array(

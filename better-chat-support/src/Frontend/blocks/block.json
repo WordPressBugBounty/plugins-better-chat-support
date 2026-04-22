@@ -8,17 +8,9 @@
 	"textdomain": "better-chat-support",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css",
 	"supports": {
-		"html": false,
-		"color": {
-			"background": true,
-			"text": true,
-			"gradients": true,
-			"hover": true
-		},
-		"spacing": {},
-		"typography": {}
+		"styles": false,
+		"html": false
 	},
 
 	"example": {
@@ -56,11 +48,48 @@
 		},
 		"buttonSize": {
 			"type": "string",
-			"default": "size-normal"
+			"default": "1"
 		},
+		"buttonPadding": {
+			"type": "object",
+			"default": {
+				"top": "5px",
+				"right": "15px",
+				"bottom": "5px",
+				"left": "6px"
+			}
+		},
+		"buttonBorder": {
+			"type": "object",
+			"default": {
+				"color": "#0084ff",
+				"style": "solid",
+				"width": "0px"
+			}
+		},
+		"buttonIconBorder": {
+			"type": "object",
+			"default": {
+				"color": "#ffffff",
+				"style": "solid",
+				"width": "0px"
+			}
+		},
+		"bgColor": { "type": "string", "default": "#0084ff" },
+		"bgHoverColor": { "type": "string", "default": "#0066ff" },
+		"textColor": { "type": "string", "default": "#ffffff" },
+		"textHoverColor": { "type": "string", "default": "#ffffff" },
+		"iconBgColor": { "type": "string", "default": "#ffffff" },
+		"iconBgHoverColor": { "type": "string", "default": "#ffffff" },
+		"iconColor": { "type": "string", "default": "#0084ff" },
+		"iconHoverColor": { "type": "string", "default": "#0066ff" },
 		"borderRadius": {
-			"type": "string",
-			"default": "rounded"
+			"type": "number",
+			"default": 50
+		},
+		"icon_borderRadius": {
+			"type": "number",
+			"default": 50
 		},
 		"visibility": {
 			"type": "string",
@@ -74,10 +103,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"background": {
-			"type": "boolean",
-			"default": true
-		},
 		"iconBackground": {
 			"type": "boolean",
 			"default": false
@@ -86,17 +111,9 @@
 			"type": "boolean",
 			"default": true
 		},
-		"numberInput": {
-			"type": "string",
-			"default": ""
-		},
 		"messengerUserName": {
 			"type": "string",
 			"default": ""
-		},
-		"prefilledMessageInput": {
-			"type": "string",
-			"default": "Hi! I have a question about your services."
 		},
 		"imageUrl": {
 			"type": "string",

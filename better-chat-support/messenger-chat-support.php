@@ -6,9 +6,9 @@
  *  Author:         ThemeAtelier
  *  Author URI:     http://themeatelier.net/
  *  Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above.
- *  Version:       1.3.2
- * Text Domain:  better-chat-support
- * Domain Path:  /languages
+ *  Version:        2.0.0
+ * Text Domain:     better-chat-support
+ * Domain Path:     /languages
  */
 
 // Block Direct access
@@ -21,16 +21,13 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '1.3.1');
+    define('BETTER_CHAT_SUPPORT_VERSION', '2.0.0');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIR_PATH')) {
     define('BETTER_CHAT_SUPPORT_DIR_PATH', plugin_dir_path(__FILE__));
-}
-if (!defined('BETTER_CHAT_SUPPORT_EW_DIR_PATH')) {
-    define('BETTER_CHAT_SUPPORT_EW_DIR_PATH', BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Frontend/');
 }
 if (!defined('BETTER_CHAT_SUPPORT_BASENAME')) {
     define('BETTER_CHAT_SUPPORT_BASENAME', plugin_basename(__FILE__));
@@ -61,12 +58,10 @@ function better_chat_support()
 include_once ABSPATH . 'wp-admin/includes/plugin.php';
 if (! (is_plugin_active('better-chat-support-pro/better-chat-support-pro.php') || is_plugin_active_for_network('better-chat-support-pro/better-chat-support-pro.php'))) {
     better_chat_support();
-
-
     // Register block
     function create_block_better_chat_support_init()
     {
-        register_block_type_from_metadata(BETTER_CHAT_SUPPORT_EW_DIR_PATH . 'blocks/');
+        register_block_type_from_metadata(BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Frontend/blocks/');
     }
     add_action('init', 'create_block_better_chat_support_init');
 

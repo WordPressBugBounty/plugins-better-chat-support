@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0.0
-Stable tag: 1.3.2
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,7 +68,7 @@ The Better Messenger Chat Support plugin is a popular solution for businesses lo
 
 
 ## External services
-Darkify uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+Better Chat Support For Messenger uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
 
 Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users.
 
@@ -124,6 +124,13 @@ Yes. The plugin is totally translation ready. If it's not support in your langua
 4. Admin panel
 
 == Changelog ==
+= 2.0.0 – 22 April, 2026 =
+* Added: New “Simple Button” floating layout.
+* Updated: Completely redesigned admin panel for improved usability.
+* Updated: Refined option titles and descriptions for better clarity.
+* Updated: Enhanced Gutenberg block settings and controls.
+* Updated: Improved Elementor widget options and customization.
+
 = 1.3.2 – 01 April, 2026 =
 * Added: Floating Chat Layout field.
 * Improved: Option dependency logic.

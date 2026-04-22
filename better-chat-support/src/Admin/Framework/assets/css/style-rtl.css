@@ -65,19 +65,19 @@
  *     03. 39. Field: number
  *     03. 40. Field: link
  *     03. 41. Field: others
- * 04. Widget
- * 05. Customizer
- * 06. Taxonomy
- * 07. Profile
- * 08. Nav Menu
- * 09. Modal
+ *     04. Widget
+ *     05. Customizer
+ *     06. Taxonomy
+ *     07. Profile
+ *     08. Nav Menu
+ *     09. Modal
  *     09. 01. Shortcode Modal
  *     09. 02. Gutenberg Modal
  *     09. 03. Icon Modal
- * 10. Helper
- * 11. Welcome Page
- * 12. Responsive
- * 13. Others
+ *     10. Helper
+ *     11. Welcome Page
+ *     12. Responsive
+ *     13. Others
  *
  * ---------------------------------------------------------
  *
@@ -1053,7 +1053,7 @@ span.tooltip-icon {
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  border-left: 1px solid #7ABFFF;
+  border-left: 1px solid #0084ff;
   border-bottom: none !important;
   background-color: #0084ff !important;
   border-top: 3px solid #0084ff;
@@ -1653,7 +1653,7 @@ span.tooltip-icon {
   display: block;
 }
 .better-chat-support-field-group .better-chat-support-cloneable-content {
-  border: 1px solid #7ABFFF;
+  border: 1px solid #0084ff;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
@@ -1671,7 +1671,7 @@ span.tooltip-icon {
   padding: 15px 10px 15px 65px;
   min-height: 0;
   font-size: 100%;
-  border: 1px solid #7ABFFF;
+  border: 1px solid #0084ff;
   background-color: #F4FAFF;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
   transition: border-color 0.15s;
@@ -1679,7 +1679,7 @@ span.tooltip-icon {
 .better-chat-support-field-group .better-chat-support-cloneable-title:active,
 .better-chat-support-field-group .better-chat-support-cloneable-title:hover,
 .better-chat-support-field-group .better-chat-support-cloneable-title:focus {
-  border-color: #7ABFFF;
+  border-color: #0084ff;
   outline: none;
 }
 .better-chat-support-field-group .better-chat-support-cloneable-helper {
@@ -2419,7 +2419,7 @@ span.tooltip-icon {
  * 03. 29. Field: tabbed
  */
 .better-chat-support-field-tabbed .better-chat-support-tabbed-content {
-  border: 1px solid #7ABFFF;
+  border: 1px solid #0084ff;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
 }
@@ -2441,7 +2441,7 @@ span.tooltip-icon {
   text-decoration: none;
   color: #444;
   font-weight: 600;
-  border: 1px solid #7ABFFF;
+  border: 1px solid #0084ff;
   background-color: #F4FAFF;
   transition: all 0.2s;
 }
@@ -2463,15 +2463,15 @@ span.tooltip-icon {
  */
 .better-chat-support-field-section_tab .better-chat-support-section_tab-nav {
   min-width: 250px;
-  border-left: 1px solid #7ABFFF ;
+  border-left: 1px solid #0084ff ;
 }
 
 .better-chat-support-field-section_tab.better-chat-support-field {
   display: flex;
   margin: 30px;
-  border: 1px solid #7ABFFF ;
+  border: 1px solid #0084ff ;
   padding: 0 !important;
-  border: 1px solid #7ABFFF  !important;
+  border: 1px solid #0084ff  !important;
 }
 
 .chathelp-mt-0{
@@ -2518,7 +2518,7 @@ span.tooltip-icon {
   color: #343434;
   font-weight: 600;
   background: #F4FAFF;
-  border-bottom: 1px solid #7ABFFF;
+  border-bottom: 1px solid #0084ff;
   transition: all 0.2s;
   overflow: hidden;
   font-size: 13px;
@@ -2537,8 +2537,8 @@ span.tooltip-icon {
   a.better-chat-support-section_tab-active {
   background: #fff;
   outline: none;
-  box-shadow: -3px 0 0 0 #7ABFFF inset;
-  color: #7ABFFF;
+  box-shadow: -3px 0 0 0 #0084ff inset;
+  color: #0084ff;
   font-weight: 600;
   border-left-color: #fff;
   margin-left: -1px;
@@ -6078,7 +6078,7 @@ margin-right: 0px;
   padding: 5px 14px;
   margin-right: 8px;
   border-radius: 15px;
-  border: 1px solid #7ABFFF;
+  border: 1px solid #0084ff;
 }
 
 .better-chat-support-buttons .button {
@@ -6126,7 +6126,7 @@ margin-right: 0px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  border-left: 1px solid #7ABFFF;
+  border-left: 1px solid #0084ff;
   border-bottom: none !important;
   background-color: #0084ff !important;
   border-top: 3px solid #0084ff;
@@ -6232,4 +6232,8 @@ margin-right: 0px;
   font-size: 10px;
   border-top-left-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+.color_group_pro_only .better-chat-support-fieldset .better-chat-support-field-color {
+  opacity: 0.6;
+  pointer-events: none;
 }

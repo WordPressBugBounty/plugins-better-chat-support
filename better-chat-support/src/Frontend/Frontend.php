@@ -9,13 +9,16 @@
  * @link       https://themeatelier.net
  * @since      1.0.0
  *
- * @package better-chat-support-por
- * @subpackage better-chat-support-por/Frontend
+ * @package better-chat-support
+ * @subpackage better-chat-support/Frontend
  * @author     ThemeAtelier<themeatelierbd@gmail.com>
  */
 
 namespace ThemeAtelier\BetterChatSupport\Frontend;
 
+use ThemeAtelier\BetterChatSupport\Frontend\Templates\ButtonTemplate;
+use ThemeAtelier\BetterChatSupport\Frontend\Templates\items\Buttons;
+use ThemeAtelier\BetterChatSupport\Frontend\Templates\SingleTemplate;
 use ThemeAtelier\BetterChatSupport\Includes\Helpers;
 
 /**
@@ -42,6 +45,8 @@ class Frontend
      * @var      string    $min   The slug of this plugin.
      */
     private $min;
+
+    public $unique_id;
     /**
      * Initialize the class and set its properties.
      *
@@ -51,8 +56,24 @@ class Frontend
      */
     public function __construct()
     {
+        $this->unique_id = uniqid();
         $this->min   = defined('WP_DEBUG') && WP_DEBUG ? '' : '.min';
         add_action('wp_footer', [$this, 'better_chat_support_chat_popup']);
+
+        add_action('wp_head', array($this, 'better_chat_support_header_script'), 1);
+        add_action('login_head', array($this, 'better_chat_support_header_script'), 1);
+        add_action('register_head', array($this, 'better_chat_support_header_script'), 1);
+    }
+
+    function better_chat_support_header_script()
+    {
+        $options = get_option('mcs-opt');
+        $alternative_mSupportBubble = isset($options['alternative_mSupportBubble']) ? $options['alternative_mSupportBubble'] : "";
+?>
+        <script type="text/javascript" class="better_chat_support_inline_js">
+            var alternativeMSupportBubble = "<?php echo esc_attr($alternative_mSupportBubble); ?>";
+        </script>
+    <?php
     }
 
     public function enqueue_scripts()
@@ -82,29 +103,27 @@ class Frontend
 
     public function better_chat_support_chat_popup()
     {
+        $unique_id = "better_chat_support_button_$this->unique_id";
         $options = get_option('mcs-opt');
-        $enable_floating_chat = isset($options['opt-chat-type']) ? $options['opt-chat-type'] : '';
+        $ch_settings = get_option('mcs_settings');
+        $enable_floating_chat = isset($options['enable_floating_chat']) ? $options['enable_floating_chat'] : '1';
         $fbId = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
         $optAvailability = isset($options['opt-availablity']) ? $options['opt-availablity'] : '';
         $user_availability = Helpers::user_availability($optAvailability);
+
+        $chat_type = isset($options['chat_layout']) ? $options['chat_layout'] : 'agent';
         $random = wp_rand(1, 13);
         $select_animation = isset($options['select-animation']) ? $options['select-animation'] : 'random';
         if ('random' === $select_animation) {
             $select_animation = $random;
         }
-
         $bubble_visibility = isset($options['bubble-visibility']) ? $options['bubble-visibility'] : 'everywhere';
         $auto_show_popup = isset($options['autoshow-popup']) ? $options['autoshow-popup'] : '';
         if ($auto_show_popup) {
             $auto_show_popup = 'mSupport-show';
         }
         $bubble_style = isset($options['bubble-style']) ? $options['bubble-style'] : '';
-        if ($bubble_style === 'dark') {
-            $bubble_style = 'dark-mode ';
-        } elseif ($bubble_style === 'night') {
-            $bubble_style = 'night-mode ';
-        }
-        $bubble_position = isset($options['bubble-position']) ? $options['bubble-position'] : 'mSupport-right';
+        $bubble_position = isset($options['bubble-position']) ? $options['bubble-position'] : 'bottom_right';
         $select_timezone = isset($options['select-timezone']) ? $options['select-timezone'] : '';
         $header_content_position = isset($options['header-content-position']) ? $options['header-content-position'] : 'left';
         $agent_photo = isset($options['agent-photo']) ? $options['agent-photo'] : '';
@@ -115,138 +134,140 @@ class Frontend
         $before_chat_icon = isset($options['before-chat-icon']) ? $options['before-chat-icon'] : 'icofont-facebook-messenger';
         $chat_button_text = isset($options['chat-button-text']) ? $options['chat-button-text'] : 'Send a message';
         $facebook_id = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
-        $circle_animation = isset($options['circle-animation']) ? $options['circle-animation'] : '';
+        $chat_agents = isset($options['opt-chat-agents']) ? $options['opt-chat-agents'] : '';
 
-        $bubbleType = null;
-        $buttonLabel = $options['bubble-text'];
-        if ($options['opt-button-style'] === '1') {
-            $bubbleType = '<div class="mSupport-bubble circle-bubble circle-animation-' . esc_attr($circle_animation) . ' ">
-      <span class="open-icon"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-      <span class="close-icon"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-    </div>';
-        } elseif ($options['opt-button-style'] === '2') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-bg">
-      <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-      <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-      <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-      </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '3') {
-            $bubbleType = '<div class="mSupport-bubble bubble">
-      <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-      <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-      <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-      </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '4') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-rounded mSupport-btn-bg">
-    <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-    <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-    <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-    </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '5') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-rounded">
-  <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-  <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-  <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-  </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '6') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-bg bubble-transparent">
-  <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-  <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-  <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-  </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '7') {
-            $bubbleType = '<div class="mSupport-bubble bubble  bubble-transparent">
-  <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-  <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-  <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-  </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '8') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-bg mSupport-btn-rounded bubble-transparent">
-  <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-  <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-  <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-  </div>' . esc_attr($buttonLabel) . '</div>';
-        } elseif ($options['opt-button-style'] === '9') {
-            $bubbleType = '<div class="mSupport-bubble bubble mSupport-btn-rounded bubble-transparent">
-  <div class="bubble__icon bubble-animation' . esc_attr($circle_animation) . '">
-  <span class="bubble__icon--open"><i class="' . esc_html($options['circle-button-icon']) . '"></i></span>
-  <span class="bubble__icon--close"><i class="' . esc_html($options['circle-button-close']) . '"></i></span>
-  </div>' . esc_attr($buttonLabel) . '</div>';
+        $bubble_type = Buttons::buttons($options, $ch_settings);
+
+        $should_display_element = Helpers::should_display_element($options);
+        if ($should_display_element) {
+            self::render_chat_template($chat_type, $options, $ch_settings, $bubble_type, $random, $unique_id);
         }
 
+        $bubble_button_tooltip_background = isset($options['bubble_button_tooltip_background']) ? $options['bubble_button_tooltip_background'] : '#f5f7f9';
+        $bubble_button_tooltip_width = isset($options['bubble_button_tooltip_width']) ? $options['bubble_button_tooltip_width'] : 190;
         // Right
         $right_bottom              = isset($options['right_bottom']) ? $options['right_bottom'] : array();
-        $right_bottom_value_bottom = isset($right_bottom['bottom']) ? $right_bottom['bottom'] : '30';
+        $right_bottom_value_bottom = isset($right_bottom['bottom']) ? $right_bottom['bottom'] : '25';
         $right_bottom_value_right  = isset($right_bottom['right']) ? $right_bottom['right'] : '30';
         $right_bottom_unit         = isset($right_bottom['unit']) ? $right_bottom['unit'] : 'px';
 
         // Left
         $left_bottom              = isset($options['left_bottom']) ? $options['left_bottom'] : array();
-        $left_bottom_value_bottom = isset($left_bottom['bottom']) ? $left_bottom['bottom'] : '30';
+        $left_bottom_value_bottom = isset($left_bottom['bottom']) ? $left_bottom['bottom'] : '25';
         $left_bottom_value_left   = isset($left_bottom['left']) ? $left_bottom['left'] : '30';
         $left_bottom_unit         = isset($left_bottom['unit']) ? $left_bottom['unit'] : 'px';
 
-        $right_middle              = isset($options['right_middle']) ? $options['right_middle'] : array();
-        $right_middle_value_right = isset($right_middle['right']) ? $right_middle['right'] : '30';
-        $right_middle_unit         = isset($right_middle['unit']) ? $right_middle['unit'] : 'px';
+        // Right Middle
+        $right_middle             = isset($options['right_middle']) ? $options['right_middle'] : array();
+        $right_middle_value_right = isset($right_middle['right']) ? $right_middle['right'] : '0';
+        $right_middle_unit        = isset($right_middle['unit']) ? $right_middle['unit'] : 'px';
 
-        $left_middle              = isset($options['left_middle']) ? $options['left_middle'] : array();
-        $left_middle_value_left = isset($left_middle['left']) ? $left_middle['left'] : '30';
-        $left_middle_unit         = isset($left_middle['unit']) ? $left_middle['unit'] : 'px';
+        // Left Middle
+        $left_middle            = isset($options['left_middle']) ? $options['left_middle'] : array();
+        $left_middle_value_left = isset($left_middle['left']) ? $left_middle['left'] : '0';
+        $left_middle_unit       = isset($left_middle['unit']) ? $left_middle['unit'] : 'px';
 
-        $positions = '
-        --right_bottom_value_bottom: ' . esc_attr($right_bottom_value_bottom . $right_bottom_unit) . '; --right_bottom_value_right: ' . esc_attr($right_bottom_value_right . $right_bottom_unit) . '; --left_bottom_value_bottom: ' . esc_attr($left_bottom_value_bottom . $left_bottom_unit) . '; --left_bottom_value_left: ' . esc_attr($left_bottom_value_left . $left_bottom_unit) . '; --right_middle_value_right: ' . esc_attr($right_middle_value_right . $right_middle_unit) . '; --left_middle_value_left: ' . esc_attr($left_middle_value_left . $left_middle_unit) . ';
-        ';
+        // Tablet positioning
+        $enable_tablet_positioning = isset($options['enable-positioning-tablet']) ? $options['enable-positioning-tablet'] : '';
+        $bubble_position_tablet    = isset($options['bubble-position-tablet']) ? $options['bubble-position-tablet'] : 'right_bottom';
 
-        $should_display_element = Helpers::should_display_element($options);
+        // Right for Tablet
+        $right_bottom_tablet              = isset($options['right_bottom_tablet']) ? $options['right_bottom_tablet'] : array();
+        $right_bottom_value_bottom_tablet = isset($right_bottom_tablet['bottom']) ? $right_bottom_tablet['bottom'] : '25';
+        $right_bottom_value_right_tablet  = isset($right_bottom_tablet['right']) ? $right_bottom_tablet['right'] : '30';
+        $right_bottom_unit_tablet         = isset($right_bottom_tablet['unit']) ? $right_bottom_tablet['unit'] : 'px';
 
-        if ($should_display_element) {
+        // Left for Tablet
+        $left_bottom_tablet              = isset($options['left_bottom_tablet']) ? $options['left_bottom_tablet'] : array();
+        $left_bottom_value_bottom_tablet = isset($left_bottom_tablet['bottom']) ? $left_bottom_tablet['bottom'] : '25';
+        $left_bottom_value_left_tablet   = isset($left_bottom_tablet['left']) ? $left_bottom_tablet['left'] : '30';
+        $left_bottom_unit_tablet         = isset($left_bottom_tablet['unit']) ? $left_bottom_tablet['unit'] : 'px';
 
-            if ('off' !== $enable_floating_chat && $fbId) {
-?>
-                <div
-                    style="<?php echo wp_kses_post($positions); ?>" class="mSupport_bubble mSupport mSupport-<?php echo esc_attr($bubble_visibility); ?>-only <?php echo esc_attr($auto_show_popup . ' ' . $bubble_style . ' ' . $bubble_position); ?>">
-                    <?php echo wp_kses_post($bubbleType); ?>
-                    <div
-                        class="mSupport__popup animation<?php echo esc_attr($select_animation) ?> chat-availability"
-                        <?php if ($select_timezone) { ?> data-timezone="<?php echo esc_attr($select_timezone); ?>" <?php } ?>
-                        data-availability="<?php echo esc_attr($user_availability) ?>">
-                        <div class="mSupport__popup--header <?php echo esc_attr('header-' . $header_content_position); ?>">
-                            <?php if ($agent_photo_url) :
-                                echo '<div class="image">';
-                                echo '<img src="' . esc_attr($agent_photo_url) . '" alt="' . esc_html($agent_name) . '" />';
-                                echo '</div>';
-                            endif;
-                            if ($agent_name || $agent_subtitle) {
-                                echo '<div class="info">';
-                                if ($agent_name) {
-                                    echo '<div class="info__name">' . esc_html($agent_name) . '</div>';
-                                }
-                                if ($agent_subtitle) {
-                                    echo '<div class="info__title">' . esc_html($agent_subtitle) . '</div>';
-                                }
-                                echo '</div>';
-                            }
-                            ?>
-                        </div>
-                        <div class="mSupport__popup--content">
-                            <div class="current-time"></div>
-                            <?php if ($agent_message) : ?>
-                                <div class="sms">
-                                    <div class="sms__text">
-                                        <?php echo esc_html($agent_message); ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <div class="mSupport__send-message">
-                                <i class="<?php echo esc_attr($before_chat_icon); ?>"></i><?php echo esc_html($chat_button_text); ?>
-                                <a href="https://www.m.me/<?php echo esc_attr($facebook_id); ?>" target="_blank"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<?php
+        // Right Middle for Tablet
+        $right_middle_tablet             = isset($options['right_middle_tablet']) ? $options['right_middle_tablet'] : array();
+        $right_middle_value_right_tablet = isset($right_middle_tablet['right']) ? $right_middle_tablet['right'] : '0';
+        $right_middle_unit_tablet        = isset($right_middle_tablet['unit']) ? $right_middle_tablet['unit'] : 'px';
+
+        // Left Middle for Tablet
+        $left_middle_tablet            = isset($options['left_middle_tablet']) ? $options['left_middle_tablet'] : array();
+        $left_middle_value_left_tablet = isset($left_middle_tablet['left']) ? $left_middle_tablet['left'] : '0';
+        $left_middle_unit_tablet       = isset($left_middle_tablet['unit']) ? $left_middle_tablet['unit'] : 'px';
+
+        // Right for Mobile
+        $right_bottom_mobile              = isset($options['right_bottom_mobile']) ? $options['right_bottom_mobile'] : array();
+        $right_bottom_value_bottom_mobile = isset($right_bottom_mobile['bottom']) ? $right_bottom_mobile['bottom'] : '25';
+        $right_bottom_value_right_mobile  = isset($right_bottom_mobile['right']) ? $right_bottom_mobile['right'] : '30';
+        $right_bottom_unit_mobile         = isset($right_bottom_mobile['unit']) ? $right_bottom_mobile['unit'] : 'px';
+
+        // Left for Mobile
+        $left_bottom_mobile              = isset($options['left_bottom_mobile']) ? $options['left_bottom_mobile'] : array();
+        $left_bottom_value_bottom_mobile = isset($left_bottom_mobile['bottom']) ? $left_bottom_mobile['bottom'] : '25';
+        $left_bottom_value_left_mobile   = isset($left_bottom_mobile['left']) ? $left_bottom_mobile['left'] : '30';
+        $left_bottom_unit_mobile         = isset($left_bottom_mobile['unit']) ? $left_bottom_mobile['unit'] : 'px';
+
+        // Right Middle for Mobile
+        $right_middle_mobile             = isset($options['right_middle_mobile']) ? $options['right_middle_mobile'] : array();
+        $right_middle_value_right_mobile = isset($right_middle_mobile['right']) ? $right_middle_mobile['right'] : '0';
+        $right_middle_unit_mobile        = isset($right_middle_mobile['unit']) ? $right_middle_mobile['unit'] : 'px';
+
+        // Left Middle for Mobile
+        $left_middle_mobile            = isset($options['left_middle_mobile']) ? $options['left_middle_mobile'] : array();
+        $left_middle_value_left_mobile = isset($left_middle_mobile['left']) ? $left_middle_mobile['left'] : '0';
+        $left_middle_unit_mobile       = isset($left_middle_mobile['unit']) ? $left_middle_mobile['unit'] : 'px';
+
+        $color_settings = isset($options['color_settings']) ? $options['color_settings'] : '';
+        $primary = isset($color_settings['primary']) ? $color_settings['primary'] : '#0084ff';
+        $secondary = isset($color_settings['secondary']) ? $color_settings['secondary'] : '#0066ff';
+    ?>
+        <style type="text/css" class="better_chat_support_inline_css">
+            #better_chat_support_button_<?php echo esc_attr($this->unique_id); ?> {
+                --right_bottom_value_bottom: <?php echo esc_attr($right_bottom_value_bottom . $right_bottom_unit) ?>;
+                --right_bottom_value_right: <?php echo esc_attr($right_bottom_value_right . $right_bottom_unit) ?>;
+                --left_bottom_value_bottom: <?php echo esc_attr($left_bottom_value_bottom . $left_bottom_unit) ?>;
+                --left_bottom_value_left: <?php echo esc_attr($left_bottom_value_left . $left_bottom_unit) ?>;
+                --right_middle_value_right: <?php echo esc_attr($right_middle_value_right . $right_middle_unit) ?>;
+                --left_middle_value_left: <?php echo esc_attr($left_middle_value_left . $left_middle_unit) ?>;
+                --enable_tablet_positioning: <?php echo esc_attr($enable_tablet_positioning . $bubble_position_tablet) ?>;
+                --right_bottom_value_bottom_tablet: <?php echo esc_attr($right_bottom_value_bottom_tablet . $right_bottom_unit_tablet) ?>;
+                --right_bottom_value_right_tablet: <?php echo esc_attr($right_bottom_value_right_tablet . $right_bottom_unit_tablet) ?>;
+                --left_bottom_value_left_tablet: <?php echo esc_attr($left_bottom_value_left_tablet . $left_bottom_unit_tablet) ?>;
+                --left_bottom_value_bottom_tablet: <?php echo esc_attr($left_bottom_value_bottom_tablet . $left_bottom_unit_tablet) ?>;
+                --right_middle_value_right_tablet: <?php echo esc_attr($right_middle_value_right_tablet . $right_middle_unit_tablet) ?>;
+                --left_middle_value_left_tablet: <?php echo esc_attr($left_middle_value_left_tablet . $left_middle_unit_tablet) ?>;
+                --right_bottom_value_bottom_mobile: <?php echo esc_attr($right_bottom_value_bottom_mobile . $right_bottom_unit_mobile) ?>;
+                --right_bottom_value_right_mobile: <?php echo esc_attr($right_bottom_value_right_mobile . $right_bottom_unit_mobile) ?>;
+                --left_bottom_value_bottom_mobile: <?php echo esc_attr($left_bottom_value_bottom_mobile . $left_bottom_unit_mobile) ?>;
+                --left_bottom_value_left_mobile: <?php echo esc_attr($left_bottom_value_left_mobile . $left_bottom_unit_mobile) ?>;
+                --right_middle_value_right_mobile: <?php echo esc_attr($right_middle_value_right_mobile . $right_middle_unit_mobile) ?>;
+                --left_middle_value_left_mobile: <?php echo esc_attr($left_middle_value_left_mobile . $left_middle_unit_mobile) ?>;
+                --bubble_button_tooltip_background: <?php echo esc_attr($bubble_button_tooltip_background) ?>;
+                --bubble_button_tooltip_width: <?php echo esc_attr($bubble_button_tooltip_width) ?>px;
+
+                --mSupport-color-primary: <?php echo esc_attr($primary); ?>;
+                --mSupport-color-secondary: <?php echo esc_attr($secondary); ?>;
             }
+        </style>
+<?php
+    }
+
+    public static function render_chat_template($chat_type, $options, $ch_settings, $bubble_type, $random, $unique_id)
+    {
+        $facebook_ID = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
+
+        switch ($chat_type) {
+            case 'off':
+                break;
+            case 'button':
+                if (!empty($facebook_ID)) {
+                    ButtonTemplate::buttonTemplate($options, $ch_settings, $bubble_type, $unique_id);
+                }
+                break;
+            case 'agent':
+                if (!empty($facebook_ID)) {
+                    SingleTemplate::singleTemplate($options, $ch_settings, $bubble_type, $random, $unique_id, $chat_type);
+                }
+                break;
+            default:
         }
     }
 }

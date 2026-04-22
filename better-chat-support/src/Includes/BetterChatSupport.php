@@ -148,11 +148,8 @@ class BetterChatSupport
 
     public function register_better_chat_support_widget($widgets_manager)
     {
-        require_once BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Frontend/elementor-widgets/widgets/buttons.php';
-
-        $widgets_manager->register(
-            new \Mcselementor\Widgets\Mcs_Buttons()
-        );
+        require_once BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Frontend/elementor-widgets/elementor-widget.php';
+        $widgets_manager->register(new \Elementor_MCS_Buttons());
     }
 
     /**

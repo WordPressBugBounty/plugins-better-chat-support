@@ -6,8 +6,8 @@
  * @link       https://themeatelier.net
  * @since      1.0.0
  *
- * @package better-chat-support-pro
- * @subpackage better-chat-support-pro/Admin/Views/Settings
+ * @package better-chat-support
+ * @subpackage better-chat-support/Admin/Views/Settings
  * @author     ThemeAtelier<themeatelierbd@gmail.com>
  */
 

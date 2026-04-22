@@ -81,6 +81,13 @@ class ThemeAtelier_Offer_Banner
 				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-sd-banner.svg',
 				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=spring_2026',
 			),
+			'may_sale'     => array(
+				'id'    => 'may_2026',
+				'start' => strtotime( '2026-05-01 00:00:00' ),
+				'end'   => strtotime( '2026-05-31 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-growth.svg',
+				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=may_2026#pricing',
+			),
 		);
 
 		$active_offers = array();

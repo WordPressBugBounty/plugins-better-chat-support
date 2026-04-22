@@ -52,7 +52,7 @@ if (! class_exists('BetterChatSupport_Field_layout_preset')) {
 					$better_chat_support_only_class = isset($option['pro_only']) ? ' better-chat-support-pro-only' : '';
 
 					echo '<div class="better-chat-support--sibling better-chat-support--image' . esc_attr($class . $active . $better_chat_support_only_class) . '">';
-					echo '<img src="' . esc_url($option['image']) . '" alt="' . $option['text'] . '" />';
+					echo '<img src="' . esc_url($option['image']) . '" alt="' . esc_html($option['text']) . '" />';
 					echo '<input ' . esc_attr($pro_only) . ' type="' . esc_attr($type) . '" name="' . esc_attr($this->field_name($extra)) . '" value="' . esc_attr($key) . '"' . wp_kses_post($this->field_attributes()) . wp_kses_post($checked) . '/>';
 					echo '<span class="ta-carousel-type">' . esc_html($option['text']);
 

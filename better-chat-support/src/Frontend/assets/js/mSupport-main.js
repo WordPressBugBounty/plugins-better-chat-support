@@ -16,11 +16,16 @@
 "use strict";
 let mSupport = document.querySelectorAll(".mSupport");
 let mSupportMulti = document.querySelectorAll(".mSupport-multi");
+let noBubble = document.querySelector(".no_bubble");
 let mSupportBubble = document.querySelectorAll(".mSupport-bubble");
 let currentTime = document.querySelector(".current-time");
-let mSupportUserAvailability = document.querySelectorAll(".mSupportUserAvailability");
+let mSupportUserAvailability = document.querySelectorAll(
+  ".mSupportUserAvailability",
+);
 let mSupportSendMessage = document.querySelector(".mSupport__send-message");
-let mSupportMultiPopupContent = document.querySelector(".mSupport-multi__popup--content");
+let mSupportMultiPopupContent = document.querySelector(
+  ".mSupport-multi__popup--content",
+);
 let user = document.querySelector(".user");
 
 /******************** 01.CURRENT TIME  ********************/
@@ -41,18 +46,29 @@ const openChatBtn = () => {
   });
 };
 mSupportBubble.forEach((item) => {
-  item.addEventListener("click", openChatBtn);
+  if (!noBubble) {
+    item.addEventListener("click", openChatBtn);
+  }
 });
 
+if (alternativeMSupportBubble.length > 0) {
+  const elements = document.querySelectorAll(alternativeMSupportBubble);
+  elements.forEach((item) => {
+    if (!noBubble) {
+      item.addEventListener("click", openChatBtn);
+    }
+  });
+}
+
 /******************** 03.CHECK AVAILABILITY  ********************/
-function is_available(available, now) {  
+function is_available(available, now) {
   let is_available = false;
   let almost_available = false;
   for (let key in available) {
     if (available.hasOwnProperty(key)) {
       if (get_day_of_week(key) == now.day()) {
         let timeRange = available[key].split("-");
-        let start = moment.tz(timeRange[0], "HH:mm", now.tz());  // Apply the same timezone
+        let start = moment.tz(timeRange[0], "HH:mm", now.tz()); // Apply the same timezone
         let end = moment.tz(timeRange[1], "HH:mm", now.tz());
         // Align start/end to the same date as `now`
         start.year(now.year()).month(now.month()).date(now.date());
@@ -181,6 +197,8 @@ if (mSupportButtons !== undefined) {
 
 /******************** 08.SINGLE CHAT AVAILABILITY  ********************/
 const chatAvailability = document.querySelector(".chat-availability");
+const subtitleEl = document.querySelector(".info__title");
+const mSupport_agent = document.querySelector(".mSupport_agent");
 
 if (chatAvailability) {
   const chatAvailableTime = chatAvailability.getAttribute("data-availability");
@@ -188,6 +206,14 @@ if (chatAvailability) {
     const timezone = chatAvailability.getAttribute("data-timezone");
     let now = timezone ? moment().tz(timezone) : moment();
     let available = is_available(JSON.parse(chatAvailableTime), now);
+
+    if(mSupport_agent) {
+      if (!available.is_available) {
+        subtitleEl.textContent = subtitleEl.getAttribute("data-offline");
+      } else {
+        subtitleEl.textContent = subtitleEl.getAttribute("data-online");
+      }
+    }
 
     if (available.is_available || chatAvailableTime == null) {
       chatAvailability.classList.add("avatar-active");

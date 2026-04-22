@@ -435,10 +435,10 @@ class Help
                             <div class="section_video_play_list">
                                 <div class="play_list_item active" data-video_id="3LbuUw7SdNQ">
                                     <div class="play_list_item_title">
-                                        <h3>Overview</h3>
+                                        <h3><?php echo esc_html__('Overview', 'better-chat-support'); ?></h3>
                                     </div>
                                     <div class="play_list_item_content">
-                                        <div class="title">Better Chat Support Plugin - Overview</div>
+                                        <div class="title"><?php echo esc_html__('Better Chat Support Plugin - Overview', 'better-chat-support'); ?></div>
                                         <span>5:11</span>
                                     </div>
                                 </div>
@@ -451,18 +451,18 @@ class Help
                             </li>
                             <li>
                                 <a target="_blank" class="chat_btn_secondary"
-                                    href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL) ?>"><?php echo esc_html__('Live Demo', 'better-chat-support') ?></a>
+                                    href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode') ?>"><?php echo esc_html__('Live Demo', 'better-chat-support') ?></a>
                             </li>
                             <li>
                                 <a target="_blank" class="chat_btn_secondary arrow-btn"
-                                    href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL) ?>"><?php echo esc_html__('Upgrade To Pro', 'better-chat-support') ?>
+                                    href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode') ?>"><?php echo esc_html__('Upgrade To Pro', 'better-chat-support') ?>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="section_quick_help">
                         <div class="quick_help_wrapper">
-                            <a target="_blank" href="<?php echo BETTER_CHAT_SUPPORT_DOCS_URL; ?>overview" class="quick_help_item">
+                            <a target="_blank" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DOCS_URL) . 'overview'; ?>" class="quick_help_item">
                                 <div class="quick_help_item_icon"><i class="icofont-file-alt"></i></div>
                                 <div class="quick_help_item_content">
                                     <h4 class="quick_help_item_title">
@@ -497,7 +497,7 @@ class Help
             <!-- Recommended Page -->
             <section id="recommended-tab" class="recommended_page tab-content">
                 <div class="themeatelier-container">
-                    <h2 class="help_page_title">Enhance your Website with our Free Robust Plugins</h2>
+                    <h2 class="help_page_title"><?php echo esc_html__('Enhance your Website with our Free Robust Plugins', 'better-chat-support'); ?></h2>
                     <div class="themeatelier-wp-list-table plugin-install-php">
                         <div class="recommended_plugins" id="the-list">
                             <?php
@@ -511,7 +511,7 @@ class Help
             <!-- Lite To Pro Page -->
             <section class="themeatelier__help lite_vs_pro_page tab-content" id="lite-to-pro-tab">
                 <div class="themeatelier-container">
-                    <h2 class="help_page_title">Lite Vs Pro Comparison</h2>
+                    <h2 class="help_page_title"><?php echo esc_html__('Lite Vs Pro Comparison', 'better-chat-support'); ?></h2>
 
                     <div class="themeatelier-features">
                         <ul>
@@ -596,7 +596,7 @@ class Help
                                 </span>
                             </div>
                             <a target="_blank" class="chat_btn_secondary" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL . '#features') ?>"><?php echo esc_html__('See All Features', 'better-chat-support'); ?></a>
-                            <a target="_blank" class="chat_btn_secondary" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL) ?>"><?php echo esc_html__('Pro Live Demo', 'better-chat-support'); ?></a>
+                            <a target="_blank" class="chat_btn_secondary" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode') ?>"><?php echo esc_html__('Pro Live Demo', 'better-chat-support'); ?></a>
                         </div>
                     </div>
 
@@ -673,7 +673,7 @@ class Help
                     <div class="themeatelier-our-plugin-list">
                         <h2 class="help_page_title"><?php echo esc_html__('Upgrade your Website with our High-quality Plugins!', 'better-chat-support') ?></h2>
                         <div class="themeatelier-our-plugin-list-wrap">
-                            <a target="_blank" class="themeatelier-our-plugin-list-box" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL) ?>">
+                            <a target="_blank" class="themeatelier-our-plugin-list-box" href="<?php echo esc_url(BETTER_CHAT_SUPPORT_DEMO_URL . '#shortcode') ?>">
                                 <div class="box_btn">
                                     <?php echo esc_html__('View Details ', 'better-chat-support') ?>
                                     <i class="icofont-long-arrow-right"></i>
@@ -730,9 +730,6 @@ class Help
                                 <h4><?php echo esc_html__('Eventful for Elementor - Events Showcase for The Events Calendar', 'better-chat-support') ?></h4>
                                 <p><?php echo esc_html__('Easily display events from The Events Calendar plugin with Elementor widgets, offering seamless customization and powerful layout options.', 'better-chat-support') ?></p>
                             </a>
-
-
-
                         </div>
                     </div>
                 </div>

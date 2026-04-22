@@ -16,9 +16,9 @@ namespace ThemeAtelier\BetterChatSupport\Admin;
 use ThemeAtelier\BetterChatSupport\Admin\DBUpdates;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ReviewNotice;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ThemeAtelier_Offer_Banner;
-use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportHelp;
-use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportOptions;
-use ThemeAtelier\BetterChatSupport\Admin\Views\BetterChatSupportShortcode;
+use ThemeAtelier\BetterChatSupport\Admin\Views\Help;
+use ThemeAtelier\BetterChatSupport\Admin\Views\Options;
+use ThemeAtelier\BetterChatSupport\Admin\Views\Shortcode;
 use ThemeAtelier\BetterChatSupport\Admin\Views\Settings;
 
 /**
@@ -93,11 +93,11 @@ class Admin
 
     public function init_components()
     {
-        BetterChatSupportOptions::options('mcs-opt');
+        Options::options('mcs-opt');
     }
     public function mcs_shortcode_options()
     {
-        BetterChatSupportShortcode::options('mcs_shortcode');
+        Shortcode::options('mcs_shortcode');
     }
     public function mcs_settings_options()
     {
@@ -105,7 +105,7 @@ class Admin
     }
     public function mcs_help_options()
     {
-        BetterChatSupportHelp::options('mcs_help');
+        Help::options('mcs_help');
     }
 
     public function add_plugin_page()
@@ -119,6 +119,14 @@ class Admin
             array($this, 'better_chat_support_settings'),
             'dashicons-format-status',
             65
+        );
+        add_submenu_page(
+            'mcs',
+            esc_html__('Floating Chat', 'better-chat-support'),
+            esc_html__('Floating Chat', 'better-chat-support'),
+            'manage_options',
+            'mcs',
+            [$this, 'better_chat_support_settings']
         );
         do_action('better_chat_support_before_upgrade_pro_menu');
 
