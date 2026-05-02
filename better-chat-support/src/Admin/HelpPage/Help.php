@@ -708,7 +708,7 @@ class Help
                                     <?php echo esc_html__('View Details ', 'better-chat-support') ?>
                                     <i class="icofont-long-arrow-right"></i>
                                 </div>
-                                <img src="<?php echo esc_url(BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/HelpPage/assets/images/darkify.gif') ?>" alt="logo">
+                                <img src="https://ps.w.org/darkify/assets/icon-256x256.gif?rev=3301202" alt="logo">
                                 <h4><?php echo esc_html__('Darkify - WordPress Dark Mode Plugin', 'better-chat-support') ?></h4>
                                 <p><?php echo esc_html__('Darkify – is an extremely advanced dark mode plugin for any WordPress website. The plugin has the option to enable a dark mode switcher for the front end and also WordPress admin.', 'better-chat-support') ?></p>
                             </a>

@@ -2463,15 +2463,14 @@ span.tooltip-icon {
  */
 .better-chat-support-field-section_tab .better-chat-support-section_tab-nav {
   min-width: 250px;
-  border-right: 1px solid #0084ff ;
+  border-right: 1px solid #8396a2 ;
 }
 
 .better-chat-support-field-section_tab.better-chat-support-field {
   display: flex;
   margin: 30px;
-  border: 1px solid #0084ff ;
   padding: 0 !important;
-  border: 1px solid #0084ff  !important;
+  border: 1px solid #8396a2  !important;
 }
 
 .chathelp-mt-0{
@@ -2518,7 +2517,7 @@ span.tooltip-icon {
   color: #343434;
   font-weight: 600;
   background: #F4FAFF;
-  border-bottom: 1px solid #0084ff;
+  border-bottom: 1px solid #8396a2;
   transition: all 0.2s;
   overflow: hidden;
   font-size: 13px;

@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,10 @@ Yes. The plugin is totally translation ready. If it's not support in your langua
 4. Admin panel
 
 == Changelog ==
+= 2.0.1 – 01 May, 2026 =
+* Added: Theme Style option to choose different chat bubble designs (e.g., Flat and Custom styles).
+* Added: Display Notification Icon option to show or hide the notification icon in the interface.
+
 = 2.0.0 – 22 April, 2026 =
 * Added: New “Simple Button” floating layout.
 * Updated: Completely redesigned admin panel for improved usability.

@@ -50,6 +50,9 @@ class SingleTemplate
 		$enable_positioning_mobile = isset($options['enable-positioning-mobile']) ? $options['enable-positioning-mobile'] : '';
 		$bubble_position_mobile = isset($options['bubble-position-mobile']) ? $options['bubble-position-mobile'] : 'bottom_right';
 		$select_animation = isset($options['select-animation']) ? $options['select-animation'] : 'random';
+		$theme_style = isset($options['theme_style']) ? $options['theme_style'] : 'flat_theme';
+		$theme_background_image = isset($options['theme_background_image']) ? $options['theme_background_image'] : '';
+        $theme_background_image_url = !empty($theme_background_image['url']) ? $theme_background_image['url'] : BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/images/messenger_theme_background.jpg';
 		$bubble_style = isset($options['bubble-style']) ? $options['bubble-style'] : 'default';
 		$select_timezone = isset($options['select-timezone']) ? $options['select-timezone'] : '';
 		$header_content_position = isset($options['header-content-position']) ? $options['header-content-position'] : 'center';
@@ -99,7 +102,7 @@ class SingleTemplate
 			$bubble_position_mobile = '';
 		}
 		$button_style = '';
-		echo '<div id="' . esc_attr($unique_id) . '" class="mSupport_bubble mSupport ' . esc_attr($bubble_position . ' ' . $bubble_position_tablet . ' ' . $bubble_position_mobile . ' ' . $button_style) . ' mSupport-' . esc_attr($bubble_visibility) . '-only ';
+		echo '<div style="--custom_theme_bg: url('. esc_url($theme_background_image_url) .')" id="' . esc_attr($unique_id) . '" class="mSupport_bubble mSupport ' . esc_attr($bubble_position . ' ' . $bubble_position_tablet . ' ' . $bubble_position_mobile . ' ' . $button_style . ' ' . $theme_style) . ' mSupport-' . esc_attr($bubble_visibility) . '-only ';
 
 		// Add position-specific class if position is 'left'.
 		if ('left' === $bubble_position) {

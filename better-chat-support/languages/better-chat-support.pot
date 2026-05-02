@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-22 13:40+0000\n"
+"POT-Creation-Date: 2026-05-02 03:07+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Go Pro"
 msgstr ""
 
-#: src/Admin/Admin.php:205, src/Admin/HelpPage/Help.php:454, src/Admin/Views/General.php:106, src/Admin/Views/General.php:118, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:365, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:437, src/Admin/Views/General.php:451, src/Admin/Views/General.php:467, src/Admin/Views/General.php:503, src/Admin/Views/General.php:547, src/Admin/Views/General.php:575, src/Admin/Views/General.php:592, src/Admin/Views/General.php:607, src/Admin/Views/General.php:622, src/Admin/Views/General.php:635, src/Admin/Views/General.php:651, src/Admin/Views/General.php:665, src/Admin/Views/General.php:682, src/Admin/Views/General.php:748, src/Admin/Views/General.php:857, src/Admin/Views/General.php:896, src/Admin/Views/General.php:910, src/Admin/Views/General.php:924, src/Admin/Views/General.php:991, src/Admin/Views/General.php:1028, src/Admin/Views/General.php:1042, src/Admin/Views/General.php:1058, src/Admin/Views/General.php:1078, src/Admin/Views/General.php:1100, src/Admin/Views/General.php:1120, src/Admin/Views/General.php:1139, src/Admin/Views/General.php:1153, src/Admin/Views/General.php:1168, src/Admin/Views/General.php:1191, src/Admin/Views/General.php:1211, src/Admin/Views/General.php:1231, src/Admin/Views/General.php:1251, src/Admin/Views/General.php:1271, src/Admin/Views/General.php:1291, src/Admin/Views/General.php:1308, src/Admin/Views/General.php:1328, src/Admin/Views/General.php:1348, src/Admin/Views/General.php:1368, src/Admin/Views/General.php:1388, src/Admin/Views/General.php:1407, src/Admin/Views/General.php:1423, src/Admin/Views/General.php:1443, src/Admin/Views/General.php:1463, src/Admin/Views/General.php:1483, src/Admin/Views/General.php:1504, src/Admin/Views/General.php:1565, src/Admin/Views/General.php:1596, src/Admin/Views/General.php:1638, src/Admin/Views/Shortcode.php:63
+#: src/Admin/Admin.php:205, src/Admin/HelpPage/Help.php:454, src/Admin/Views/General.php:106, src/Admin/Views/General.php:118, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:365, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:437, src/Admin/Views/General.php:451, src/Admin/Views/General.php:467, src/Admin/Views/General.php:503, src/Admin/Views/General.php:547, src/Admin/Views/General.php:575, src/Admin/Views/General.php:592, src/Admin/Views/General.php:607, src/Admin/Views/General.php:622, src/Admin/Views/General.php:635, src/Admin/Views/General.php:651, src/Admin/Views/General.php:665, src/Admin/Views/General.php:682, src/Admin/Views/General.php:748, src/Admin/Views/General.php:857, src/Admin/Views/General.php:896, src/Admin/Views/General.php:910, src/Admin/Views/General.php:924, src/Admin/Views/General.php:991, src/Admin/Views/General.php:1028, src/Admin/Views/General.php:1042, src/Admin/Views/General.php:1058, src/Admin/Views/General.php:1107, src/Admin/Views/General.php:1129, src/Admin/Views/General.php:1149, src/Admin/Views/General.php:1168, src/Admin/Views/General.php:1182, src/Admin/Views/General.php:1197, src/Admin/Views/General.php:1220, src/Admin/Views/General.php:1240, src/Admin/Views/General.php:1260, src/Admin/Views/General.php:1280, src/Admin/Views/General.php:1300, src/Admin/Views/General.php:1320, src/Admin/Views/General.php:1337, src/Admin/Views/General.php:1357, src/Admin/Views/General.php:1377, src/Admin/Views/General.php:1397, src/Admin/Views/General.php:1417, src/Admin/Views/General.php:1436, src/Admin/Views/General.php:1452, src/Admin/Views/General.php:1472, src/Admin/Views/General.php:1492, src/Admin/Views/General.php:1512, src/Admin/Views/General.php:1533, src/Admin/Views/General.php:1594, src/Admin/Views/General.php:1624, src/Admin/Views/General.php:1658, src/Admin/Views/General.php:1700, src/Admin/Views/Shortcode.php:63
 msgid "Live Demo"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgstr ""
 msgid "Enable this option to completely remove all Messenger Chat Support plugin data when the plugin is deleted from your site."
 msgstr ""
 
-#: src/Admin/Views/Advance.php:39, src/Admin/Views/Advance.php:47, src/Admin/Views/Advance.php:53, src/Admin/Views/Advance.php:63, src/Admin/Views/General.php:44, src/Admin/Views/General.php:96, src/Admin/Views/General.php:107, src/Admin/Views/General.php:118, src/Admin/Views/General.php:135, src/Admin/Views/General.php:146, src/Admin/Views/General.php:292, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:366, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:438, src/Admin/Views/General.php:452, src/Admin/Views/General.php:468, src/Admin/Views/General.php:483, src/Admin/Views/General.php:504, src/Admin/Views/General.php:532, src/Admin/Views/General.php:547, src/Admin/Views/General.php:560, src/Admin/Views/General.php:575, src/Admin/Views/General.php:593, src/Admin/Views/General.php:608, src/Admin/Views/General.php:623, src/Admin/Views/General.php:636, src/Admin/Views/General.php:652, src/Admin/Views/General.php:666, src/Admin/Views/General.php:683, src/Admin/Views/General.php:721, src/Admin/Views/General.php:734, src/Admin/Views/General.php:749, src/Admin/Views/General.php:786, src/Admin/Views/General.php:799, src/Admin/Views/General.php:814, src/Admin/Views/General.php:858, src/Admin/Views/General.php:897, src/Admin/Views/General.php:911, src/Admin/Views/General.php:925, src/Admin/Views/General.php:992, src/Admin/Views/General.php:1029, src/Admin/Views/General.php:1043, src/Admin/Views/General.php:1059, src/Admin/Views/General.php:1079, src/Admin/Views/General.php:1101, src/Admin/Views/General.php:1121, src/Admin/Views/General.php:1140, src/Admin/Views/General.php:1154, src/Admin/Views/General.php:1169, src/Admin/Views/General.php:1192, src/Admin/Views/General.php:1212, src/Admin/Views/General.php:1232, src/Admin/Views/General.php:1252, src/Admin/Views/General.php:1272, src/Admin/Views/General.php:1292, src/Admin/Views/General.php:1309, src/Admin/Views/General.php:1329, src/Admin/Views/General.php:1349, src/Admin/Views/General.php:1369, src/Admin/Views/General.php:1389, src/Admin/Views/General.php:1408, src/Admin/Views/General.php:1424, src/Admin/Views/General.php:1444, src/Admin/Views/General.php:1464, src/Admin/Views/General.php:1484, src/Admin/Views/General.php:1505, src/Admin/Views/General.php:1531, src/Admin/Views/General.php:1547, src/Admin/Views/General.php:1566, src/Admin/Views/General.php:1597, src/Admin/Views/General.php:1622, src/Admin/Views/General.php:1639, src/Admin/Views/General.php:1661, src/Admin/Views/General.php:1678, src/Admin/Views/General.php:1715, src/Admin/Views/General.php:1735, src/Admin/Views/General.php:1766, src/Admin/Views/General.php:1780, src/Admin/Views/General.php:1791, src/Admin/Views/General.php:1824, src/Admin/Views/General.php:1839, src/Admin/Views/General.php:1850, src/Admin/Views/General.php:1878, src/Admin/Views/Shortcode.php:64
+#: src/Admin/Views/Advance.php:39, src/Admin/Views/Advance.php:47, src/Admin/Views/Advance.php:53, src/Admin/Views/Advance.php:63, src/Admin/Views/General.php:44, src/Admin/Views/General.php:96, src/Admin/Views/General.php:107, src/Admin/Views/General.php:118, src/Admin/Views/General.php:135, src/Admin/Views/General.php:146, src/Admin/Views/General.php:292, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:366, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:438, src/Admin/Views/General.php:452, src/Admin/Views/General.php:468, src/Admin/Views/General.php:483, src/Admin/Views/General.php:504, src/Admin/Views/General.php:532, src/Admin/Views/General.php:547, src/Admin/Views/General.php:560, src/Admin/Views/General.php:575, src/Admin/Views/General.php:593, src/Admin/Views/General.php:608, src/Admin/Views/General.php:623, src/Admin/Views/General.php:636, src/Admin/Views/General.php:652, src/Admin/Views/General.php:666, src/Admin/Views/General.php:683, src/Admin/Views/General.php:721, src/Admin/Views/General.php:734, src/Admin/Views/General.php:749, src/Admin/Views/General.php:786, src/Admin/Views/General.php:799, src/Admin/Views/General.php:814, src/Admin/Views/General.php:858, src/Admin/Views/General.php:897, src/Admin/Views/General.php:911, src/Admin/Views/General.php:925, src/Admin/Views/General.php:992, src/Admin/Views/General.php:1029, src/Admin/Views/General.php:1043, src/Admin/Views/General.php:1059, src/Admin/Views/General.php:1108, src/Admin/Views/General.php:1130, src/Admin/Views/General.php:1150, src/Admin/Views/General.php:1169, src/Admin/Views/General.php:1183, src/Admin/Views/General.php:1198, src/Admin/Views/General.php:1221, src/Admin/Views/General.php:1241, src/Admin/Views/General.php:1261, src/Admin/Views/General.php:1281, src/Admin/Views/General.php:1301, src/Admin/Views/General.php:1321, src/Admin/Views/General.php:1338, src/Admin/Views/General.php:1358, src/Admin/Views/General.php:1378, src/Admin/Views/General.php:1398, src/Admin/Views/General.php:1418, src/Admin/Views/General.php:1437, src/Admin/Views/General.php:1453, src/Admin/Views/General.php:1473, src/Admin/Views/General.php:1493, src/Admin/Views/General.php:1513, src/Admin/Views/General.php:1534, src/Admin/Views/General.php:1560, src/Admin/Views/General.php:1576, src/Admin/Views/General.php:1595, src/Admin/Views/General.php:1625, src/Admin/Views/General.php:1659, src/Admin/Views/General.php:1684, src/Admin/Views/General.php:1701, src/Admin/Views/General.php:1723, src/Admin/Views/General.php:1740, src/Admin/Views/General.php:1777, src/Admin/Views/General.php:1797, src/Admin/Views/General.php:1828, src/Admin/Views/General.php:1842, src/Admin/Views/General.php:1853, src/Admin/Views/General.php:1886, src/Admin/Views/General.php:1901, src/Admin/Views/General.php:1912, src/Admin/Views/General.php:1940, src/Admin/Views/Shortcode.php:64
 msgid "Open Docs"
 msgstr ""
 
@@ -633,7 +633,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: src/Admin/Views/General.php:295, src/Admin/Views/General.php:421, src/Admin/Views/General.php:535, src/Admin/Views/General.php:563, src/Admin/Views/General.php:705, src/Admin/Views/General.php:771, src/Admin/Views/General.php:840, src/Admin/Views/General.php:881, src/Admin/Views/General.php:962
+#: src/Admin/Views/General.php:295, src/Admin/Views/General.php:421, src/Admin/Views/General.php:535, src/Admin/Views/General.php:563, src/Admin/Views/General.php:705, src/Admin/Views/General.php:771, src/Admin/Views/General.php:840, src/Admin/Views/General.php:881, src/Admin/Views/General.php:962, src/Admin/Views/General.php:1633
 msgid "Custom"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Enter the main title text to display at the top of the chat bubble."
 msgstr ""
 
-#: src/Admin/Views/General.php:350, src/Admin/Views/General.php:1141
+#: src/Admin/Views/General.php:350, src/Admin/Views/General.php:1170
 msgid "Need Help? Chat with us"
 msgstr ""
 
@@ -977,7 +977,7 @@ msgstr ""
 msgid "Select the animation effect used when toggling the circular chat button between open and close states."
 msgstr ""
 
-#: src/Admin/Views/General.php:927, src/Admin/Views/General.php:1574
+#: src/Admin/Views/General.php:927, src/Admin/Views/General.php:1603
 msgid "Slide Down"
 msgstr ""
 
@@ -989,7 +989,7 @@ msgstr ""
 msgid "Rotate"
 msgstr ""
 
-#: src/Admin/Views/General.php:930, src/Admin/Views/General.php:1580
+#: src/Admin/Views/General.php:930, src/Admin/Views/General.php:1609
 msgid "Slide Up"
 msgstr ""
 
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "Normal Color"
 msgstr ""
 
-#: src/Admin/Views/General.php:977, src/Admin/Views/General.php:1010, src/Admin/Views/General.php:1032, src/Admin/Views/General.php:1046, src/Admin/Views/General.php:1664
+#: src/Admin/Views/General.php:977, src/Admin/Views/General.php:1010, src/Admin/Views/General.php:1032, src/Admin/Views/General.php:1046, src/Admin/Views/General.php:1726
 msgid "Hover Color"
 msgstr ""
 
@@ -1077,511 +1077,547 @@ msgstr ""
 msgid "Button Border"
 msgstr ""
 
-#: src/Admin/Views/General.php:1056, src/Admin/Views/General.php:1076
+#: src/Admin/Views/General.php:1056, src/Admin/Views/General.php:1105
 msgid "Set border for the floating chat button."
 msgstr ""
 
-#: src/Admin/Views/General.php:1074, src/Frontend/elementor-widgets/elementor-widget.php:1309, src/Frontend/elementor-widgets/elementor-widget.php:1313
-msgid "Icon Border"
+#: src/Admin/Views/General.php:1074
+msgid "Display Notification Icon"
 msgstr ""
 
-#: src/Admin/Views/General.php:1096
-msgid "Button Padding"
+#: src/Admin/Views/General.php:1075
+msgid "Toggle to show or hide the notification icon in the interface."
 msgstr ""
 
-#: src/Admin/Views/General.php:1098
-msgid "Adjust the inner spacing (padding) of the floating chat button."
-msgstr ""
-
-#: src/Admin/Views/General.php:1114
-msgid "Button Tooltip"
-msgstr ""
-
-#: src/Admin/Views/General.php:1118
-msgid "Enable and customize the tooltip text that appears when hovering over the floating chat button."
-msgstr ""
-
-#: src/Admin/Views/General.php:1124
-msgid "On Hover"
-msgstr ""
-
-#: src/Admin/Views/General.php:1125
+#: src/Admin/Views/General.php:1076, src/Admin/Views/General.php:1154
 msgid "Show"
 msgstr ""
 
-#: src/Admin/Views/General.php:1126
+#: src/Admin/Views/General.php:1077, src/Admin/Views/General.php:1155
 msgid "Hide"
 msgstr ""
 
-#: src/Admin/Views/General.php:1133
-msgid "Button Tooltip Text"
+#: src/Admin/Views/General.php:1083
+msgid "Notification Number"
 msgstr ""
 
-#: src/Admin/Views/General.php:1137
-msgid "Enter the text that will appear inside the tooltip when hovering over the floating chat button."
+#: src/Admin/Views/General.php:1084
+msgid "Select a number to display as a notification badge on the icon. Choose \"None\" to hide the number."
 msgstr ""
 
-#: src/Admin/Views/General.php:1148
-msgid "Button Tooltip Background"
+#: src/Admin/Views/General.php:1103, src/Frontend/elementor-widgets/elementor-widget.php:1309, src/Frontend/elementor-widgets/elementor-widget.php:1313
+msgid "Icon Border"
 msgstr ""
 
-#: src/Admin/Views/General.php:1151
-msgid "Choose the background color for the tooltip that appears when hovering over the floating chat button."
+#: src/Admin/Views/General.php:1125
+msgid "Button Padding"
+msgstr ""
+
+#: src/Admin/Views/General.php:1127
+msgid "Adjust the inner spacing (padding) of the floating chat button."
+msgstr ""
+
+#: src/Admin/Views/General.php:1143
+msgid "Button Tooltip"
+msgstr ""
+
+#: src/Admin/Views/General.php:1147
+msgid "Enable and customize the tooltip text that appears when hovering over the floating chat button."
+msgstr ""
+
+#: src/Admin/Views/General.php:1153
+msgid "On Hover"
 msgstr ""
 
 #: src/Admin/Views/General.php:1162
-msgid "Button Tooltip Width"
+msgid "Button Tooltip Text"
 msgstr ""
 
 #: src/Admin/Views/General.php:1166
+msgid "Enter the text that will appear inside the tooltip when hovering over the floating chat button."
+msgstr ""
+
+#: src/Admin/Views/General.php:1177
+msgid "Button Tooltip Background"
+msgstr ""
+
+#: src/Admin/Views/General.php:1180
+msgid "Choose the background color for the tooltip that appears when hovering over the floating chat button."
+msgstr ""
+
+#: src/Admin/Views/General.php:1191
+msgid "Button Tooltip Width"
+msgstr ""
+
+#: src/Admin/Views/General.php:1195
 msgid "Set the maximum width of the tooltip that appears when hovering over the floating chat button."
 msgstr ""
 
-#: src/Admin/Views/General.php:1181
+#: src/Admin/Views/General.php:1210
 msgid "Positioning"
 msgstr ""
 
-#: src/Admin/Views/General.php:1186, src/Admin/Views/General.php:1303, src/Admin/Views/General.php:1418
+#: src/Admin/Views/General.php:1215, src/Admin/Views/General.php:1332, src/Admin/Views/General.php:1447
 msgid "Bubble Position"
 msgstr ""
 
-#: src/Admin/Views/General.php:1189
+#: src/Admin/Views/General.php:1218
 msgid "Select the screen position where the floating chat button will appear."
 msgstr ""
 
-#: src/Admin/Views/General.php:1194, src/Admin/Views/General.php:1311, src/Admin/Views/General.php:1426
+#: src/Admin/Views/General.php:1223, src/Admin/Views/General.php:1340, src/Admin/Views/General.php:1455
 msgid "Bottom Right"
 msgstr ""
 
-#: src/Admin/Views/General.php:1195, src/Admin/Views/General.php:1312, src/Admin/Views/General.php:1427
+#: src/Admin/Views/General.php:1224, src/Admin/Views/General.php:1341, src/Admin/Views/General.php:1456
 msgid "Bottom Left"
 msgstr ""
 
-#: src/Admin/Views/General.php:1196, src/Admin/Views/General.php:1313, src/Admin/Views/General.php:1428
+#: src/Admin/Views/General.php:1225, src/Admin/Views/General.php:1342, src/Admin/Views/General.php:1457
 msgid "Middle Right"
 msgstr ""
 
-#: src/Admin/Views/General.php:1197, src/Admin/Views/General.php:1314, src/Admin/Views/General.php:1429
+#: src/Admin/Views/General.php:1226, src/Admin/Views/General.php:1343, src/Admin/Views/General.php:1458
 msgid "Middle Left"
 msgstr ""
 
-#: src/Admin/Views/General.php:1206, src/Admin/Views/General.php:1323, src/Admin/Views/General.php:1438
+#: src/Admin/Views/General.php:1235, src/Admin/Views/General.php:1352, src/Admin/Views/General.php:1467
 msgid "Margin from Bottom Right"
 msgstr ""
 
-#: src/Admin/Views/General.php:1209
+#: src/Admin/Views/General.php:1238
 msgid "Set the margin (spacing) of the floating chat button from the bottom and right edges of the screen. Adjust to reposition the button as needed."
 msgstr ""
 
-#: src/Admin/Views/General.php:1226, src/Admin/Views/General.php:1343, src/Admin/Views/General.php:1458
+#: src/Admin/Views/General.php:1255, src/Admin/Views/General.php:1372, src/Admin/Views/General.php:1487
 msgid "Margin from Bottom Left"
 msgstr ""
 
-#: src/Admin/Views/General.php:1229
+#: src/Admin/Views/General.php:1258
 msgid "Set the margin (spacing) of the floating chat button from the bottom and left edges of the screen. Adjust to reposition the button as needed."
 msgstr ""
 
-#: src/Admin/Views/General.php:1246, src/Admin/Views/General.php:1363, src/Admin/Views/General.php:1478
+#: src/Admin/Views/General.php:1275, src/Admin/Views/General.php:1392, src/Admin/Views/General.php:1507
 msgid "Margin from Middle Right"
 msgstr ""
 
-#: src/Admin/Views/General.php:1249
+#: src/Admin/Views/General.php:1278
 msgid "Set the margin (spacing) of the floating chat button from the right edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1266, src/Admin/Views/General.php:1383, src/Admin/Views/General.php:1499
+#: src/Admin/Views/General.php:1295, src/Admin/Views/General.php:1412, src/Admin/Views/General.php:1528
 msgid "Margin from Middle Left"
 msgstr ""
 
-#: src/Admin/Views/General.php:1269
+#: src/Admin/Views/General.php:1298
 msgid "Set the margin (spacing) of the floating chat button from the left edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1286
+#: src/Admin/Views/General.php:1315
 msgid "Different Positioning for Tablet Devices"
 msgstr ""
 
-#: src/Admin/Views/General.php:1289
+#: src/Admin/Views/General.php:1318
 msgid "Enable this option to set a custom bubble position specifically for tablet devices. Useful for optimizing layout and user experience on medium screens."
 msgstr ""
 
-#: src/Admin/Views/General.php:1294, src/Admin/Views/General.php:1409, src/Admin/Views/General.php:1532, src/Frontend/elementor-widgets/elementor-widget.php:186, src/Frontend/elementor-widgets/elementor-widget.php:1375, src/Frontend/elementor-widgets/elementor-widget.php:1449
+#: src/Admin/Views/General.php:1323, src/Admin/Views/General.php:1438, src/Admin/Views/General.php:1561, src/Frontend/elementor-widgets/elementor-widget.php:186, src/Frontend/elementor-widgets/elementor-widget.php:1375, src/Frontend/elementor-widgets/elementor-widget.php:1449
 msgid "Yes"
 msgstr ""
 
-#: src/Admin/Views/General.php:1295, src/Admin/Views/General.php:1410, src/Admin/Views/General.php:1533, src/Frontend/elementor-widgets/elementor-widget.php:187, src/Frontend/elementor-widgets/elementor-widget.php:1376, src/Frontend/elementor-widgets/elementor-widget.php:1450
+#: src/Admin/Views/General.php:1324, src/Admin/Views/General.php:1439, src/Admin/Views/General.php:1562, src/Frontend/elementor-widgets/elementor-widget.php:187, src/Frontend/elementor-widgets/elementor-widget.php:1376, src/Frontend/elementor-widgets/elementor-widget.php:1450
 msgid "No"
 msgstr ""
 
-#: src/Admin/Views/General.php:1306, src/Admin/Views/General.php:1421
+#: src/Admin/Views/General.php:1335, src/Admin/Views/General.php:1450
 msgid "Select the screen position where the chat bubble will appear."
 msgstr ""
 
-#: src/Admin/Views/General.php:1326
+#: src/Admin/Views/General.php:1355
 msgid "Set the margin (spacing) of the chat bubble from the bottom and right edges of the screen. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1346
+#: src/Admin/Views/General.php:1375
 msgid "Set the margin (spacing) of the chat bubble from the bottom and left edges of the screen. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1366, src/Admin/Views/General.php:1481
+#: src/Admin/Views/General.php:1395, src/Admin/Views/General.php:1510
 msgid "Set the margin (spacing) of the chat bubble from the right edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1386, src/Admin/Views/General.php:1502
+#: src/Admin/Views/General.php:1415, src/Admin/Views/General.php:1531
 msgid "Set the margin (spacing) of the chat bubble from the left edge of the screen when positioned in the middle. Adjust to fine-tune its placement."
 msgstr ""
 
-#: src/Admin/Views/General.php:1402
+#: src/Admin/Views/General.php:1431
 msgid "Different Positioning for Mobile Devices"
 msgstr ""
 
-#: src/Admin/Views/General.php:1405
+#: src/Admin/Views/General.php:1434
 msgid "Enable this option to set a custom chat bubble position specifically for mobile devices. Useful for optimizing layout and usability on smaller screens."
 msgstr ""
 
-#: src/Admin/Views/General.php:1441
+#: src/Admin/Views/General.php:1470
 msgid "Set the margin (spacing) of the chat bubble from the bottom and right edges of the screen. Adjust to reposition the bubble as needed."
 msgstr ""
 
-#: src/Admin/Views/General.php:1461
+#: src/Admin/Views/General.php:1490
 msgid "Set the margin (spacing) of the chat bubble from the bottom and left edges of the screen. Adjust to reposition the bubble as needed."
 msgstr ""
 
-#: src/Admin/Views/General.php:1519, src/Frontend/elementor-widgets/elementor-widget.php:101
+#: src/Admin/Views/General.php:1548, src/Frontend/elementor-widgets/elementor-widget.php:101
 msgid "Style"
 msgstr ""
 
-#: src/Admin/Views/General.php:1526
+#: src/Admin/Views/General.php:1555
 msgid "Auto Open Popup"
 msgstr ""
 
-#: src/Admin/Views/General.php:1529
+#: src/Admin/Views/General.php:1558
 msgid "Enable this option to automatically open the chat popup when the page loads. Useful for drawing visitor attention without requiring a click."
 msgstr ""
 
-#: src/Admin/Views/General.php:1542
+#: src/Admin/Views/General.php:1571
 msgid "Auto Open Popup Timeout"
 msgstr ""
 
-#: src/Admin/Views/General.php:1545
+#: src/Admin/Views/General.php:1574
 msgid "Set the delay (in seconds) before the chat popup automatically opens after the page loads."
 msgstr ""
 
-#: src/Admin/Views/General.php:1553
+#: src/Admin/Views/General.php:1582
 msgid "ms"
 msgstr ""
 
-#: src/Admin/Views/General.php:1560
+#: src/Admin/Views/General.php:1589
 msgid "Select Animation for Bubble"
 msgstr ""
 
-#: src/Admin/Views/General.php:1563
+#: src/Admin/Views/General.php:1592
 msgid "Choose an animation style for how the chat bubble appears on the screen. You can pick a specific effect or select \"Random\" to apply a different animation each time."
 msgstr ""
 
-#: src/Admin/Views/General.php:1568
+#: src/Admin/Views/General.php:1597
 msgid "Fade Right"
 msgstr ""
 
-#: src/Admin/Views/General.php:1569
+#: src/Admin/Views/General.php:1598
 msgid "Fade Down"
 msgstr ""
 
-#: src/Admin/Views/General.php:1570
+#: src/Admin/Views/General.php:1599
 msgid "Ease Down"
 msgstr ""
 
-#: src/Admin/Views/General.php:1571
+#: src/Admin/Views/General.php:1600
 msgid "Fade In Scale"
 msgstr ""
 
-#: src/Admin/Views/General.php:1572
+#: src/Admin/Views/General.php:1601
 msgid "Rotation"
 msgstr ""
 
-#: src/Admin/Views/General.php:1573
+#: src/Admin/Views/General.php:1602
 msgid "Slide Fall"
 msgstr ""
 
-#: src/Admin/Views/General.php:1575
+#: src/Admin/Views/General.php:1604
 msgid "Rotate Left"
 msgstr ""
 
-#: src/Admin/Views/General.php:1576
+#: src/Admin/Views/General.php:1605
 msgid "Flip Horizontal"
 msgstr ""
 
-#: src/Admin/Views/General.php:1577
+#: src/Admin/Views/General.php:1606
 msgid "Flip Vertical"
 msgstr ""
 
-#: src/Admin/Views/General.php:1578
+#: src/Admin/Views/General.php:1607
 msgid "Flip Up"
 msgstr ""
 
-#: src/Admin/Views/General.php:1579
+#: src/Admin/Views/General.php:1608
 msgid "Super Scaled"
 msgstr ""
 
-#: src/Admin/Views/General.php:1581
+#: src/Admin/Views/General.php:1610
 msgid "Random"
 msgstr ""
 
-#: src/Admin/Views/General.php:1591
-msgid "Select Bubble Layout Mode"
+#: src/Admin/Views/General.php:1618
+msgid "Theme Style"
 msgstr ""
 
-#: src/Admin/Views/General.php:1594
-msgid "Choose a color mode for the chat bubble. This controls the overall appearance and theme style of the bubble."
+#: src/Admin/Views/General.php:1622
+msgid "Select the visual style for your chat bubble. This setting changes the overall look and feel of the chat interface."
 msgstr ""
 
-#: src/Admin/Views/General.php:1600
-msgid "Light mode"
+#: src/Admin/Views/General.php:1629
+msgid "Flat Theme"
 msgstr ""
 
-#: src/Admin/Views/General.php:1603
-msgid "Dark mode"
+#: src/Admin/Views/General.php:1643
+msgid "Background Image"
 msgstr ""
 
-#: src/Admin/Views/General.php:1607
-msgid "Night mode"
-msgstr ""
-
-#: src/Admin/Views/General.php:1617
-msgid "Custom Bubble Trigger"
-msgstr ""
-
-#: src/Admin/Views/General.php:1620
-msgid "Add custom CSS selectors (e.g., .classname, #idname) that can also act as triggers to open the chat bubble. Useful when you want other elements on your site to open the chat besides the default button."
-msgstr ""
-
-#: src/Admin/Views/General.php:1623
-msgid ".classname, #idname"
-msgstr ""
-
-#: src/Admin/Views/General.php:1630
-msgid "Color Settings"
-msgstr ""
-
-#: src/Admin/Views/General.php:1633
-msgid "Preview Image"
-msgstr ""
-
-#: src/Admin/Views/General.php:1636
-msgid "Set your brand colors for the chat bubble. Adjust the Primary and Secondary colors to match your site style."
-msgstr ""
-
-#: src/Admin/Views/General.php:1641
-msgid "Primary"
-msgstr ""
-
-#: src/Admin/Views/General.php:1642
-msgid "Secondary"
+#: src/Admin/Views/General.php:1644
+msgid "Upload or select an image to use as the theme background image."
 msgstr ""
 
 #: src/Admin/Views/General.php:1653
-msgid "Send Button"
-msgstr ""
-
-#: src/Admin/Views/General.php:1655
-msgid "Unlock full customization of the Send Button colors with the "
+msgid "Select Bubble Layout Mode"
 msgstr ""
 
 #: src/Admin/Views/General.php:1656
-msgid "Pro version."
+msgid "Choose a color mode for the chat bubble. This controls the overall appearance and theme style of the bubble."
 msgstr ""
 
-#: src/Admin/Views/General.php:1659
-msgid "Choose the colors for the send button."
-msgstr ""
-
-#: src/Admin/Views/General.php:1663, src/Admin/Framework/fields/background/background.php:280
-msgid "Color"
+#: src/Admin/Views/General.php:1662
+msgid "Light mode"
 msgstr ""
 
 #: src/Admin/Views/General.php:1665
-msgid "Background"
+msgid "Dark mode"
 msgstr ""
 
-#: src/Admin/Views/General.php:1666
-msgid "Hover Background"
+#: src/Admin/Views/General.php:1669
+msgid "Night mode"
 msgstr ""
 
-#: src/Admin/Views/General.php:1673
-msgid "Typography"
+#: src/Admin/Views/General.php:1679
+msgid "Custom Bubble Trigger"
 msgstr ""
 
-#: src/Admin/Views/General.php:1676
-msgid "Select the font family and weight for your chat bubble text. Adjust these options to keep the widget consistent with your site’s typography."
+#: src/Admin/Views/General.php:1682
+msgid "Add custom CSS selectors (e.g., .classname, #idname) that can also act as triggers to open the chat bubble. Useful when you want other elements on your site to open the chat besides the default button."
 msgstr ""
 
-#: src/Admin/Views/General.php:1694
-msgid "Others"
+#: src/Admin/Views/General.php:1685
+msgid ".classname, #idname"
 msgstr ""
 
-#: src/Admin/Views/General.php:1701
-msgid "Visiblity"
+#: src/Admin/Views/General.php:1692
+msgid "Color Settings"
 msgstr ""
 
-#: src/Admin/Views/General.php:1707
-msgid "Device Visibility"
+#: src/Admin/Views/General.php:1695
+msgid "Preview Image"
 msgstr ""
 
-#: src/Admin/Views/General.php:1710
-msgid "Everywhere:"
+#: src/Admin/Views/General.php:1698
+msgid "Set your brand colors for the chat bubble. Adjust the Primary and Secondary colors to match your site style."
 msgstr ""
 
-#: src/Admin/Views/General.php:1710
-msgid "Visible on all devices."
+#: src/Admin/Views/General.php:1703
+msgid "Primary"
 msgstr ""
 
-#: src/Admin/Views/General.php:1711
-msgid "Desktop Only:"
+#: src/Admin/Views/General.php:1704
+msgid "Secondary"
 msgstr ""
 
-#: src/Admin/Views/General.php:1711
-msgid "Visible on devices wider than 991px."
+#: src/Admin/Views/General.php:1715
+msgid "Send Button"
 msgstr ""
 
-#: src/Admin/Views/General.php:1712
-msgid "Tablet Only:"
-msgstr ""
-
-#: src/Admin/Views/General.php:1712
-msgid "Visible on devices between 576px and 991px."
-msgstr ""
-
-#: src/Admin/Views/General.php:1713
-msgid "Mobile Only:"
-msgstr ""
-
-#: src/Admin/Views/General.php:1713
-msgid "Visible on devices smaller than 576px."
-msgstr ""
-
-#: src/Admin/Views/General.php:1717, src/Frontend/elementor-widgets/elementor-widget.php:1097
-msgid "Everywhere"
+#: src/Admin/Views/General.php:1717
+msgid "Unlock full customization of the Send Button colors with the "
 msgstr ""
 
 #: src/Admin/Views/General.php:1718
-msgid "Desktop Only"
+msgid "Pro version."
 msgstr ""
 
-#: src/Admin/Views/General.php:1719
-msgid "Tablet Only"
+#: src/Admin/Views/General.php:1721
+msgid "Choose the colors for the send button."
 msgstr ""
 
-#: src/Admin/Views/General.php:1720
-msgid "Mobile Only"
+#: src/Admin/Views/General.php:1725, src/Admin/Framework/fields/background/background.php:280
+msgid "Color"
 msgstr ""
 
-#: src/Admin/Views/General.php:1730
-msgid "Visibility By"
+#: src/Admin/Views/General.php:1727
+msgid "Background"
 msgstr ""
 
-#: src/Admin/Views/General.php:1733
-msgid "Select where the chat bubble should be visible. You can enable it by specific content types such as pages, posts, products, categories, or tags."
+#: src/Admin/Views/General.php:1728
+msgid "Hover Background"
 msgstr ""
 
-#: src/Admin/Views/General.php:1737, src/Admin/Views/General.php:1756, src/Admin/Views/General.php:1786
-msgid "Theme Pages"
+#: src/Admin/Views/General.php:1735
+msgid "Typography"
 msgstr ""
 
-#: src/Admin/Views/General.php:1738, src/Admin/Views/General.php:1814, src/Admin/Views/General.php:1845
-msgid "Pages"
+#: src/Admin/Views/General.php:1738
+msgid "Select the font family and weight for your chat bubble text. Adjust these options to keep the widget consistent with your site’s typography."
 msgstr ""
 
-#: src/Admin/Views/General.php:1739
-msgid "Posts (Pro)"
+#: src/Admin/Views/General.php:1756
+msgid "Others"
 msgstr ""
 
-#: src/Admin/Views/General.php:1740
-msgid "Products (Pro)"
+#: src/Admin/Views/General.php:1763
+msgid "Visiblity"
 msgstr ""
 
-#: src/Admin/Views/General.php:1741
-msgid "Post Categories (Pro)"
+#: src/Admin/Views/General.php:1769
+msgid "Device Visibility"
 msgstr ""
 
-#: src/Admin/Views/General.php:1742
-msgid "Post Tags (Pro)"
+#: src/Admin/Views/General.php:1772
+msgid "Everywhere:"
 msgstr ""
 
-#: src/Admin/Views/General.php:1743
-msgid "Product Categories (Pro)"
+#: src/Admin/Views/General.php:1772
+msgid "Visible on all devices."
 msgstr ""
 
-#: src/Admin/Views/General.php:1744
-msgid "Product Tags (Pro)"
+#: src/Admin/Views/General.php:1773
+msgid "Desktop Only:"
 msgstr ""
 
-#: src/Admin/Views/General.php:1761, src/Admin/Views/General.php:1819
-msgid "Target"
+#: src/Admin/Views/General.php:1773
+msgid "Visible on devices wider than 991px."
 msgstr ""
 
-#: src/Admin/Views/General.php:1764
-msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected items."
+#: src/Admin/Views/General.php:1774
+msgid "Tablet Only:"
 msgstr ""
 
-#: src/Admin/Views/General.php:1768, src/Admin/Views/General.php:1826
-msgid "Include"
-msgstr ""
-
-#: src/Admin/Views/General.php:1769, src/Admin/Views/General.php:1827
-msgid "Exclude"
+#: src/Admin/Views/General.php:1774
+msgid "Visible on devices between 576px and 991px."
 msgstr ""
 
 #: src/Admin/Views/General.php:1775
-msgid "All Theme Pages"
+msgid "Mobile Only:"
 msgstr ""
 
-#: src/Admin/Views/General.php:1778
-msgid "Enable this option to apply the chat bubble visibility rule to all theme pages at once, instead of selecting them individually."
+#: src/Admin/Views/General.php:1775
+msgid "Visible on devices smaller than 576px."
 msgstr ""
 
-#: src/Admin/Views/General.php:1789
-msgid "Select a specific theme page where the chat bubble visibility rule should apply. Options include Blog, 404, or Search pages."
+#: src/Admin/Views/General.php:1779, src/Frontend/elementor-widgets/elementor-widget.php:1097
+msgid "Everywhere"
 msgstr ""
 
-#: src/Admin/Views/General.php:1793
-msgid "Blog Page"
+#: src/Admin/Views/General.php:1780
+msgid "Desktop Only"
 msgstr ""
 
-#: src/Admin/Views/General.php:1794
-msgid "404 Page"
+#: src/Admin/Views/General.php:1781
+msgid "Tablet Only"
+msgstr ""
+
+#: src/Admin/Views/General.php:1782
+msgid "Mobile Only"
+msgstr ""
+
+#: src/Admin/Views/General.php:1792
+msgid "Visibility By"
 msgstr ""
 
 #: src/Admin/Views/General.php:1795
-msgid "Search Page"
+msgid "Select where the chat bubble should be visible. You can enable it by specific content types such as pages, posts, products, categories, or tags."
 msgstr ""
 
-#: src/Admin/Views/General.php:1822
-msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected pages."
+#: src/Admin/Views/General.php:1799, src/Admin/Views/General.php:1818, src/Admin/Views/General.php:1848
+msgid "Theme Pages"
 msgstr ""
 
-#: src/Admin/Views/General.php:1834
-msgid "All Pages"
+#: src/Admin/Views/General.php:1800, src/Admin/Views/General.php:1876, src/Admin/Views/General.php:1907
+msgid "Pages"
+msgstr ""
+
+#: src/Admin/Views/General.php:1801
+msgid "Posts (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1802
+msgid "Products (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1803
+msgid "Post Categories (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1804
+msgid "Post Tags (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1805
+msgid "Product Categories (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1806
+msgid "Product Tags (Pro)"
+msgstr ""
+
+#: src/Admin/Views/General.php:1823, src/Admin/Views/General.php:1881
+msgid "Target"
+msgstr ""
+
+#: src/Admin/Views/General.php:1826
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected items."
+msgstr ""
+
+#: src/Admin/Views/General.php:1830, src/Admin/Views/General.php:1888
+msgid "Include"
+msgstr ""
+
+#: src/Admin/Views/General.php:1831, src/Admin/Views/General.php:1889
+msgid "Exclude"
 msgstr ""
 
 #: src/Admin/Views/General.php:1837
+msgid "All Theme Pages"
+msgstr ""
+
+#: src/Admin/Views/General.php:1840
+msgid "Enable this option to apply the chat bubble visibility rule to all theme pages at once, instead of selecting them individually."
+msgstr ""
+
+#: src/Admin/Views/General.php:1851
+msgid "Select a specific theme page where the chat bubble visibility rule should apply. Options include Blog, 404, or Search pages."
+msgstr ""
+
+#: src/Admin/Views/General.php:1855
+msgid "Blog Page"
+msgstr ""
+
+#: src/Admin/Views/General.php:1856
+msgid "404 Page"
+msgstr ""
+
+#: src/Admin/Views/General.php:1857
+msgid "Search Page"
+msgstr ""
+
+#: src/Admin/Views/General.php:1884
+msgid "Choose whether to show (Include) or hide (Exclude) the chat bubble on the selected pages."
+msgstr ""
+
+#: src/Admin/Views/General.php:1896
+msgid "All Pages"
+msgstr ""
+
+#: src/Admin/Views/General.php:1899
 msgid "Enable this option to apply the chat bubble visibility rule to all pages across your site, instead of selecting individual pages."
 msgstr ""
 
-#: src/Admin/Views/General.php:1848
+#: src/Admin/Views/General.php:1910
 msgid "Select one or more specific pages where the chat bubble visibility rule should apply."
 msgstr ""
 
-#: src/Admin/Views/General.php:1859
+#: src/Admin/Views/General.php:1921
 msgid "You don't have any pages available."
 msgstr ""
 
-#: src/Admin/Views/General.php:1869, src/Admin/Views/General.php:1873
+#: src/Admin/Views/General.php:1931, src/Admin/Views/General.php:1935
 msgid "Backup"
 msgstr ""
 
-#: src/Admin/Views/General.php:1876
+#: src/Admin/Views/General.php:1938
 msgid "Export or import plugin settings for backup or migration purposes."
 msgstr ""
 

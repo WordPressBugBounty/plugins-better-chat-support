@@ -1069,6 +1069,35 @@ class General
                                     ),
                                 ),
                                 array(
+                                    'id' => 'notification_icon',
+                                    'type' => 'switcher',
+                                    'title' => esc_html__('Display Notification Icon', 'better-chat-support'),
+                                    'title_help' => '<div class="better-chat-supoort-info-label">' . esc_html__('Toggle to show or hide the notification icon in the interface.', 'better-chat-support') . '</div>',
+                                    'text_on' => esc_html__('Show', 'better-chat-support'),
+                                    'text_off'  => esc_html__('Hide', 'better-chat-support'),
+                                    'text_width' => 90,
+                                ),
+                                array(
+                                    'id' => 'notification_number',
+                                    'type' => 'select',
+                                    'title' => esc_html__('Notification Number', 'better-chat-support'),
+                                    'title_help' => '<div class="better-chat-supoort-info-label">' . esc_html__('Select a number to display as a notification badge on the icon. Choose "None" to hide the number.', 'better-chat-support') . '</div>',
+                                    'options'    => array(
+                                        ''     => esc_html('None', 'better-chat-support'),
+                                        '1'     => '1 (Pro)',
+                                        '2'     => '2 (Pro)',
+                                        '3'     => '3 (Pro)',
+                                        '4'     => '4 (Pro)',
+                                        '5'     => '5 (Pro)',
+                                        '6'     => '6 (Pro)',
+                                        '7'     => '7 (Pro)',
+                                        '8'     => '8 (Pro)',
+                                        '9'     => '9 (Pro)',
+                                    ),
+                                    'default'   => '',
+                                    'dependency' => array('notification_icon', '==', 'true', 'any'),
+                                ),
+                                array(
                                     'id' => 'bubble_icon_border',
                                     'type' => 'border',
                                     'title' => esc_html__('Icon Border', 'better-chat-support'),
@@ -1583,7 +1612,40 @@ class General
                                     'default'     => 'random',
                                     'dependency' => array('chat_layout', 'any', 'agent,multi,multi_grid', 'any'),
                                 ),
+                                array(
+                                    'id'      => 'theme_style',
+                                    'type'    => 'layout_preset',
+                                    'title' => esc_html__('Theme Style', 'better-chat-support'),
+                                    'class'    => 'theme_style',
+                                    'title_help' =>
+                                    '<div class="better-chat-support-info-label">' .
+                                        esc_html__('Select the visual style for your chat bubble. This setting changes the overall look and feel of the chat interface.', 'better-chat-support') .
+                                        '</div>' .
+                                        ' <a class="tooltip_btn_primary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'single-agent/?ref=1">' . esc_html__('Live Demo', 'better-chat-support') . '</a>' .
+                                        ' <a class="tooltip_btn_secondary" target="_blank" href="' . BETTER_CHAT_SUPPORT_DEMO_URL . 'docs/10-style/?ref=1">' . esc_html__('Open Docs', 'better-chat-support') . '</a>',
+                                    'options' => array(
+                                        'flat_theme' => array(
+                                            'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Framework/assets/images/flat_theme.jpg',
+                                            'text' => esc_html__('Flat Theme', 'better-chat-support'),
+                                        ),
+                                        'custom_theme' => array(
+                                            'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Framework/assets/images/custom_theme.jpg',
+                                            'text' => esc_html__('Custom', 'better-chat-support'),
+                                        ),
+                                    ),
 
+                                    'default' => 'flat_theme',
+                                    'dependency' => array('chat_layout', 'any', 'agent,multi,multi_grid', 'any'),
+                                ),
+                                array(
+                                    'id'    => 'theme_background_image',
+                                    'type'    => 'media',
+                                    'title'   => esc_html__('Background Image', 'better-chat-support'),
+                                    'desc'  => esc_html__('Upload or select an image to use as the theme background image.', 'better-chat-support'),
+                                    'library' => 'image',
+                                    'preview' => true,
+                                    'dependency' => array('chat_layout|theme_style', 'any|==', 'agent,multi,multi_grid|custom_theme', 'any'),
+                                ),
                                 // Header content position
                                 array(
                                     'id'      => 'bubble-style',

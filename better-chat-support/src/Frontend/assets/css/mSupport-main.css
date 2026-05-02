@@ -12,6 +12,7 @@
   --mSupport-color-dark-mode: #006289;
   --mSupport-color-dark-mode2: #0b5572;
   --mSupport-shadow: 0 7px 15px 1px rgb(55 62 70 / 7%);
+  --custom-theme-bg: '../assets/images/messenger_theme_background.jpg';
 }
 
 [class*=mSupport] * {
@@ -495,6 +496,74 @@
 .mSupport-multi.mSupport-grid .mSupport-multi__popup__content .condition__checked.user.avatar-inactive .image::before,
 .mSupport-multi.mSupport-grid .mSupport-multi__popup__content .condition__checked.user .image::before {
   background-color: var(--mSupport-color-offline) !important;
+}
+
+.custom_theme .mSupport__popup {
+  overflow: hidden;
+}
+.custom_theme .mSupport__popup__content {
+  position: relative;
+}
+.custom_theme .mSupport__popup__content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--custom_theme_bg);
+  background-position: center;
+  opacity: 1;
+}
+.custom_theme .mSupport__popup__content .sms__text {
+  background-color: #ffffff;
+}
+.custom_theme .mSupport__popup__content .sms__text::before {
+  border-right: 15px solid #ffffff;
+}
+.custom_theme .mSupport__popup__content .user-text {
+  position: relative;
+}
+.custom_theme .mSupport__popup__content .user-text input,
+.custom_theme .mSupport__popup__content .user-text textarea,
+.custom_theme .mSupport__popup__content .user-text select {
+  background-color: var(--mSupport-color-light) !important;
+}
+.custom_theme .mSupport__popup__content #search-input {
+  position: relative;
+  background-color: var(--mSupport-color-light);
+  height: 36px;
+}
+.custom_theme .mSupport__popup__content .user {
+  background-color: var(--mSupport-color-light);
+}
+.custom_theme .mSupport-multi__popup {
+  background-color: #ece5dd;
+}
+.custom_theme .mSupport-multi__popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--custom_theme_bg);
+  opacity: 1;
+  z-index: -1;
+  background-position: center;
+}
+.custom_theme .mSupport-multi__popup #search-input {
+  position: relative;
+  background-color: var(--mSupport-color-light);
+}
+.custom_theme .mSupport-multi__popup .user {
+  background-color: var(--mSupport-color-light);
+}
+.custom_theme.mSupport_bubble .mSupport__send-message.agent_input input {
+  background-color: var(--mSupport-color-light);
+}
+.custom_theme.dark-mode .mSupport__popup__content {
+  background-color: var(--mSupport-color-dark-primary);
 }
 
 .mSupport-multi {
@@ -1221,6 +1290,7 @@
   background-color: var(--mSupport-background);
   border: var(--mSupport-border);
   border-color: var(--mSupport-border-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px 0px;
 }
 .mSupport_button:focus, .mSupport_button:hover {
   background-color: var(--mSupport-hover-background);
@@ -1415,9 +1485,9 @@
 .mSupport_button.circle-bubble {
   position: relative;
   z-index: 999;
-  width: calc(50px * var(--mSupport-btn-scale, 1));
-  height: calc(50px * var(--mSupport-btn-scale, 1));
-  font-size: calc(25px * var(--mSupport-btn-scale, 1));
+  width: calc(60px * var(--mSupport-btn-scale, 1));
+  height: calc(60px * var(--mSupport-btn-scale, 1));
+  font-size: calc(30px * var(--mSupport-btn-scale, 1));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1432,12 +1502,30 @@
 .mSupport_button.bubble.mSupport_button {
   display: flex;
 }
+.mSupport_button .notification_icon {
+  position: absolute;
+  background-color: red;
+  border-radius: 50px;
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  top: 2px;
+  right: 2px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  font-weight: bold;
+}
 
-.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:hover .entry-content-wrap, .theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:focus-within .entry-content-wrap {
+.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:hover .entry-content-wrap,
+.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:focus-within .entry-content-wrap {
   transform: translateY(-5rem);
 }
 
-.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:hover .product-action-wrap, .theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:focus-within .product-action-wrap {
+.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:hover .product-action-wrap,
+.theme-kadence.woocommerce ul.products.woo-archive-action-on-hover li.product:focus-within .product-action-wrap {
   bottom: -3rem;
 }
 

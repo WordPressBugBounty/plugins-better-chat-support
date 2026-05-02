@@ -148,6 +148,7 @@ class Buttons
         $bubble_button_padding_unit = isset($bubble_button_padding['unit']) ? $bubble_button_padding['unit'] : 'px';
 
         $padding = $bubble_button_padding_top . $bubble_button_padding_unit . ' ' . $bubble_button_padding_right . $bubble_button_padding_unit . ' ' . $bubble_button_padding_bottom . $bubble_button_padding_unit . ' ' . $bubble_button_padding_left . $bubble_button_padding_unit;
+        $notification_icon = isset($options['notification_icon']) ? $options['notification_icon'] : '';
 
         if ($agent_avatar_type === 'default') {
             $agent_avatar_url = BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/images/user.webp';
@@ -169,6 +170,9 @@ class Buttons
         // Keep Button Style 1 as Is
         if ($floating_button_style === '1') {
             $bubble_type = '<div style="--mSupport-border: ' . esc_attr($border_all . ' ' . $border_style) . '; --mSupport-btn-scale: ' . esc_attr($button_size) . '; --mSupport-border-radius: ' . esc_attr($border_radius) . '; --mSupport-background: ' . esc_attr($bg_color) . '; --mSupport-hover-background: ' . esc_attr($bg_hover_color) . '; --mSupport-icon-normal-color: ' . esc_attr($normal_icon_color) . '; --mSupport-icon-hover-color: ' . esc_attr($hover_icon_color) . '; --mSupport-border-color: ' . esc_attr($border_color) . '; --mSupport-border-hover-color: ' . esc_attr($hover_border_color) . ';" class="mSupport_button mSupport-bubble circle-bubble circle-animation-' . esc_attr($circle_animation . ' mSupport_' . $chat_type . ' layout_' . $chat_type . ' ' . $tooltip_class) . '">';
+            if ($notification_icon) {
+                $bubble_type .= '<span class="notification_icon"></span>';
+            }
             $bubble_type .= '<span class="open-icon">';
             if ($circle_button_icon_1 == 'custom') {
                 if (!empty($circle_button_icon_custom)) {
@@ -216,7 +220,7 @@ class Buttons
             }
 
             $bubble_type = '<div style="--mSupport-padding: ' . esc_attr($padding) . '; --mSupport-btn-scale: ' . esc_attr($button_size) . '; --mSupport-border: ' . esc_attr($border_all . ' ' . $border_style) . '; --mSupport-border-radius: ' . esc_attr($border_radius) . '; --mSupport-background: ' . esc_attr($bg_color) . '; --mSupport-hover-background: ' . esc_attr($bg_hover_color) . '; --mSupport-icon-normal-color: ' . esc_attr($normal_icon_color) . '; --mSupport-icon-hover-color: ' . esc_attr($hover_icon_color) . '; --mSupport-icon-normal-bg-color: ' . esc_attr($normal_bg_color) . '; --mSupport-icon-hover-bg-color: ' . esc_attr($hover_bg_color) . '; --mSupport-border-color: ' . esc_attr($border_color) . '; --mSupport-border-hover-color: ' . esc_attr($hover_border_color) . '; --mSupport-text-color: ' . esc_attr($text_color) . '; --mSupport-text-hover-color: ' . esc_attr($text_hover_color) . '; --mSupport-icon-border: ' . esc_attr($icon_border_all . ' ' . $icon_border_style) . '; --mSupport-icon-border-color: ' . esc_attr($icon_border_color) . '; --mSupport-hover-icon-border-color: ' . esc_attr($hover_icon_border_color) . '; --mSupport-icon-border-radius: ' . esc_attr($icon_border_radius) . ';" class="mSupport_button mSupport-bubble bubble ' . esc_attr($button_size . ' mSupport_' . $chat_type . ' layout_' . $chat_type . ' ' . $tooltip_class) . '">';
-            $bubble_type .= $icons . esc_attr($button_label);
+            $bubble_type .= ($notification_icon ? '<span class="notification_icon"></span>' : '') . $icons . esc_attr($button_label);
 
             // Add Tooltip
             if ($tooltip_enabled != 'hide' && $tooltip_text) {
