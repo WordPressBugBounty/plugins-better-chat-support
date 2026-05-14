@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-02 03:07+0000\n"
+"POT-Creation-Date: 2026-05-14 10:41+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -18,49 +18,185 @@ msgstr ""
 msgid "Better Chat Support block"
 msgstr ""
 
-#: src/Admin/Admin.php:115, src/Admin/Admin.php:116
+#: src/Admin/Admin.php:118, src/Admin/Admin.php:119
 msgid "Messenger"
 msgstr ""
 
-#: src/Admin/Admin.php:125, src/Admin/Admin.php:126
+#: src/Admin/Admin.php:128, src/Admin/Admin.php:129
+msgid "Dashboard"
+msgstr ""
+
+#: src/Admin/Admin.php:136, src/Admin/Admin.php:137
 msgid "Floating Chat"
 msgstr ""
 
-#: src/Admin/Admin.php:135, src/Admin/Admin.php:136, src/Admin/Views/Shortcode.php:52
+#: src/Admin/Admin.php:146, src/Admin/Admin.php:147, src/Admin/Views/Shortcode.php:52
 msgid "Shortcodes"
 msgstr ""
 
-#: src/Admin/Admin.php:143, src/Admin/Admin.php:144, src/Admin/Admin.php:181
+#: src/Admin/Admin.php:154, src/Admin/Admin.php:155, src/Admin/Admin.php:197
 msgid "Settings"
 msgstr ""
 
-#: src/Admin/Admin.php:151, src/Admin/Admin.php:152
+#: src/Admin/Admin.php:162, src/Admin/Admin.php:163
 msgid "Help"
 msgstr ""
 
-#: src/Admin/Admin.php:160
+#: src/Admin/Admin.php:171
 msgid "Upgrade To Premium"
 msgstr ""
 
-#: src/Admin/Admin.php:163
+#: src/Admin/Admin.php:174
 msgid "Upgrade To Pro! 👑"
 msgstr ""
 
-#: src/Admin/Admin.php:182
+#: src/Admin/Admin.php:198
 msgid "Support"
 msgstr ""
 
-#: src/Admin/Admin.php:186
+#: src/Admin/Admin.php:202
 msgid "Go Pro"
 msgstr ""
 
-#: src/Admin/Admin.php:205, src/Admin/HelpPage/Help.php:454, src/Admin/Views/General.php:106, src/Admin/Views/General.php:118, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:365, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:437, src/Admin/Views/General.php:451, src/Admin/Views/General.php:467, src/Admin/Views/General.php:503, src/Admin/Views/General.php:547, src/Admin/Views/General.php:575, src/Admin/Views/General.php:592, src/Admin/Views/General.php:607, src/Admin/Views/General.php:622, src/Admin/Views/General.php:635, src/Admin/Views/General.php:651, src/Admin/Views/General.php:665, src/Admin/Views/General.php:682, src/Admin/Views/General.php:748, src/Admin/Views/General.php:857, src/Admin/Views/General.php:896, src/Admin/Views/General.php:910, src/Admin/Views/General.php:924, src/Admin/Views/General.php:991, src/Admin/Views/General.php:1028, src/Admin/Views/General.php:1042, src/Admin/Views/General.php:1058, src/Admin/Views/General.php:1107, src/Admin/Views/General.php:1129, src/Admin/Views/General.php:1149, src/Admin/Views/General.php:1168, src/Admin/Views/General.php:1182, src/Admin/Views/General.php:1197, src/Admin/Views/General.php:1220, src/Admin/Views/General.php:1240, src/Admin/Views/General.php:1260, src/Admin/Views/General.php:1280, src/Admin/Views/General.php:1300, src/Admin/Views/General.php:1320, src/Admin/Views/General.php:1337, src/Admin/Views/General.php:1357, src/Admin/Views/General.php:1377, src/Admin/Views/General.php:1397, src/Admin/Views/General.php:1417, src/Admin/Views/General.php:1436, src/Admin/Views/General.php:1452, src/Admin/Views/General.php:1472, src/Admin/Views/General.php:1492, src/Admin/Views/General.php:1512, src/Admin/Views/General.php:1533, src/Admin/Views/General.php:1594, src/Admin/Views/General.php:1624, src/Admin/Views/General.php:1658, src/Admin/Views/General.php:1700, src/Admin/Views/Shortcode.php:63
+#: src/Admin/Admin.php:221, src/Admin/HelpPage/Help.php:454, src/Admin/Views/General.php:106, src/Admin/Views/General.php:118, src/Admin/Views/General.php:308, src/Admin/Views/General.php:321, src/Admin/Views/General.php:331, src/Admin/Views/General.php:339, src/Admin/Views/General.php:349, src/Admin/Views/General.php:365, src/Admin/Views/General.php:375, src/Admin/Views/General.php:396, src/Admin/Views/General.php:437, src/Admin/Views/General.php:451, src/Admin/Views/General.php:467, src/Admin/Views/General.php:503, src/Admin/Views/General.php:547, src/Admin/Views/General.php:575, src/Admin/Views/General.php:592, src/Admin/Views/General.php:607, src/Admin/Views/General.php:622, src/Admin/Views/General.php:635, src/Admin/Views/General.php:651, src/Admin/Views/General.php:665, src/Admin/Views/General.php:682, src/Admin/Views/General.php:748, src/Admin/Views/General.php:857, src/Admin/Views/General.php:896, src/Admin/Views/General.php:910, src/Admin/Views/General.php:924, src/Admin/Views/General.php:991, src/Admin/Views/General.php:1028, src/Admin/Views/General.php:1042, src/Admin/Views/General.php:1058, src/Admin/Views/General.php:1107, src/Admin/Views/General.php:1129, src/Admin/Views/General.php:1149, src/Admin/Views/General.php:1168, src/Admin/Views/General.php:1182, src/Admin/Views/General.php:1197, src/Admin/Views/General.php:1220, src/Admin/Views/General.php:1240, src/Admin/Views/General.php:1260, src/Admin/Views/General.php:1280, src/Admin/Views/General.php:1300, src/Admin/Views/General.php:1320, src/Admin/Views/General.php:1337, src/Admin/Views/General.php:1357, src/Admin/Views/General.php:1377, src/Admin/Views/General.php:1397, src/Admin/Views/General.php:1417, src/Admin/Views/General.php:1436, src/Admin/Views/General.php:1452, src/Admin/Views/General.php:1472, src/Admin/Views/General.php:1492, src/Admin/Views/General.php:1512, src/Admin/Views/General.php:1533, src/Admin/Views/General.php:1594, src/Admin/Views/General.php:1624, src/Admin/Views/General.php:1658, src/Admin/Views/General.php:1700, src/Admin/Views/Shortcode.php:63
 msgid "Live Demo"
 msgstr ""
 
 #. translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link
-#: src/Admin/Admin.php:224
+#: src/Admin/Admin.php:240
 msgid "<i>Enjoying %1$sBetter Chat Support for Messenger?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>"
+msgstr ""
+
+#: src/Admin/Leads.php:31, src/Admin/Leads.php:32, src/Admin/Leads.php:145
+msgid "Leads"
+msgstr ""
+
+#: src/Admin/Leads.php:146
+msgid "All Email"
+msgstr ""
+
+#: src/Admin/Leads.php:147
+msgid "Pending Verification"
+msgstr ""
+
+#: src/Admin/Leads.php:148
+msgid "Verified"
+msgstr ""
+
+#: src/Admin/Leads.php:149
+msgid "Resend"
+msgstr ""
+
+#: src/Admin/Leads.php:150
+msgid "You can resend again within"
+msgstr ""
+
+#: src/Admin/Leads.php:151
+msgid "All Domain"
+msgstr ""
+
+#: src/Admin/Leads.php:152
+msgid "All Extension"
+msgstr ""
+
+#: src/Admin/Leads.php:153
+msgid "Search"
+msgstr ""
+
+#: src/Admin/Leads.php:154
+msgid "Loading..."
+msgstr ""
+
+#: src/Admin/Leads.php:155
+msgid "Delete Lead"
+msgstr ""
+
+#: src/Admin/Leads.php:156
+msgid "Are you sure you want to delete this lead?"
+msgstr ""
+
+#: src/Admin/Leads.php:157, src/Admin/Framework/Classes/Metabox.php:282
+msgid "Cancel"
+msgstr ""
+
+#: src/Admin/Leads.php:158
+msgid "Yes, Delete"
+msgstr ""
+
+#: src/Admin/Leads.php:159
+msgid "Lead(s) deleted successfully!"
+msgstr ""
+
+#: src/Admin/Leads.php:160
+msgid "Delete failed!"
+msgstr ""
+
+#: src/Admin/Leads.php:161
+msgid "Failed to delete lead"
+msgstr ""
+
+#: src/Admin/Leads.php:162
+msgid "Export"
+msgstr ""
+
+#: src/Admin/Leads.php:163
+msgid "Action"
+msgstr ""
+
+#: src/Admin/Leads.php:164
+msgid "Date"
+msgstr ""
+
+#: src/Admin/Leads.php:165
+msgid "Showing"
+msgstr ""
+
+#: src/Admin/Leads.php:166
+msgid "Per page"
+msgstr ""
+
+#: src/Admin/Leads.php:167
+msgid "Page"
+msgstr ""
+
+#: src/Admin/Leads.php:168
+msgid "Others Information"
+msgstr ""
+
+#: src/Admin/Leads.php:169
+msgid "Form Submitted Data"
+msgstr ""
+
+#: src/Admin/Leads.php:170
+msgid "Show More"
+msgstr ""
+
+#: src/Admin/Leads.php:171
+msgid "Show Less"
+msgstr ""
+
+#: src/Admin/Leads.php:172
+msgid "All"
+msgstr ""
+
+#: src/Admin/Leads.php:173
+msgid "of"
+msgstr ""
+
+#: src/Admin/Leads.php:174
+msgid "Copied!"
+msgstr ""
+
+#: src/Admin/Leads.php:175
+msgid "No leads to export"
+msgstr ""
+
+#: src/Admin/Leads.php:176
+msgid "No leads found."
+msgstr ""
+
+#: src/Admin/Leads.php:177
+msgid "All Agents"
 msgstr ""
 
 #: src/Includes/AutoUpdate.php:392
@@ -1621,7 +1757,7 @@ msgstr ""
 msgid "Export or import plugin settings for backup or migration purposes."
 msgstr ""
 
-#: src/Admin/Views/Help.php:29, src/Admin/Views/Help.php:31, src/Admin/Views/Options.php:623, src/Admin/Views/Options.php:625, src/Admin/Views/Settings.php:29, src/Admin/Views/Settings.php:31, src/Admin/Views/Shortcode.php:29, src/Admin/Views/Shortcode.php:31
+#: src/Admin/Views/Help.php:29, src/Admin/Views/Help.php:31, src/Admin/Views/Options.php:623, src/Admin/Views/Options.php:624, src/Admin/Views/Settings.php:29, src/Admin/Views/Settings.php:31, src/Admin/Views/Shortcode.php:29, src/Admin/Views/Shortcode.php:31
 msgid "Messenger Chat Support"
 msgstr ""
 
@@ -3985,6 +4121,10 @@ msgstr ""
 msgid "WET"
 msgstr ""
 
+#: src/Admin/Views/Options.php:634
+msgid "Thank you for using our product"
+msgstr ""
+
 #: src/Admin/Views/Shortcode.php:58
 msgid "Select Button Style"
 msgstr ""
@@ -4220,10 +4360,6 @@ msgstr ""
 
 #: src/Admin/Framework/Classes/Metabox.php:282
 msgid "update post"
-msgstr ""
-
-#: src/Admin/Framework/Classes/Metabox.php:282
-msgid "Cancel"
 msgstr ""
 
 #: src/Admin/Framework/Classes/Options.php:177

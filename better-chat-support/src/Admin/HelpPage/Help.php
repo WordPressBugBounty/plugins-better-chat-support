@@ -336,7 +336,7 @@ class Help
      */
     public function activate_plugin_link($plugin_slug, $plugin_file)
     {
-        return wp_nonce_url(admin_url('admin.php?page=help&action=activate&plugin=' . $plugin_slug . '/' . $plugin_file . '#recommended'), 'activate-plugin_' . $plugin_slug . '/' . $plugin_file);
+        return wp_nonce_url(admin_url('admin.php?page=mcs-help&action=activate&plugin=' . $plugin_slug . '/' . $plugin_file . '#recommended'), 'activate-plugin_' . $plugin_slug . '/' . $plugin_file);
     }
 
 
@@ -373,25 +373,25 @@ class Help
                             <div class="header_nav_menu">
                                 <ul>
                                     <li>
-                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=help#get-start'); ?>" data-id="get-start-tab" class="active">
+                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=mcs-help#get-start'); ?>" data-id="get-start-tab" class="active">
                                             <i class="icofont-play-alt-2"></i>
                                             <?php echo esc_html__('Get Started', 'better-chat-support') ?>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=help#recommended'); ?>" data-id="recommended-tab">
+                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=mcs-help#recommended'); ?>" data-id="recommended-tab">
                                             <i class="icofont-thumbs-up"></i>
                                             <?php echo esc_html__('Recommended', 'better-chat-support') ?>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=help#lite-to-pro'); ?>" data-id="lite-to-pro-tab">
+                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=mcs-help#lite-to-pro'); ?>" data-id="lite-to-pro-tab">
                                             <i class="icofont-badge"></i>
                                             <?php echo esc_html__('Lite Vs Pro', 'better-chat-support') ?>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=help#pro-plugins'); ?>" data-id="pro-plugins-tab">
+                                        <a href="<?php echo esc_url(home_url('') . '/wp-admin/admin.php?page=mcs-help#pro-plugins'); ?>" data-id="pro-plugins-tab">
                                             <i class="icofont-info-circle"></i>
                                             <?php echo esc_html__('Pro Plugins', 'better-chat-support') ?>
                                         </a>

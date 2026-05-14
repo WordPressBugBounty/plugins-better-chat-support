@@ -13,6 +13,7 @@
  * -----------------------------------
  */
 
+(function () {
 "use strict";
 let mSupport = document.querySelectorAll(".mSupport");
 let mSupportMulti = document.querySelectorAll(".mSupport-multi");
@@ -224,3 +225,6 @@ if (chatAvailability) {
     }
   }
 }
+
+window.searchUser = searchUser;
+})();

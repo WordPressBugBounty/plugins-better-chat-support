@@ -23,6 +23,7 @@ if (! defined('WP_UNINSTALL_PLUGIN')) {
  */
 function better_chat_support_delete_plugin_data()
 {
+	global $wpdb;
 	// Delete plugin option settings.
 	$options = [
 		'mcs-opt',
@@ -38,6 +39,10 @@ function better_chat_support_delete_plugin_data()
 		delete_option($option_name);       // Delete regular option.
 		delete_site_option($option_name); // Delete multisite option.
 	}
+
+	// delete leads table
+	$table_name = $wpdb->prefix . 'mcs_analytics';
+	$wpdb->query("DROP TABLE IF EXISTS `$table_name`");
 }
 
 // Load WPTP file.

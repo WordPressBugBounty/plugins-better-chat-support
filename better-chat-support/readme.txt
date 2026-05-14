@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0.0
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ The Better Messenger Chat Support plugin is a popular solution for businesses lo
 
 * **Gutenberg Block for buttons** – The plugin provide a Gutenberg block which has tons of options for crating amazing Better Messenger Chat Support buttons.
 
+* **Built-in Analytics Dashboard** – Track visitors, widget views, and conversions directly from your WordPress admin — no third-party service required. The React-powered dashboard displays a performance trendline chart, device breakdown (desktop, mobile, other), and country and browser statistics with date range filtering.
+
+
 == PREMIUM FEATURES ==
 
 👉 **Everything in Free:** You will get all the free features in premium version.
@@ -98,32 +101,116 @@ If you’re looking for official solutions, Meta also provides plugins such as *
 
 == FREQUENTLY ASKED QUESTIONS ==
 
-= Where do I get Support? =
+= Where do I get support? =
 
-You can contact us trough this channels
-<a href="https://wordpress.org/support/plugin/better-chat-support/">WordPress Plugin Directory</a> || <a href="https://www.facebook.com/ThemeAtelier/">Facebook Page</a> 
+You can reach us through these channels:
+<a href="https://wordpress.org/support/plugin/better-chat-support/">WordPress Plugin Directory</a> || <a href="https://themeatelier.net/create-support-ticket/">Support Ticket</a> || <a href="https://www.facebook.com/ThemeAtelier/">Facebook Page</a>
+
+= How do I add the chat bubble to my site? =
+
+After activating the plugin, go to **Messenger > Floating Chat** in your WordPress admin. Enter your Facebook Page ID, choose a chat layout, set your agent details, and save. The bubble will appear automatically on your site.
+
+= Where do I find my Facebook Page ID? =
+
+You can find your Page ID in your Facebook Page settings under "About", or by using a Facebook Page ID lookup tool. Enter the ID (numbers only) in the plugin’s Floating Chat settings.
 
 = Can I add more than one agent? =
-Yes. Multiple agents can be added in premium version.
+
+Yes. Multiple agents with a list or grid layout can be added in the premium version.
+
+= Can I use the chat button in a specific location on a page? =
+
+Yes. Use the shortcode `[mcs_messenger]`, the Gutenberg block, or the Elementor widget to place a Messenger button anywhere on your page or post.
+
+= What shortcode attributes are available? =
+
+The shortcode supports: `style`, `photo`, `background`, `hover_background`, `text_color`, `icon_color`, `border`, `border_radius`, `padding`, `top_label`, `main_label`, `online`, `offline`, `fbid`, `visibility`, `sizes`, `timezone`, and per-day availability (`sunday` through `saturday`).
+
+= Can I show or hide the bubble on specific pages? =
+
+Yes. The visibility option lets you display the bubble everywhere or restrict it to specific pages, posts, or post types.
+
+= Can I control the bubble’s position on the screen? =
+
+Yes. You can choose from bottom-right, bottom-left, right-middle, and left-middle positions, with pixel-level offset control for each. Independent positioning settings are available for desktop, tablet, and mobile.
 
 = Is this plugin GDPR compatible? =
-Yes, The plugin don’t save any personal data and don’t use cookies. You also have option to show GDPR compliance notice with checkbox so user can agree.
+
+Yes. The plugin does not save any personal data by default and does not use cookies. You also have an option to show a GDPR compliance notice with a checkbox so users can consent before chatting.
+
+= Does the plugin track analytics? =
+
+Yes. Starting from v2.1.0, the plugin includes a built-in analytics system that tracks visitors, widget views, and conversions. The dashboard shows a performance trendline chart and a device breakdown (desktop, mobile, other), along with country and browser statistics — no third-party analytics service required.
+
+= What is the Leads feature? =
+
+When a visitor submits their information through the name/message form on the chat bubble, it is saved as a lead. You can view, filter, and delete leads from the **Messenger > Dashboard > Leads** page in the admin area.
+
+= Can I customize the look of the bubble? =
+
+Yes. You can choose between Flat and Custom theme styles, pick from 13+ bubble animations, set custom primary and secondary colors, control the bubble icon, tooltip, and add your own CSS.
+
+= Can I set my availability hours? =
+
+Yes. You can configure available hours for each day of the week, set your timezone, and choose what message to show visitors when you are offline.
 
 = Is it translation ready? =
-Yes. The plugin is totally translation ready. If it's not support in your language you need to edit it with any translation plugin.
+
+Yes. The plugin is fully translation ready. If your language is not available, you can translate it using any translation plugin or the standard WordPress `.po`/`.mo` workflow.
+
+= Can I add custom CSS or JavaScript? =
+
+Yes. The plugin has a dedicated Advanced settings tab where you can add custom CSS and custom JavaScript that load only when the chat widget is active.
+
+= Will my data be deleted if I uninstall the plugin? =
+
+That depends on your settings. The plugin has a "Clean up data on deletion" option in the Advanced tab. When enabled, all plugin data is removed from the database upon uninstallation.
 
 == Installation ==
 
-1. Upload plugin directory to the `/wp-content/plugins/` directory.
-2. Activate the plugin.
+**From WordPress Dashboard (recommended)**
+
+1. Go to **Plugins > Add New** in your WordPress admin.
+2. Search for **Better Chat Support for Messenger**.
+3. Click **Install Now**, then **Activate**.
+
+**Manual Upload**
+
+1. Download the plugin `.zip` file.
+2. Go to **Plugins > Add New > Upload Plugin** and upload the `.zip` file, or extract and upload the plugin folder to `/wp-content/plugins/` via FTP.
+3. Go to **Plugins** and click **Activate** next to Better Chat Support for Messenger.
+
+**After Activation**
+
+4. Go to **Messenger > Floating Chat** in your WordPress admin menu.
+5. Enter your **Facebook Page ID** in the General tab.
+6. Set your agent name, photo, subtitle, and greeting message.
+7. Configure availability hours and timezone if needed.
+8. Choose a bubble layout, position, animation, and theme style.
+9. Click **Save** — the chat bubble will appear on your site immediately.
+10. To place a button inside a post or page, use the **[mcs_messenger]** shortcode, the built-in **Gutenberg block**, or the **Elementor widget**.
+11. Visit **Messenger > Dashboard** to monitor visitors, views, conversions, and leads.
 
 == Screenshots ==
-1. Frontend chat bubble with form
-2. Frontend chat bubble without form
-3. Frontend buttons
-4. Admin panel
+1. React-powered admin Dashboard showing Analytics overview with visitors, views, conversions, conversion rate, performance trendline chart, and device breakdown
+2. Frontend floating chat bubble — Flat style with centered agent photo, name, greeting message, and Start Chat button
+3. Frontend floating chat bubble — Flat style with left-aligned agent photo in the header bar
+4. Frontend floating chat bubble — Custom dark/teal theme style
+5. Frontend floating chat bubble with animated "How can I help?" text label on the trigger button
+6. Shortcode button styles — pill-shaped icon buttons (Style 2) and agent card buttons with live online/offline availability status
 
 == Changelog ==
+= 2.1.0 – 14 May, 2026 =
+* Added: React-powered admin Dashboard as the new main plugin page.
+* Added: Analytics system to track visitors, widget views, and conversions with date range filtering.
+* Added: Analytics trend line chart showing visitors, views, and conversions over time.
+* Added: Country and browser detection for analytics tracking.
+* Added: Leads management page with sortable, filterable lead list and detail view.
+* Added: Frontend tracking script injected automatically to capture widget interactions.
+* Updated: Plugin main menu page now renders via React for a modern SPA experience.
+* Updated: Plugin admin menu renamed to "Messenger".
+* Updated: Floating Chat settings moved to a dedicated submenu page.
+
 = 2.0.1 – 01 May, 2026 =
 * Added: Theme Style option to choose different chat bubble designs (e.g., Flat and Custom styles).
 * Added: Display Notification Icon option to show or hide the notification icon in the interface.

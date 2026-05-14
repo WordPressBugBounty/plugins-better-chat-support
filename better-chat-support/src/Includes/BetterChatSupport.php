@@ -196,6 +196,12 @@ class BetterChatSupport
         $this->loader->add_shortcode('better_chat_support', $button_shortcode, 'mcs_custom_buttons_shortcode');
     }
 
+    // Backend enqueue scripts
+    public function backend_enqueue_scripts($hook)
+    {
+        wp_enqueue_style('better-chat-support-review-notice', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/Helpers/assets/css/review-notice.css', array(), BETTER_CHAT_SUPPORT_VERSION, false);
+    }
+
     /**
      * Register all of the hooks related to the admin dashboard functionality
      * of the plugin.
@@ -209,13 +215,6 @@ class BetterChatSupport
         $plugin_helpers = new Helpers();
         $this->loader->add_action('wp_loaded', $plugin_helpers, 'register_all_scripts');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-    }
-
-
-    // Backend enqueue scripts
-    public function backend_enqueue_scripts($hook)
-    {
-        wp_enqueue_style('better-chat-support-review-notice', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/css/review-notice' . $this->min . '.css', array(), BETTER_CHAT_SUPPORT_VERSION, false);
     }
 
     /**

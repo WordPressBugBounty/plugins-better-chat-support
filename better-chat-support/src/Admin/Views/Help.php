@@ -29,7 +29,7 @@ class Help
             'menu_title'        => esc_html__('Messenger Chat Support', 'better-chat-support'),
             'menu_icon'         => 'dashicons-format-chat',
             'framework_title'   => esc_html__('Messenger Chat Support', 'better-chat-support'),
-            'menu_slug'         => 'help',
+            'menu_slug'         => 'mcs-help',
             'theme'             => 'light',
             'show_search'       => false,
             'show_reset_all'    => false,

@@ -115,9 +115,8 @@ class Helpers
 		$page 				= !empty($visibility_by_page['page']) ? $visibility_by_page['page'] : [];
 		$current_page_id = get_queried_object_id();
 
-		if (!empty($visibilities)) {
+		if (!empty($visibilities) && (!empty($theme_page) || !empty($page))) {
 			foreach ($visibilities as $key => $visibility) {
-
 				switch ($visibility) {
 					case 'theme_page':
 						if (in_array('theme_page', $visibilities)) {

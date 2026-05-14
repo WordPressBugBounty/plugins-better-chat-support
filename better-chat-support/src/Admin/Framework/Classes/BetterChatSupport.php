@@ -463,13 +463,13 @@ if (! class_exists('BetterChatSupport')) {
       }
 
       // Custom Styles
-      wp_enqueue_style('better-chat-support-help-page', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/css/help-page' . $min . '.css', array(), self::$version, 'all');
+      wp_enqueue_style('better-chat-support-help-page', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/HelpPage/assets/css/help-page' . $min . '.css', array(), self::$version, 'all');
 
       // Main scripts
       wp_enqueue_script('better-chat-support-plugins', self::include_plugin_url('assets/js/plugins' . $min . '.js'), array(), self::$version, true);
       wp_enqueue_script('better-chat-support', self::include_plugin_url('assets/js/main' . $min . '.js'), array('better-chat-support-plugins'), self::$version, true);
 
-      wp_enqueue_script('better-chat-support-help-page', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/js/help-page' . $min . '.js', array('better-chat-support-plugins'), self::$version, true);
+      wp_enqueue_script('better-chat-support-help-page', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/HelpPage/assets/js/help-page' . $min . '.js', array('better-chat-support-plugins'), self::$version, true);
 
       // Main variables
       wp_localize_script('better-chat-support', 'BetterChatSupport_vars', array(
