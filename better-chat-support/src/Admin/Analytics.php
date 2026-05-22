@@ -416,7 +416,8 @@ var bubbles=document.querySelectorAll(".mSupport_bubble .mSupport_button");
 if(!bubbles.length)return;
 if("IntersectionObserver"in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){var wid=entry.target.getAttribute("data-widget-id")||0;track("view",wid,sid);observer.unobserve(entry.target);}});},{threshold:0.5});bubbles.forEach(function(el){observer.observe(el);});}
 document.addEventListener("click",function(e){
-var link=e.target.closest(".better_chat_support_link,.mSupport__send-message");if(link){track("conversion",0,sid);return;}
+var link=e.target.closest(".better_chat_support_link,.mSupport__send-message,.mSupport_button,.chat-link,.better_chat_support_multi_user");if(link){track("conversion",0,sid);return;}
+var anchor=e.target.closest('a[href*="m.me/"],a[href*="messenger.com/"]');if(anchor){track("conversion",0,sid);return;}
 },{passive:true});
 }
 if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",setupTracking);}else{setupTracking();}

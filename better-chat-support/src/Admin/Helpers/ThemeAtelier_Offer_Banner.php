@@ -67,26 +67,19 @@ class ThemeAtelier_Offer_Banner
 
 		// Define offer durations.
 		$offers = array(
-			'new_year'     => array(
-				'id'    => 'new_year_2026',
-				'start' => strtotime('2025-12-20 00:00:00'),
-				'end'   => strtotime('2026-01-14 23:59:59'),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-ny-banner.svg',
-				'link'  => 'https://themeatelier.net/downloads/better-chat-support#pricing?utm_source=messenger_plugin&utm_medium=offer_banner&utm_campaign=new_year_2026',
-			),
-			'spring_sale'     => array(
-				'id'    => 'spring_2026',
-				'start' => strtotime( '2026-04-01 00:00:00' ),
-				'end'   => strtotime( '2026-04-30 23:59:59' ),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-sd-banner.svg',
-				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=spring_2026',
-			),
 			'may_sale'     => array(
 				'id'    => 'may_2026',
 				'start' => strtotime( '2026-05-01 00:00:00' ),
 				'end'   => strtotime( '2026-05-31 23:59:59' ),
 				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-growth.svg',
 				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=may_2026#pricing',
+			),
+			'mid_year_mega'     => array(
+				'id'    => 'mid_year_mega',
+				'start' => strtotime( '2026-06-01 00:00:00' ),
+				'end'   => strtotime( '2026-06-30 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mid-year-mega.svg',
+				'link'  => 'https://themeatelier.net/deals/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mid_year_mega#pricing',
 			),
 		);
 

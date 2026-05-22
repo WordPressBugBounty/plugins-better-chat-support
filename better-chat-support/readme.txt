@@ -1,11 +1,11 @@
 === Better Chat Support for Messenger ===
-Contributors: themeatelier, faysal61, shshakib2001
+Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
 Tags: messenger chat, messenger, customer care, facebook messenger, facebook
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
 Tested up to: 7.0
-Requires PHP: 7.0.0
-Stable tag: 2.1.0
+Requires PHP: 7.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,10 +94,6 @@ Learn more about how [Appsero collects and uses this data](https://appsero.com/p
 ➡️ **[Greet – Video Bubble Warm Welcome Plugin](https://wordpress.org/plugins/greet-bubble/)** - A powerful and user-friendly video bubble plugin for WordPress that provides website owners with the opportunity to create a dynamic and engaging welcome experience for their visitors.
 	
 ➡️ **[Domain For Sale](https://wordpress.org/plugins/domain-for-sale/)** - Transform your unused domain names into cash with this easy-to-use plugin that provides a professional template, customizable options, and a contact form for effortless selling.
-
-Disclaimer: Better Chat Support for Messenger is an independent plugin and is not affiliated with or endorsed by Meta or Facebook.
-
-If you’re looking for official solutions, Meta also provides plugins such as **[Facebook Chat Plugin – Live Chat Plugin for WordPress](https://wordpress.org/plugins/facebook-messenger-customer-chat/)**, **[Facebook for WooCommerce](https://wordpress.org/plugins/facebook-for-woocommerce/)**, and **[Meta Pixel for WordPress](https://wordpress.org/plugins/official-facebook-pixel/)**.
 
 == FREQUENTLY ASKED QUESTIONS ==
 
@@ -188,8 +184,7 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 7. Configure availability hours and timezone if needed.
 8. Choose a bubble layout, position, animation, and theme style.
 9. Click **Save** — the chat bubble will appear on your site immediately.
-10. To place a button inside a post or page, use the **[mcs_messenger]** shortcode, the built-in **Gutenberg block**, or the **Elementor widget**.
-11. Visit **Messenger > Dashboard** to monitor visitors, views, conversions, and leads.
+10. Visit **Messenger > Dashboard** to monitor visitors, views, conversions, and leads.
 
 == Screenshots ==
 1. React-powered admin Dashboard showing Analytics overview with visitors, views, conversions, conversion rate, performance trendline chart, and device breakdown
@@ -200,12 +195,14 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 6. Shortcode button styles — pill-shaped icon buttons (Style 2) and agent card buttons with live online/offline availability status
 
 == Changelog ==
+= 2.1.1 – 22 May, 2026 =
+* Fixed: Conversion tracking for Gutenberg block, shortcode, and Elementor widget button clicks.
+
 = 2.1.0 – 14 May, 2026 =
 * Added: React-powered admin Dashboard as the new main plugin page.
 * Added: Analytics system to track visitors, widget views, and conversions with date range filtering.
 * Added: Analytics trend line chart showing visitors, views, and conversions over time.
 * Added: Country and browser detection for analytics tracking.
-* Added: Leads management page with sortable, filterable lead list and detail view.
 * Added: Frontend tracking script injected automatically to capture widget interactions.
 * Updated: Plugin main menu page now renders via React for a modern SPA experience.
 * Updated: Plugin admin menu renamed to "Messenger".
