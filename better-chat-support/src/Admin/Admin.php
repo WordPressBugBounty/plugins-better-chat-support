@@ -15,13 +15,10 @@ namespace ThemeAtelier\BetterChatSupport\Admin;
 
 use ThemeAtelier\BetterChatSupport\Admin\Analytics;
 use ThemeAtelier\BetterChatSupport\Admin\Dashboard;
+use ThemeAtelier\BetterChatSupport\Admin\SettingsController;
 use ThemeAtelier\BetterChatSupport\Admin\DBUpdates;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ReviewNotice;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ThemeAtelier_Offer_Banner;
-use ThemeAtelier\BetterChatSupport\Admin\Views\Help;
-use ThemeAtelier\BetterChatSupport\Admin\Views\Options;
-use ThemeAtelier\BetterChatSupport\Admin\Views\Shortcode;
-use ThemeAtelier\BetterChatSupport\Admin\Views\Settings;
 
 /**
  * The admin class
@@ -71,14 +68,11 @@ class Admin
         new ReviewNotice();
         new Analytics();
         new Dashboard();
+        new SettingsController();
         // Admin Menu
         add_action('admin_menu', array($this, 'add_plugin_page'));
 
-        // Move initialization to after_setup_theme hook
-        add_action('after_setup_theme', array($this, 'init_components'));
-        add_action('after_setup_theme', array($this, 'mcs_shortcode_options'));
-        add_action('after_setup_theme', array($this, 'mcs_settings_options'));
-        add_action('after_setup_theme', array($this, 'mcs_help_options'));
+        // Process Help page plugin activate/deactivate links (React Help page).
         add_filter('admin_footer_text', array($this, 'admin_footer'), 1, 2);
         $active_plugins = get_option('active_plugins');
         foreach ($active_plugins as $active_plugin) {
@@ -93,23 +87,6 @@ class Admin
             define('THEMEATELIER_OFFER_BANNER_LOADED', true);
             ThemeAtelier_Offer_Banner::instance();
         }
-    }
-
-    public function init_components()
-    {
-        Options::options('mcs-opt');
-    }
-    public function mcs_shortcode_options()
-    {
-        Shortcode::options('mcs_shortcode');
-    }
-    public function mcs_settings_options()
-    {
-        Settings::options('mcs_settings');
-    }
-    public function mcs_help_options()
-    {
-        Help::options('mcs_help');
     }
 
     public function add_plugin_page()
@@ -137,7 +114,7 @@ class Admin
             esc_html__('Floating Chat', 'better-chat-support'),
             'manage_options',
             'mcs-floating',
-            [$this, 'better_chat_support_settings']
+            [$this, 'render_react_page']
         );
         do_action('better_chat_support_before_upgrade_pro_menu');
 
@@ -147,7 +124,7 @@ class Admin
             __('Shortcodes', 'better-chat-support'),
             'manage_options',
             'shortcodes',
-            [$this, 'shortcodes_options']
+            [$this, 'render_react_page']
         );
         add_submenu_page(
             'mcs',
@@ -155,7 +132,7 @@ class Admin
             __('Settings', 'better-chat-support'),
             'manage_options',
             'settings',
-            [$this, 'shortcodes_options']
+            [$this, 'render_react_page']
         );
         add_submenu_page(
             'mcs',
@@ -163,7 +140,7 @@ class Admin
             __('Help', 'better-chat-support'),
             'manage_options',
             'mcs-help',
-            [$this, 'help_options']
+            [$this, 'render_react_page']
         );
 
         add_submenu_page(
@@ -183,13 +160,6 @@ class Admin
     {
         echo '<div id="mcs_react"></div>';
     }
-
-    /**
-     * Options page callback
-     */
-    public function better_chat_support_settings() {}
-    public function shortcodes_options() {}
-    public function help_options() {}
 
     public function better_chat_support_plugin_action_links($links)
     {
@@ -234,7 +204,13 @@ class Admin
     public function admin_footer($text)
     {
         $screen = get_current_screen();
-        if ('toplevel_page_mcs' === $screen->id || 'messenger_page_shortcodes' === $screen->id || 'messenger_page_help' === $screen->id || 'messenger_page_mcs-floating' === $screen->id) {
+        if (
+            'toplevel_page_mcs' === $screen->id
+            || 'messenger_page_mcs-floating' === $screen->id
+            || 'messenger_page_shortcodes' === $screen->id
+            || 'messenger_page_settings' === $screen->id
+            || 'messenger_page_mcs-help' === $screen->id
+        ) {
             $text = sprintf(
                 /* translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link */
                 __('<i>Enjoying %1$sBetter Chat Support for Messenger?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>', 'better-chat-support'),

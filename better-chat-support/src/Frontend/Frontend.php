@@ -78,16 +78,32 @@ class Frontend
 
     public function enqueue_scripts()
     {
+        $mcs_options = get_option('mcs-opt', []);
         $mcs_settings = get_option('mcs_settings');
         $mcs_custom_css = isset($mcs_settings['mcs_custom_css']) ? $mcs_settings['mcs_custom_css'] : '';
         $mcs_custom_js = isset($mcs_settings['mcs_custom_js']) ? $mcs_settings['mcs_custom_js'] : '';
         wp_enqueue_style('icofont');
         wp_enqueue_style('mcs-main');
 
+        /* Resolve the selected font family (legacy Codestar array or new flat key). */
+        $typography = $this->get_typography_settings($mcs_options);
+
+        /* Enqueue the Google Font BEFORE building inline CSS so the face is
+           available when the font-family rule applies. */
+        if (!empty($typography['family']) && $typography['is_google']) {
+            $this->enqueue_google_font($typography['family']);
+        }
+
         $custom_css = '';
         if ($mcs_custom_css) {
             $custom_css .= $mcs_custom_css;
         }
+
+        /* Add typography CSS that depends on the font being loaded */
+        if (!empty($typography['family'])) {
+            $custom_css .= $this->generate_font_css($typography);
+        }
+
         wp_add_inline_style('mcs-main', $custom_css);
         /********************
 				Js Enqueue
@@ -99,6 +115,90 @@ class Frontend
         if (!empty($mcs_custom_js)) {
             wp_add_inline_script('mcs-main', $mcs_custom_js);
         }
+    }
+
+    /**
+     * Resolve the selected font family from saved options.
+     *
+     * Supports both storage formats for backward compatibility:
+     *   1. Legacy Codestar array — mcs-opt['better_chat_support_typography']['font-family']
+     *   2. New React flat key   — mcs-opt['better_chat_support_typography_family']
+     * The flat key takes precedence when set.
+     *
+     * @return array{family:string,backup:string,is_google:bool}
+     */
+    private function get_typography_settings(array $mcs_options): array
+    {
+        $family    = '';
+        $backup    = '';
+        $is_google = true;
+
+        /* Legacy Codestar array format (existing users) */
+        $legacy = isset($mcs_options['better_chat_support_typography']) && is_array($mcs_options['better_chat_support_typography'])
+            ? $mcs_options['better_chat_support_typography']
+            : [];
+
+        if (!empty($legacy['font-family'])) {
+            $family    = $legacy['font-family'];
+            $backup    = isset($legacy['backup-font-family']) ? $legacy['backup-font-family'] : '';
+            $is_google = isset($legacy['type']) ? ($legacy['type'] === 'google') : true;
+        }
+
+        /* New React flat key overrides when set */
+        if (!empty($mcs_options['better_chat_support_typography_family'])) {
+            $family    = $mcs_options['better_chat_support_typography_family'];
+            $backup    = '';
+            $is_google = isset($this->get_google_font_list()[$family]);
+        }
+
+        return compact('family', 'backup', 'is_google');
+    }
+
+    /**
+     * Load the Google Fonts lookup list (family => [variants, subsets]).
+     * Used only to decide whether a selected family needs the Google Fonts API.
+     */
+    private function get_google_font_list(): array
+    {
+        static $fonts = null;
+        if ($fonts !== null) {
+            return $fonts;
+        }
+
+        $fonts = [];
+        $file  = BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Admin/google-fonts.php';
+        if (file_exists($file)) {
+            require_once $file;
+            if (function_exists('BetterChatSupport_get_google_fonts')) {
+                $fonts = BetterChatSupport_get_google_fonts();
+            }
+        }
+        return $fonts;
+    }
+
+    /**
+     * Enqueue a Google Font family at its default weight (no weight param).
+     */
+    private function enqueue_google_font(string $font_family): void
+    {
+        $font_url_family = str_replace(' ', '+', sanitize_text_field($font_family));
+        $font_url = "https://fonts.googleapis.com/css2?family={$font_url_family}&display=swap";
+        wp_enqueue_style('google-font-' . sanitize_key($font_family), $font_url, [], null);
+    }
+
+    /**
+     * Generate font-family CSS for the chat elements.
+     * Only emits font-family; weight/style are left to the chat's own stylesheet.
+     *
+     * @param array{family:string,backup:string} $typography
+     */
+    private function generate_font_css(array $typography): string
+    {
+        $selector = '.mSupport,.mSupport-multi,.mSupport-multi input, .advance_button, .mSupport__popup__content input, .mSupport__popup__content textarea';
+        $family   = sanitize_text_field($typography['family']);
+        $backup   = !empty($typography['backup']) ? ', ' . sanitize_text_field($typography['backup']) : '';
+
+        return $selector . '{font-family:"' . $family . '"' . $backup . ';}';
     }
 
     public function better_chat_support_chat_popup()

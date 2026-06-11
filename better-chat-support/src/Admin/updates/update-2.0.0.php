@@ -11,6 +11,21 @@ update_option('better_chat_support_db_version', BETTER_CHAT_SUPPORT_VERSION);
  */
 function better_chat_support_convert_old_to_new_data_2_0_0($options)
 {
+    /*
+     * Only convert genuinely legacy (Codestar-era) data. These keys exist ONLY
+     * in the old schema and are removed once converted, so their absence means
+     * the data is already on the new React schema. Re-running the conversion on
+     * new-schema data would wrongly reset "Choose Your Chat Experience"
+     * (chat_layout) and re-apply button-style defaults. Bail out when no legacy
+     * markers are present.
+     */
+    $is_legacy = isset($options['opt-chat-type'])
+        || isset($options['enable_floating_chat'])
+        || isset($options['agent-listGrid']);
+    if (!$is_legacy) {
+        return;
+    }
+
     $opt_chat_type = isset($options['opt-chat-type']) ? $options['opt-chat-type'] : 'single';
     $enable_floating_chat = isset($options['enable_floating_chat']) ? $options['enable_floating_chat'] : '';
     $agent_istGrid = isset($options['agent-listGrid']) ? $options['agent-listGrid'] : '';

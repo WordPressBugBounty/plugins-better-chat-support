@@ -1,62 +1,77 @@
 === Better Chat Support for Messenger ===
 Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
-Tags: messenger chat, messenger, customer care, facebook messenger, facebook
+Tags: facebook messenger, messenger chat, chat button, live chat, customer care
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add a customizable Messenger chat bubble to your site for instant conversations, smart pre-filled messages, and availability control.
+Add a Facebook Messenger chat button to WordPress — floating chat bubble, pre-filled messages, availability hours, and built-in analytics.
 
 == Description ==
 
-Better Messenger Chat Support is a WordPress plugin that allows website owners to easily add a Messenger chat bubble to their website. This enables website visitors to send you message directly via Messenger in 3 simple clicks to land on your direct consultation. As soon as they come to your website, and check your products or services in order to get those things they can message you directly through the bubble button or the buttons we provided in the plugin. The plugin also includes features such as bubble with a single agent with a pre-filled message, bubble with name and message form, customizable buttons,  automatic message pre-fill, offline message support and availability option based on your timezone.
+Better Chat Support for Messenger is a free WordPress plugin that adds a Facebook Messenger chat button to your website. Visitors click the floating chat bubble and start a conversation with you on Messenger in just a few clicks — no coding required.
+
+Turn website visitors into conversations: when someone is browsing your products or services and has a question, they can message you instantly through the floating bubble or any of the call-to-action buttons included in the plugin. You get pre-filled messages, a name-and-message lead form, customizable buttons, availability control based on your timezone, offline messaging, and a built-in analytics dashboard — all in the free version.
 
 **👁️[Plugin Demo](https://themeatelier.net/downloads/better-chat-support-for-messenger/#shortcode) | 🚀[Pro Version](https://themeatelier.net/downloads/better-chat-support-for-messenger/) | 👩🏼‍💻[Support](https://wordpress.org/support/plugin/better-chat-support/) | 🌟[Rate this plugin](https://wordpress.org/plugins/better-chat-support/reviews/#new-post)**
 
 == Video demo ==
 [youtube https://youtu.be/uskCC8jo4mo]
 
-== WHY Better Messenger Chat Support ==
+### WHY BETTER CHAT SUPPORT FOR MESSENGER
 
-Messenger has become one of the most popular messaging platforms in the world, with over 1.3 billion active users. As a result, many businesses have begun using Messenger as a customer support channel. The Better Messenger Chat Support WordPress plugin has emerged as a popular solution for businesses looking to provide Facebook Messenger-based customer support to their customers.
+Facebook Messenger is one of the world's most-used messaging platforms, which makes it a natural customer support channel. This plugin lets you tap into it without any technical setup.
 
-First and foremost, the Better Messenger Chat Support plugin is incredibly easy to install and use. It is a lightweight plugin that can be installed with just a few clicks. Once installed, you need to configure the bubble from settings panel to show chat bubble in your website as you want, it allows your customers to initiate a chat with you directly from your website. This convenience makes it easier for customers to get in touch with you, and in turn, can lead to higher customer satisfaction rates.
-
-The plugin also allows you to customize the appearance and functionality of the Messenger chat button. You can choose from various button styles, sizes, and positions to make it fit seamlessly with your website's design. Additionally, you can set up automated messages to greet your customers and provide them with helpful information or instructions.
-
-Another reason people use the Better Messenger Chat Support plugin is that it allows businesses to provide instant support to their customers. Unlike email or phone support, Messenger provides instant messaging that allows businesses to quickly respond to customer inquiries. This can lead to faster issue resolution and ultimately, happier customers.
-
-In addition to providing instant support, the Better Messenger Chat Support plugin allows businesses to save time and money. By using Messenger as a customer support channel, businesses can reduce the number of phone calls and emails they receive. This, in turn, can reduce the workload of customer support teams, allowing them to focus on other important tasks.
-
-Finally, the Better Messenger Chat Support plugin allows businesses to build stronger relationships with their customers. By providing fast and efficient customer support, businesses can increase customer satisfaction rates and build a loyal customer base. This can ultimately lead to increased revenue and growth for the business.
-
-The Better Messenger Chat Support plugin is a popular solution for businesses looking to provide Facebook Messenger-based customer support to your customers. Its ease of use, customization options, instant support capabilities, time and totally free of use, and customer relationship building features make it a powerful tool for businesses of all sizes.
+- **Lightweight and fast** — Installs in a few clicks and won't slow down your site.
+- **Fully customizable** — Choose button styles, sizes, positions, colors, and animations to match your design.
+- **Instant replies** — Respond to customers in real time instead of waiting on email or phone.
+- **Save time and money** — Reduce repetitive calls and emails by routing inquiries to one place.
+- **Build relationships** — Faster, friendlier support leads to higher satisfaction and repeat customers.
+- **Privacy-friendly analytics** — Track visitors, views, and conversions from your own WordPress dashboard, with no third-party service required.
 
 == CORE FEATURES ==
 
-* **Single agent support** – This option will allow you to add a bubble with a single Messenger account for receiving messages in the Messenger.
+* **Single agent support** – Add a floating chat bubble tied to a single Facebook Messenger account so visitors can reach you instantly.
 
-* **Different call to action buttons** – We provide a set of buttons to use anywhere on your website and all functionalities also can be set with each button.
+* **Call-to-action buttons** – Place Messenger buttons anywhere on your site — pages, posts, or sidebars — each with its own independent settings.
 
-* **Availability time** – You will have available time for a single agent and for the buttons.
+* **Availability hours** – Set active hours per day of the week for the floating bubble and individual buttons.
 
-* **Set timezone** – You will able to set your timezone so your time will work based on your time otherwise it will work from the user’s computer’s time.
+* **Timezone control** – Set your timezone so availability hours reflect your local time, not the visitor’s device clock.
 
-* **Let your audience know you’re offline** – Based on your available time it will show you offline when you are not available
+* **Offline messaging** – Automatically show an offline status message to visitors outside your available hours.
 
-* **GDPR compliance** – You will able to enable GDPR compliance checkbox with your own custom notice/message.
+* **GDPR compliance** – Enable a GDPR consent checkbox with your own custom notice before visitors start chatting.
 
-* **Floating bubble animations** – We have lots of animations to show the button UI awesomely.
+* **Floating bubble animations** – Choose from multiple entrance and idle animations to make your chat widget stand out without custom CSS.
 
-* **Elementor buttons** – The plugin provide a Elementor widget which has tons of options for crating amazing Better Messenger Chat Support buttons.
+* **Elementor widget** – Drag-and-drop Elementor widget with full design control: colors, sizing, icons, and CTA text — no code required.
 
-* **Gutenberg Block for buttons** – The plugin provide a Gutenberg block which has tons of options for crating amazing Better Messenger Chat Support buttons.
+* **Gutenberg block** – Native block editor support with the same full design options as the Elementor widget.
 
 * **Built-in Analytics Dashboard** – Track visitors, widget views, and conversions directly from your WordPress admin — no third-party service required. The React-powered dashboard displays a performance trendline chart, device breakdown (desktop, mobile, other), and country and browser statistics with date range filtering.
+
+* **Shortcode support** – Use `[mcs_messenger]` to place a Messenger button anywhere on your site with 20+ attributes for full control over style, availability, colors, and CTA text.
+
+* **Auto-open popup** – Configure the chat bubble to open automatically on page load, with an optional delay timer to trigger it after a set number of seconds.
+
+* **Chat layout options** – Choose between an agent card layout (photo, name, greeting) and a simple button layout depending on your design preference.
+
+* **Device visibility & positioning** – Show or hide the bubble per device (desktop, tablet, mobile) and set independent screen position with pixel-level offset for each.
+
+* **Theme styles** – Switch between Flat and Custom theme styles, toggle light/dark mode, and upload a custom background image for the chat popup.
+
+* **Custom colors** – Set primary and secondary colors to match your brand without touching any CSS.
+
+* **Google Fonts** – Pick any Google Font for the chat widget typography directly from the settings panel.
+
+* **Custom CSS & JavaScript** – Add your own CSS and JS from the Advanced settings tab — only loaded when the chat widget is active.
+
+* **Translation ready** – Fully compatible with `.po`/`.mo` translation workflows and any WordPress translation plugin.
 
 
 == PREMIUM FEATURES ==
@@ -81,8 +96,6 @@ Learn more about how [Appsero collects and uses this data](https://appsero.com/p
 
 
 == OTHER AMAZING PRODUCTS FROM ThemeAtelier ==
-
-
 ➡️ **[Better WhatsApp Chat Support](https://wordpress.org/plugins/chat-help/)** -  A WordPress plugin that allows website owners to easily add a WhatsApp chat bubble to their website and comes with Gutenberg, Elementor and Shortcode options.
 
 ➡️ **[Eventful – Events Showcase For The Events Calendar](https://wordpress.org/plugins/eventful/)** -  Elevate your event management with this dynamic addon, enhancing ‘The Events Calendar’ with versatile layouts, advanced filtering, and user-friendly features for superior event showcasing.
@@ -187,14 +200,36 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 10. Visit **Messenger > Dashboard** to monitor visitors, views, conversions, and leads.
 
 == Screenshots ==
-1. React-powered admin Dashboard showing Analytics overview with visitors, views, conversions, conversion rate, performance trendline chart, and device breakdown
-2. Frontend floating chat bubble — Flat style with centered agent photo, name, greeting message, and Start Chat button
-3. Frontend floating chat bubble — Flat style with left-aligned agent photo in the header bar
-4. Frontend floating chat bubble — Custom dark/teal theme style
-5. Frontend floating chat bubble with animated "How can I help?" text label on the trigger button
-6. Shortcode button styles — pill-shaped icon buttons (Style 2) and agent card buttons with live online/offline availability status
+
+1. Floating Messenger chat bubble with single-agent layout — agent photo, online status, pre-filled greeting message, and a Start Chat button (bottom-right position).
+2. Floating chat bubble with an animated "How can I help?" text label on the trigger button.
+3. Messenger chat bubble in the Custom theme style with a dark background image behind the greeting message.
+4. Call-to-action button styles — pill-shaped Messenger buttons (Button Style 2) and dynamic agent cards showing live "I'm available" and "I'm not available" status based on availability hours.
+5. Built-in Analytics Dashboard showing visitors, views, conversions, conversion rate, a performance trendline chart, and a device breakdown — no third-party service required.
+6. Floating Chat settings — General tab with Facebook Page ID, agent greeting message, timezone, and per-day availability hours.
+7. Header & Footer settings — agent photo, name, online and offline subtitles, header alignment, and Send Message button options.
+8. Button settings — floating button style, open/close icons, button size, colors, border, notification badge, tooltip, and screen position.
+9. Style settings — bubble animation, Flat and Custom theme styles, light/dark mode, primary and secondary colors, and Google Font selection.
+10. Visibility settings — show the chat on desktop, tablet, or mobile, and control which pages, posts, or products display the bubble.
+11. Shortcode generator — build a Messenger button with custom labels, colors, timezone, and availability, then copy the ready-made shortcode.
+12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.2.0 – 11 June, 2026 =
+* Update: Complete admin panel redesign — migrated from Codestar Framework to React-based architecture
+* Update: Improved overall user experience and performance of admin dashboard
+* Update: Removed full-page reload issue — admin navigation now works with React Router (no reload on menu click)
+* Update: Enhanced UI responsiveness and smoother navigation between Dashboard, Settings, Floating Chat, Shortcode, and Help pages
+* Improved: All previously unstable or partially working options are now fully functional
+* Improved: Better state management across admin settings
+* Improved: Faster and more stable admin interactions
+* Improved: Overall plugin UX consistency across all settings pages
+* Fixed: Admin menu navigation reload issue (now fully SPA-based using React Router)
+* Fixed: Several settings/options not working properly in previous Codestar version
+* Fixed: UI inconsistency and broken behavior in older admin components
+* Fixed: Improved handling of configuration changes without page reload
+* Fixed: Stability issues in multiple admin settings fields
+
 = 2.1.1 – 22 May, 2026 =
 * Fixed: Conversion tracking for Gutenberg block, shortcode, and Elementor widget button clicks.
 
@@ -259,12 +294,12 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Fixed: Button CSS issues when using various animation styles.
 * Updated: Plugin markup across different scenarios to ensure better compatibility with all types of themes.
 
-= 2.2.16 - June 26, 2025 =
+= 1.2.16 - June 26, 2025 =
 * Update: Plugin menu name to 'Messenger' for better useablity.
 * Update: Recommanded plugins.
 * Update: Upgrade to pro plugin menu.
 
-= 2.2.15 - May 12, 2025 =
+= 1.2.15 - May 12, 2025 =
 * Fixed: Timezone issues.
 * Added: Position control option.
 

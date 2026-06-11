@@ -81,6 +81,13 @@ class ThemeAtelier_Offer_Banner
 				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mid-year-mega.svg',
 				'link'  => 'https://themeatelier.net/deals/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mid_year_mega#pricing',
 			),
+			'independent_2026'     => array(
+				'id'    => 'independent_2026',
+				'start' => strtotime( '2026-07-01 00:00:00' ),
+				'end'   => strtotime( '2026-07-31 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/independence-day-sale.svg',
+				'link'  => 'https://themeatelier.net/deals/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=independent_2026#pricing',
+			),
 		);
 
 		$active_offers = array();

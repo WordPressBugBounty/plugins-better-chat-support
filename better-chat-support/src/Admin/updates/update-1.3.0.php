@@ -15,9 +15,9 @@ function better_chat_support_convert_old_to_new_data_1_3_0($options)
     $cleanup_data_deletion = isset($options['cleanup_data_deletion']) ? $options['cleanup_data_deletion'] : '';
     $bubble_position = isset($options['bubble-position']) ? $options['bubble-position'] : '';
 
-    if ($bubble_position == 'right') {
+    if ($bubble_position === 'right') {
         $options['bubble-position'] = 'bottom_right';
-    } else {
+    } elseif ($bubble_position === 'left') {
         $options['bubble-position'] = 'bottom_left';
     }
 

@@ -102,14 +102,27 @@ class SingleTemplate
 			$bubble_position_mobile = '';
 		}
 		$button_style = '';
+
+		$auto_show_popup   = !empty($options['autoshow-popup']);
+		$auto_open_timeout = isset($options['auto_open_popup_timeout']) ? (int) $options['auto_open_popup_timeout'] : 0;
+
 		echo '<div style="--custom_theme_bg: url('. esc_url($theme_background_image_url) .')" id="' . esc_attr($unique_id) . '" class="mSupport_bubble mSupport ' . esc_attr($bubble_position . ' ' . $bubble_position_tablet . ' ' . $bubble_position_mobile . ' ' . $button_style . ' ' . $theme_style) . ' mSupport-' . esc_attr($bubble_visibility) . '-only ';
 
 		// Add position-specific class if position is 'left'.
 		if ('left' === $bubble_position) {
-			echo 'mSupport-left';
+			echo 'mSupport-left ';
 		}
 
-		echo 'chat-availability" data-timezone="' . esc_attr($select_timezone) . '" data-availability="' . esc_attr($user_availability) . '">';
+		// Auto-open: add mSupport-show immediately when timeout is 0.
+		if ($auto_show_popup && $auto_open_timeout === 0) {
+			echo 'mSupport-show ';
+		}
+
+		$timeout_attr = ($auto_show_popup && $auto_open_timeout > 0)
+			? ' data-auto-open-timeout="' . esc_attr($auto_open_timeout) . '"'
+			: '';
+
+		echo 'chat-availability" data-timezone="' . esc_attr($select_timezone) . '" data-availability="' . esc_attr($user_availability) . '"' . $timeout_attr . '>';
 		echo wp_kses_post($bubble_type); ?>
 		<div class="mSupport__popup animation<?php echo esc_attr($animation) ?> ">
 			<?php

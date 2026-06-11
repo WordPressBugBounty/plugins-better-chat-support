@@ -75,7 +75,8 @@ class Buttons
         $tooltip_enabled = $options['bubble_button_tooltip'] ?? 'on_hover';
         $tooltip_text = $options['bubble_button_tooltip_text'] ?? 'Need Help? Chat with us';
         $circle_animation = !empty($options['circle-animation']) ? $options['circle-animation'] : '1';
-        $button_label = $options['bubble-text'] ?? '';
+        /* React admin default for bubble-text is "How may I help you?" */
+        $button_label = !empty($options['bubble-text']) ? $options['bubble-text'] : 'How may I help you?';
         $select_timezone = $options['select-timezone'] ?? '';
         $opt_availablity = $options['opt-availablity'] ?? '';
         $tooltip_class = '';
@@ -96,7 +97,8 @@ class Buttons
         $bubble_icon_bg_color = !empty($options['bubble_icon_bg_color']) ? $options['bubble_icon_bg_color'] : array();
         $normal_bg_color = !empty($bubble_icon_bg_color['normal_color']) ? $bubble_icon_bg_color['normal_color'] : '#ffffff';
         $hover_bg_color = !empty($bubble_icon_bg_color['hover_color']) ? $bubble_icon_bg_color['hover_color'] : '#ffffff';
-        $icon_bg = !empty($options['bubble_icon_bg']) ? 'icon_bg' : '';
+        /* React admin default for bubble_icon_bg is true (ON) — match it here */
+        $icon_bg = !isset($options['bubble_icon_bg']) || !empty($options['bubble_icon_bg']) ? 'icon_bg' : '';
         $bubble_icon_color = !empty($options['bubble_icon_color']) ? $options['bubble_icon_color'] : array();
 
         if ($floating_button_style == '2' && $icon_bg === 'icon_bg') {

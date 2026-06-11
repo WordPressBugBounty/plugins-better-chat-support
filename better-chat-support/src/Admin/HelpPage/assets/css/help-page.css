@@ -607,7 +607,7 @@
   padding: 26px;
   border-radius: 8px;
   width: 33%;
-  flex-basis: calc(33% - 80px);
+  flex-basis: calc(33% - 25px);
   border: 1px solid transparent;
   transition: 0.3s;
   position: relative;

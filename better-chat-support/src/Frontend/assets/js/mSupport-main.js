@@ -61,6 +61,19 @@ if (alternativeMSupportBubble.length > 0) {
   });
 }
 
+/******************** AUTO OPEN POPUP  ********************/
+(function () {
+  const bubbles = document.querySelectorAll(
+    ".mSupport[data-auto-open-timeout], .mSupport-multi[data-auto-open-timeout]"
+  );
+  bubbles.forEach((bubble) => {
+    const ms = parseInt(bubble.getAttribute("data-auto-open-timeout"), 10);
+    if (!isNaN(ms) && ms > 0) {
+      setTimeout(() => bubble.classList.add("mSupport-show"), ms);
+    }
+  });
+})();
+
 /******************** 03.CHECK AVAILABILITY  ********************/
 function is_available(available, now) {
   let is_available = false;
@@ -69,8 +82,9 @@ function is_available(available, now) {
     if (available.hasOwnProperty(key)) {
       if (get_day_of_week(key) == now.day()) {
         let timeRange = available[key].split("-");
-        let start = moment.tz(timeRange[0], "HH:mm", now.tz()); // Apply the same timezone
-        let end = moment.tz(timeRange[1], "HH:mm", now.tz());
+        let tz = now.tz();
+        let start = tz ? moment.tz(timeRange[0], "HH:mm", tz) : moment(timeRange[0], "HH:mm");
+        let end   = tz ? moment.tz(timeRange[1], "HH:mm", tz) : moment(timeRange[1], "HH:mm");
         // Align start/end to the same date as `now`
         start.year(now.year()).month(now.month()).date(now.date());
         end.year(now.year()).month(now.month()).date(now.date());
