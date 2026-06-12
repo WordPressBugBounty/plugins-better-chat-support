@@ -394,8 +394,11 @@ class SettingsController
             return [];
         }
 
-        // Each review is a bbPress topic <ul id="bbp-topic-…">…</ul>.
-        if (!preg_match_all('#<ul id="bbp-topic-\d+".*?</ul><!-- #bbp-topic-#s', $body, $topics)) {
+        // Each review is a bbPress topic <ul id="bbp-topic-…">…</ul>. Uses a `~`
+        // delimiter because the pattern itself contains a literal `#`
+        // (`<!-- #bbp-topic-`), which would otherwise close a `#` delimiter and
+        // trigger an "Unknown modifier" warning.
+        if (!preg_match_all('~<ul id="bbp-topic-\d+".*?</ul><!-- #bbp-topic-~s', $body, $topics)) {
             return [];
         }
 
