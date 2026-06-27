@@ -211,7 +211,7 @@ class Admin
             || 'messenger_page_settings' === $screen->id
             || 'messenger_page_mcs-help' === $screen->id
         ) {
-            $text = sprintf(
+            return sprintf(
                 /* translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link */
                 __('<i>Enjoying %1$sBetter Chat Support for Messenger?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>', 'better-chat-support'),
                 '<strong>',
@@ -221,7 +221,6 @@ class Admin
             );
         }
 
-        echo wp_kses_post($text);
     }
 
     /**

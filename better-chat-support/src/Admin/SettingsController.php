@@ -86,6 +86,17 @@ class SettingsController
             ],
         ]);
 
+        // Onboarding newsletter opt-in: forwards the email to the FluentCRM
+        // contact webhook server-side (avoids browser CORS to the remote site).
+        register_rest_route($ns, '/onboarding/subscribe', [
+            'methods'             => \WP_REST_Server::CREATABLE,
+            'callback'            => [$this, 'subscribe_newsletter'],
+            'permission_callback' => [$this, 'check_permission'],
+            'args'                => [
+                'email' => ['required' => true, 'sanitize_callback' => 'sanitize_email'],
+            ],
+        ]);
+
         // Generic GET/POST for option keys (mcs-opt, mcs_settings)
         register_rest_route($ns, '/settings/(?P<option>[a-zA-Z0-9_-]+)', [
             [
@@ -120,6 +131,69 @@ class SettingsController
     public function check_activate_permission(): bool
     {
         return current_user_can('activate_plugins');
+    }
+
+    /**
+     * Forward an onboarding email opt-in to the FluentCRM contact webhook.
+     *
+     * Runs server-side via wp_remote_post so the browser never calls the remote
+     * site directly (no CORS), and the contact is added to the configured
+     * FluentCRM list. The webhook URL is filterable so it can be overridden
+     * without touching code.
+     */
+    public function subscribe_newsletter(\WP_REST_Request $request)
+    {
+        $email = sanitize_email($request->get_param('email'));
+        if (empty($email) || ! is_email($email)) {
+            return new \WP_REST_Response(['success' => false, 'message' => __('Please enter a valid email.', 'better-chat-support')], 400);
+        }
+
+        $webhook = apply_filters(
+            'better_chat_support_fluentcrm_webhook',
+            'https://themeatelier.net/?fluentcrm=1&route=contact&hash=0ab4e42c-0edc-4457-91d0-20b95261adb1'
+        );
+
+        $user       = wp_get_current_user();
+        $first_name = $user ? ($user->first_name ?: $user->display_name) : '';
+        $last_name  = $user ? $user->last_name : '';
+        $full_name  = trim($first_name . ' ' . $last_name);
+
+        // Map every webhook field the site can supply automatically. FluentCRM
+        // ignores any key it doesn't recognise, so sending the full set is safe.
+        $payload = [
+            // Contact Fields
+            'email'      => $email,
+            'first_name' => $first_name,
+            'last_name'  => $last_name,
+            'full_name'  => $full_name,
+            'timezone'   => wp_timezone_string(),
+            // Custom Fields (site environment)
+            'website'    => home_url(),
+            'status'     => 'subscribed', // user accepted terms + clicked opt-in
+            'php_version' => PHP_VERSION,
+            'wp_version' => get_bloginfo('version'),
+            'language'   => get_locale(),
+            'theme'      => wp_get_theme()->get('Name'),
+            'source'     => 'Better Chat Support Onboarding',
+        ];
+
+        $response = wp_remote_post($webhook, [
+            'timeout' => 15,
+            'headers' => ['Content-Type' => 'application/json; charset=utf-8'],
+            'body'    => wp_json_encode(apply_filters('better_chat_support_fluentcrm_payload', $payload, $email)),
+        ]);
+
+        if (is_wp_error($response)) {
+            return new \WP_REST_Response(['success' => false, 'message' => $response->get_error_message()], 502);
+        }
+
+        $code = (int) wp_remote_retrieve_response_code($response);
+        $ok   = $code >= 200 && $code < 300;
+
+        return new \WP_REST_Response(
+            ['success' => $ok, 'code' => $code],
+            $ok ? 200 : 502
+        );
     }
 
     /** Map of plugin slug → main plugin file (for install/active detection). */

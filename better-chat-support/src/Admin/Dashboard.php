@@ -122,6 +122,10 @@ class Dashboard
                 'demoUrl'     => esc_url(defined('BETTER_CHAT_SUPPORT_DEMO_URL') ? BETTER_CHAT_SUPPORT_DEMO_URL : ''),
                 // Free build: analytics (Traffic Breakdown) is a locked Pro feature.
                 'isPro'       => false,
+                // First-run setup wizard signal: true until a Facebook ID is saved.
+                // The React Floating Chat page shows the animated onboarding overlay
+                // when this is true (and the user has not dismissed it locally).
+                'onboarding'  => ! $has_global_chat,
                 'strings'     => [
                     // LayoutPresetField
                     'Demo'                      => esc_html__('Demo', 'better-chat-support'),

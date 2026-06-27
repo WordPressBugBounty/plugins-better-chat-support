@@ -95,7 +95,7 @@ class BetterChatSupport
         // deactivate_plugins('better_chat_support/better_chat_support.php');
 
         if (BETTER_CHAT_SUPPORT_BASENAME === $plugin) {
-            $redirect_url = esc_url(admin_url('admin.php?page=mcs'));
+            $redirect_url = esc_url(admin_url('admin.php?page=mcs-floating#/floating'));
             exit(wp_kses_post(wp_safe_redirect($redirect_url)));
         }
     }

@@ -42,7 +42,7 @@ class SingleTemplate
 	{
 		$optAvailablity = isset($options['opt-availablity']) ? $options['opt-availablity'] : '';
 		$user_availability = Helpers::user_availability($optAvailablity);
-		$agent_message = isset($options['agent-message']) ? $options['agent-message'] : 'Hello Welcome to {siteTitle}! Click the button below to start chatting with us on Messenger.';
+		$agent_message = isset($options['agent-message']) ? $options['agent-message'] : 'Hello, Welcome to the site. Please click below button for chatting me through messenger.';
 		$show_current_time = isset($options['show_current_time']) ? $options['show_current_time'] : true;
 		$bubble_position = isset($options['bubble-position']) ? $options['bubble-position'] : 'bottom_right';
 		$enable_positioning_tablet = isset($options['enable-positioning-tablet']) ? $options['enable-positioning-tablet'] : '';
