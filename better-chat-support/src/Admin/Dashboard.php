@@ -118,6 +118,8 @@ class Dashboard
                 'currentPage' => $screen->id,
                 'pluginUrl'   => esc_url(BETTER_CHAT_SUPPORT_DIR_URL),
                 'userName'    => wp_get_current_user()->first_name ?: wp_get_current_user()->display_name,
+                // Prefill the onboarding newsletter opt-in with the admin's email.
+                'adminEmail'  => sanitize_email(wp_get_current_user()->user_email),
                 'docsUrl'     => esc_url(defined('BETTER_CHAT_SUPPORT_DOCS_URL') ? BETTER_CHAT_SUPPORT_DOCS_URL : ''),
                 'demoUrl'     => esc_url(defined('BETTER_CHAT_SUPPORT_DEMO_URL') ? BETTER_CHAT_SUPPORT_DEMO_URL : ''),
                 // Free build: analytics (Traffic Breakdown) is a locked Pro feature.

@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,6 +215,10 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.3.1 – 2 July, 2026 =
+* New: Finishing the setup wizard now auto-selects the "Single Agent" chat experience so your floating chat is ready to show right away.
+* Improved: The onboarding newsletter opt-in now prefills your admin email, making it easier to subscribe.
+
 = 2.3.0 – 27 June, 2026 =
 * New: First-run setup wizard on the Floating Chat page — an animated, chat-style onboarding that collects your Facebook ID, agent name, and agent message to get the Messenger chat live in under a minute.
 
@@ -348,6 +352,9 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
+= 2.3.1 =
+Finishing setup now auto-selects the Single Agent layout and prefills your admin email in the onboarding opt-in. Recommended for all users.
+
 = 2.3.0 =
 New animated first-run setup wizard makes getting your Messenger chat live faster than ever. Recommended for all users.
 
