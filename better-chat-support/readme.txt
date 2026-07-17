@@ -1,6 +1,6 @@
 === Better Chat Support for Messenger ===
 Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
-Tags: facebook messenger, messenger chat, chat button, live chat, customer care
+Tags: messenger chat, messenger, customer care, facebook messenger, facebook
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
 Tested up to: 7.0
