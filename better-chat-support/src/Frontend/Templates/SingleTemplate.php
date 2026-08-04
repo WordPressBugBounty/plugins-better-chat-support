@@ -73,8 +73,8 @@ class SingleTemplate
 		$agent_subtitle = isset($options['agent-subtitle']) ? $options['agent-subtitle'] : 'Typically replies within a day';
 		$offline_agent_subtitle = !empty($options['offline_agent_subtitle']) ? $options['offline_agent_subtitle'] : $agent_subtitle;
 		$color_settings = isset($options['color_settings']) ? $options['color_settings'] : '';
-		$primary = isset($color_settings['primary']) ? $color_settings['primary'] : '#0084ff';
-		$secondary = isset($color_settings['secondary']) ? $color_settings['secondary'] : '#0066ff';
+		$primary = !empty($color_settings['primary']) ? $color_settings['primary'] : '#0084ff';
+		$secondary = !empty($color_settings['secondary']) ? $color_settings['secondary'] : '#0066ff';
 		$send_button_color = isset($options['send_button_color']) ? $options['send_button_color'] : '';
 		$color = '#fff';
 		$hover_color = '#fff';

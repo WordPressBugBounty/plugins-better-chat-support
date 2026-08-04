@@ -67,26 +67,13 @@ class ThemeAtelier_Offer_Banner
 
 		// Define offer durations.
 		$offers = array(
-			'may_sale'     => array(
-				'id'    => 'may_2026',
-				'start' => strtotime( '2026-05-01 00:00:00' ),
-				'end'   => strtotime( '2026-05-31 23:59:59' ),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/messenger-growth.svg',
-				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=may_2026#pricing',
-			),
-			'mid_year_mega'     => array(
-				'id'    => 'mid_year_mega',
-				'start' => strtotime( '2026-06-01 00:00:00' ),
-				'end'   => strtotime( '2026-06-30 23:59:59' ),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mid-year-mega.svg',
-				'link'  => 'https://themeatelier.net/deals/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mid_year_mega#pricing',
-			),
-			'independent_2026'     => array(
-				'id'    => 'independent_2026',
-				'start' => strtotime( '2026-07-01 00:00:00' ),
-				'end'   => strtotime( '2026-07-31 23:59:59' ),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/independence-day-sale.svg',
-				'link'  => 'https://themeatelier.net/deals/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=independent_2026#pricing',
+
+			'mega_sale'     => array(
+				'id'    => 'mega_sale_2026',
+				'start' => strtotime( '2026-08-01 00:00:00' ),
+				'end'   => strtotime( '2026-09-31 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mega-sale.svg',
+				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mega_sale_2026#pricing',
 			),
 		);
 

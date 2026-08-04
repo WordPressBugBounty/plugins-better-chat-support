@@ -35,13 +35,46 @@ class Dashboard
         remove_all_actions('user_admin_notices');
         remove_all_actions('network_admin_notices');
 
+        // Resolve the saved theme BEFORE the first paint.
+        //
+        // ThemeProvider adds `light`/`dark` to <html> from a useEffect, which
+        // only runs after React has mounted and painted — so a dark-mode admin
+        // rendered one full light frame first and visibly flashed white. This
+        // runs synchronously while <head> is parsed, so the very first paint is
+        // already in the right theme; the provider's effect then sets the same
+        // class and changes nothing.
+        //
+        // Mirrors ThemeProvider's contract exactly: storage key `mcs-theme`,
+        // values light|dark|system, default light, `system` resolved from the OS
+        // preference. Wrapped in try/catch because localStorage throws in some
+        // privacy modes — the admin must still load if it does.
+        echo '<script id="mcs-theme-boot">'
+            . '(function(){try{'
+            . 'var t=localStorage.getItem("mcs-theme")||"light";'
+            . 'if(t==="system"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}'
+            . 'document.documentElement.classList.add(t==="dark"?"dark":"light");'
+            . '}catch(e){}})();'
+            . '</script>';
+
         // Stabilise the initial paint so the WP admin menu does not flicker/shift
         // when React mounts. Reserving the app height keeps a vertical scrollbar
         // present from the first paint (no width shift), and scrollbar-gutter is a
         // belt-and-braces guard against scrollbar-induced reflow.
+        //
+        // The app root and the surrounding wp-admin chrome are painted here too,
+        // keyed off the class the boot script just set — the bundled stylesheet
+        // is what normally colours them, and until it applies the browser would
+        // otherwise paint WordPress's light chrome behind a dark app.
         echo '<style id="mcs-admin-stabilize">'
             . 'html{scrollbar-gutter:stable;}'
             . '#mcs_react{background:#f0f0f1;}'
+            . 'html.dark #mcs_react,'
+            . 'html.dark body.wp-admin,'
+            . 'html.dark #wpwrap,'
+            . 'html.dark #wpcontent,'
+            . 'html.dark #wpbody,'
+            . 'html.dark #wpbody-content,'
+            . 'html.dark #wpfooter{background-color:#0f1216;}'
             . '</style>';
     }
 

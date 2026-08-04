@@ -203,16 +203,35 @@ class Frontend
 
     public function better_chat_support_chat_popup()
     {
-        $unique_id = "better_chat_support_button_$this->unique_id";
         $options = get_option('mcs-opt');
         $ch_settings = get_option('mcs_settings');
+        self::render_widget($options, $ch_settings, $this->unique_id);
+    }
+
+    /**
+     * Renders the widget's CSS-variable style block + markup for an arbitrary
+     * options array. Shared by the real `wp_footer` hook above (real saved
+     * options, random popup-animation seed) and the admin live-preview REST
+     * endpoint (unsaved/merged options, fixed seed) — see
+     * `Admin\Rest\PreviewRest`, which reuses this instead of hand-maintaining
+     * a separate re-implementation of the widget markup.
+     *
+     * @param string   $raw_unique_id Unprefixed id; the widget root becomes
+     *                                `#better_chat_support_button_{$raw_unique_id}`.
+     * @param int|null $random        Popup-animation seed (1-13). Pass a fixed
+     *                                value for a stable preview; null uses a
+     *                                real random seed (the live-site behavior).
+     */
+    public static function render_widget($options, $ch_settings, string $raw_unique_id, ?int $random = null): void
+    {
+        $unique_id = "better_chat_support_button_$raw_unique_id";
         $enable_floating_chat = isset($options['enable_floating_chat']) ? $options['enable_floating_chat'] : '1';
         $fbId = isset($options['opt-fbid']) ? $options['opt-fbid'] : '';
         $optAvailability = isset($options['opt-availablity']) ? $options['opt-availablity'] : '';
         $user_availability = Helpers::user_availability($optAvailability);
 
         $chat_type = isset($options['chat_layout']) ? $options['chat_layout'] : 'agent';
-        $random = wp_rand(1, 13);
+        $random = $random ?? wp_rand(1, 13);
         $select_animation = isset($options['select-animation']) ? $options['select-animation'] : 'random';
         if ('random' === $select_animation) {
             $select_animation = $random;
@@ -243,7 +262,7 @@ class Frontend
             self::render_chat_template($chat_type, $options, $ch_settings, $bubble_type, $random, $unique_id);
         }
 
-        $bubble_button_tooltip_background = isset($options['bubble_button_tooltip_background']) ? $options['bubble_button_tooltip_background'] : '#f5f7f9';
+        $bubble_button_tooltip_background = !empty($options['bubble_button_tooltip_background']) ? $options['bubble_button_tooltip_background'] : '#f5f7f9';
         $bubble_button_tooltip_width = isset($options['bubble_button_tooltip_width']) ? $options['bubble_button_tooltip_width'] : 190;
         // Right
         $right_bottom              = isset($options['right_bottom']) ? $options['right_bottom'] : array();
@@ -316,11 +335,11 @@ class Frontend
         $left_middle_unit_mobile       = isset($left_middle_mobile['unit']) ? $left_middle_mobile['unit'] : 'px';
 
         $color_settings = isset($options['color_settings']) ? $options['color_settings'] : '';
-        $primary = isset($color_settings['primary']) ? $color_settings['primary'] : '#0084ff';
-        $secondary = isset($color_settings['secondary']) ? $color_settings['secondary'] : '#0066ff';
+        $primary = !empty($color_settings['primary']) ? $color_settings['primary'] : '#0084ff';
+        $secondary = !empty($color_settings['secondary']) ? $color_settings['secondary'] : '#0066ff';
     ?>
         <style type="text/css" class="better_chat_support_inline_css">
-            #better_chat_support_button_<?php echo esc_attr($this->unique_id); ?> {
+            #better_chat_support_button_<?php echo esc_attr($raw_unique_id); ?> {
                 --right_bottom_value_bottom: <?php echo esc_attr($right_bottom_value_bottom . $right_bottom_unit) ?>;
                 --right_bottom_value_right: <?php echo esc_attr($right_bottom_value_right . $right_bottom_unit) ?>;
                 --left_bottom_value_bottom: <?php echo esc_attr($left_bottom_value_bottom . $left_bottom_unit) ?>;

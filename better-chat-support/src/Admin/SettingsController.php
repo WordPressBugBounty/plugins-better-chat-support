@@ -174,6 +174,7 @@ class SettingsController
             'wp_version' => get_bloginfo('version'),
             'language'   => get_locale(),
             'theme'      => wp_get_theme()->get('Name'),
+            'created_at' => current_time('Y-m-d'), // FluentCRM date field expects Y-m-d
             'source'     => 'Better Chat Support Onboarding',
         ];
 
@@ -812,17 +813,22 @@ class SettingsController
         if (!is_array($body)) {
             return new \WP_Error('invalid_data', 'Request body must be a JSON object.', ['status' => 400]);
         }
-        $sanitized = $this->deep_sanitize($body);
+        $sanitized = self::deep_sanitize($body);
         update_option($option, $sanitized);
         return rest_ensure_response(['success' => true, 'message' => 'Settings saved successfully.']);
     }
 
-    private function deep_sanitize($data)
+    /**
+     * Recursively sanitize a settings payload. `public static` (not just
+     * `private`) so `Admin\Rest\PreviewRest` can reuse the exact same
+     * sanitization rules for unsaved preview values instead of duplicating them.
+     */
+    public static function deep_sanitize($data)
     {
         if (is_array($data)) {
             $result = [];
             foreach ($data as $key => $value) {
-                $result[sanitize_text_field((string) $key)] = $this->deep_sanitize($value);
+                $result[sanitize_text_field((string) $key)] = self::deep_sanitize($value);
             }
             return $result;
         }

@@ -16,6 +16,7 @@ namespace ThemeAtelier\BetterChatSupport\Admin;
 use ThemeAtelier\BetterChatSupport\Admin\Analytics;
 use ThemeAtelier\BetterChatSupport\Admin\Dashboard;
 use ThemeAtelier\BetterChatSupport\Admin\SettingsController;
+use ThemeAtelier\BetterChatSupport\Admin\Rest\PreviewRest;
 use ThemeAtelier\BetterChatSupport\Admin\DBUpdates;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ReviewNotice;
 use ThemeAtelier\BetterChatSupport\Admin\Helpers\ThemeAtelier_Offer_Banner;
@@ -69,6 +70,7 @@ class Admin
         new Analytics();
         new Dashboard();
         new SettingsController();
+        new PreviewRest();
         // Admin Menu
         add_action('admin_menu', array($this, 'add_plugin_page'));
 

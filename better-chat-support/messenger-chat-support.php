@@ -6,7 +6,7 @@
  *  Author:         ThemeAtelier
  *  Author URI:     http://themeatelier.net/
  *  Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above.
- *  Version:        2.3.1
+ *  Version:        2.3.2
  * Text Domain:     better-chat-support
  * Domain Path:     /languages
  */
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '2.3.1');
+    define('BETTER_CHAT_SUPPORT_VERSION', '2.3.2');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));

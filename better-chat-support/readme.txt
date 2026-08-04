@@ -1,11 +1,11 @@
 === Better Chat Support for Messenger ===
 Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
-Tags: messenger chat, messenger, customer care, facebook messenger, facebook
+Tags: facebook messenger, messenger chat, chat button, live chat, customer care
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,6 +215,14 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.3.2 – 29 July, 2026 =
+* New: Admin live preview on the Floating Chat page — see your unsaved settings rendered by the real frontend code, with Desktop and Mobile viewports, a full-screen view and one-click refresh.
+* Update: Complete admin UI/UX refresh — the settings pages now use a sectioned card layout with a collapsible section rail, a sticky top bar, and consistent spacing throughout.
+* Update: Rebuilt colour fields — every colour control now opens a full picker (saturation area, hue and opacity sliders, preset swatches, eyedropper) and accepts HEX, RGB(A) and HSL(A) values.
+* Improved: Dropdowns no longer lock the page while open, open above or below depending on available space, and stay scrollable with long option lists.
+* Fixed: Dark mode is now applied across every admin screen, including the dashboard charts, availability schedule and all form fields.
+* Fixed: The admin no longer flashes light for a moment before dark mode is applied on page load.
+
 = 2.3.1 – 2 July, 2026 =
 * New: Finishing the setup wizard now auto-selects the "Single Agent" chat experience so your floating chat is ready to show right away.
 * Improved: The onboarding newsletter opt-in now prefills your admin email, making it easier to subscribe.
