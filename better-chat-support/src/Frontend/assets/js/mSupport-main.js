@@ -61,6 +61,16 @@ if (alternativeMSupportBubble.length > 0) {
   });
 }
 
+/******************** 02b.HEADER CLOSE BUTTON  ********************/
+document.querySelectorAll(".mSupport-popup-close").forEach((item) => {
+  item.addEventListener("click", (e) => {
+    e.preventDefault();
+    [...mSupport, ...mSupportMulti].forEach((el) =>
+      el.classList.remove("mSupport-show"),
+    );
+  });
+});
+
 /******************** AUTO OPEN POPUP  ********************/
 (function () {
   const bubbles = document.querySelectorAll(

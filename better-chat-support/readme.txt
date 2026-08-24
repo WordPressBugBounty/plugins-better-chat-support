@@ -3,9 +3,9 @@ Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
 Tags: facebook messenger, messenger chat, chat button, live chat, customer care
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 2.3.2
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,6 +215,11 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.4.0 – 24 August, 2026 =
+* Added: Default agent avatar now shows the agent's initials instead of the plugin's built-in placeholder photo when the Agent Photo Type is set to "Default". "Custom" and "None" work as before.
+* Added: Show Close Icon option for the chat box header — adds a small × button so visitors can close the popup without clicking the floating bubble again.
+* Fixed: When Better Chat Support for Messenger and ChatHelp were both active with their bubbles set to the same side, the two floating bubbles sat on top of each other and both chat boxes could be open at once. The bubbles now stack automatically, and opening one chat box closes and hides the other so the popups no longer overlap.
+
 = 2.3.2 – 29 July, 2026 =
 * New: Admin live preview on the Floating Chat page — see your unsaved settings rendered by the real frontend code, with Desktop and Mobile viewports, a full-screen view and one-click refresh.
 * Update: Complete admin UI/UX refresh — the settings pages now use a sectioned card layout with a collapsible section rail, a sticky top bar, and consistent spacing throughout.
@@ -360,6 +365,9 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
+= 2.4.0 =
+Adds initials-based default agent avatars and a header close button, and fixes overlapping chat bubbles when Better Chat Support and ChatHelp are both active on the same side of the screen.
+
 = 2.3.1 =
 Finishing setup now auto-selects the Single Agent layout and prefills your admin email in the onboarding opt-in. Recommended for all users.
 

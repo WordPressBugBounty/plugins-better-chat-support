@@ -58,6 +58,7 @@ class Helpers
 		wp_register_script('moment', array('jquery'), '1.0', true);
 		wp_register_script('moment-timezone', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/moment-timezone-with-data' . $this->min . '.js', array('jquery'), '1.0', true);
 		wp_register_script('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/mSupport-main' . $this->min . '.js', array('jquery'), '1.0', true);
+		wp_register_script('tma-bubble-stack', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/bubble-stack.js', array(), BETTER_CHAT_SUPPORT_VERSION, true);
 	}
 
 	public static function user_availability($optAvailablity)
@@ -74,6 +75,33 @@ class Helpers
 
 		return json_encode($availability);
 	}
+
+	/**
+	 * Build the initials shown by the built-in ("Default") agent avatar.
+	 *
+	 * Takes the first letter of the first and last word, so "John Doe" becomes
+	 * "JD" and a single-word name becomes one letter. Returns an empty string
+	 * when no name is set, which renders an empty coloured circle.
+	 *
+	 * @param  string $name Agent name.
+	 * @return string
+	 */
+	public static function agent_initials($name)
+	{
+		$name = trim(wp_strip_all_tags((string) $name));
+		if ($name === '') {
+			return '';
+		}
+
+		$words = preg_split('/\s+/', $name);
+		$initials = mb_substr($words[0], 0, 1);
+		if (count($words) > 1) {
+			$initials .= mb_substr($words[count($words) - 1], 0, 1);
+		}
+
+		return mb_strtoupper($initials);
+	}
+
 
 
 	/**

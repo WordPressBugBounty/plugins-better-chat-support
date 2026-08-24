@@ -62,11 +62,10 @@ class SingleTemplate
 		$agent_photo = isset($options['agent-photo']) ? $options['agent-photo'] : '';
 		$agent_photo_url = isset($agent_photo['url']) ? $agent_photo['url'] : '';
 
-		if ($agent_photo_type === 'default') {
-			$agent_photo_url = BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/images/user.webp';
-		} elseif ($agent_photo_type === 'custom' && $agent_photo_url) {
-			$agent_photo_url;
-		} elseif ($agent_photo_type === 'none') {
+		// "Default" renders the agent's initials (see items/thumbnail.php), so it
+		// deliberately leaves $agent_photo_url empty instead of pointing at the
+		// bundled user.webp placeholder.
+		if ($agent_photo_type === 'default' || $agent_photo_type === 'none') {
 			$agent_photo_url = '';
 		}
 		$agent_name = isset($options['agent-name']) ? $options['agent-name'] : 'John Doe';

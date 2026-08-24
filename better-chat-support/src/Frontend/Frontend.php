@@ -111,6 +111,7 @@ class Frontend
         wp_enqueue_script('moment');
         wp_enqueue_script('moment-timezone');
         wp_enqueue_script('mcs-main');
+        wp_enqueue_script('tma-bubble-stack');
 
         if (!empty($mcs_custom_js)) {
             wp_add_inline_script('mcs-main', $mcs_custom_js);
