@@ -127,9 +127,28 @@ class PreviewRest
         $inline_vars = '<script type="text/javascript">var alternativeMSupportBubble = '
             . wp_json_encode((string) $alternative_bubble) . ';</script>';
 
+        // Same font handling as Frontend::enqueue_scripts(), through the same
+        // shared helpers, so the preview shows the selected font exactly as
+        // the live site does: the Google Fonts stylesheet (when the family is
+        // a Google font) plus the font-family rule for the widget's elements.
+        $typography  = Frontend::get_typography_settings($options);
+        $font_handle = '';
+        if (!empty($typography['family']) && $typography['is_google']) {
+            $font_handle = Frontend::enqueue_google_font($typography['family']);
+        }
+        $style_handles = ['icofont', 'mcs-main'];
+        if ($font_handle) {
+            $style_handles[] = $font_handle;
+        }
+        $font_css = !empty($typography['family'])
+            ? '<style id="mcs-preview-font">' . Frontend::generate_font_css($typography) . '</style>'
+            : '';
+
         ob_start();
-        wp_styles()->do_items(['icofont', 'mcs-main']);
-        $head = ob_get_clean();
+        wp_styles()->do_items($style_handles);
+        // Theme typography first, so the plugin's own rules win on ties — the
+        // same order the frontend produces.
+        $head = $this->theme_typography_styles() . ob_get_clean() . $font_css;
 
         ob_start();
         echo $inline_vars;
@@ -137,5 +156,63 @@ class PreviewRest
         $foot = ob_get_clean();
 
         return [$head, $foot];
+    }
+
+    /**
+     * Base typography for the preview iframe, mirroring what the widget
+     * inherits on the real frontend.
+     *
+     * The iframe carries only the plugin's own stylesheet, so text the plugin
+     * sets no `font-family` on fell back to the browser default (a serif)
+     * while the live site inherits the theme's font.
+     *
+     * Block themes declare their body font in theme.json, usually as a
+     * `var(--wp--preset--font-family--*)` reference, so the preset custom
+     * properties (the `variables` layer only — no layout/colour rules that
+     * could restyle the widget) go in alongside it. Classic themes expose
+     * nothing readable here, so they get a system sans stack.
+     *
+     * Applied to `html`, so it only acts as an inherited default — the
+     * selected Typography font (see render_assets()) still overrides it.
+     */
+    private function theme_typography_styles(): string
+    {
+        $font = '';
+
+        if (function_exists('wp_get_global_styles')) {
+            $typography = wp_get_global_styles(['typography']);
+            if (is_array($typography) && !empty($typography['fontFamily'])) {
+                $font = (string) $typography['fontFamily'];
+            }
+        }
+
+        $out = '';
+
+        if ($font !== '' && function_exists('wp_get_global_stylesheet')) {
+            $variables = wp_get_global_stylesheet(['variables']);
+            if (is_string($variables) && $variables !== '') {
+                $out .= '<style id="mcs-preview-theme-vars">' . wp_strip_all_tags($variables) . '</style>';
+            }
+
+            // The preset variables only name the family; the @font-face rules
+            // that load a theme-bundled webfont are printed on `wp_head` on the
+            // frontend, so print them here too.
+            if (function_exists('wp_print_font_faces')) {
+                ob_start();
+                wp_print_font_faces();
+                $out .= (string) ob_get_clean();
+            }
+        }
+
+        if ($font === '') {
+            $font = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+        }
+
+        // Not esc_attr(): this lands inside <style>, where entity-encoding would
+        // turn a quoted family ("Segoe UI") into invalid CSS. Strip the only
+        // characters that could break out of the declaration instead.
+        $font = str_replace(['<', '>', '{', '}', ';'], '', $font);
+
+        return $out . '<style id="mcs-preview-theme">html{font-family:' . $font . ';}</style>';
     }
 }

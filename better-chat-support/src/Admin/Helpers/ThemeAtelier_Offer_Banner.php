@@ -67,11 +67,10 @@ class ThemeAtelier_Offer_Banner
 
 		// Define offer durations.
 		$offers = array(
-
-			'mega_sale'     => array(
-				'id'    => 'mega_sale_2026',
-				'start' => strtotime( '2026-08-01 00:00:00' ),
-				'end'   => strtotime( '2026-09-31 23:59:59' ),
+			'mega_sale_v3'     => array(
+				'id'    => 'mega_sale_v3_2026',
+				'start' => strtotime( '2026-09-01 00:00:00' ),
+				'end'   => strtotime( '2026-10-31 23:59:59' ),
 				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mega-sale.svg',
 				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mega_sale_2026#pricing',
 			),

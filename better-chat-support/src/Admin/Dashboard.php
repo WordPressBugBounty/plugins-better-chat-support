@@ -67,14 +67,14 @@ class Dashboard
         // otherwise paint WordPress's light chrome behind a dark app.
         echo '<style id="mcs-admin-stabilize">'
             . 'html{scrollbar-gutter:stable;}'
-            . '#mcs_react{background:#f0f0f1;}'
+            . '#mcs_react{background:#f1f2f4;}'
             . 'html.dark #mcs_react,'
             . 'html.dark body.wp-admin,'
             . 'html.dark #wpwrap,'
             . 'html.dark #wpcontent,'
             . 'html.dark #wpbody,'
             . 'html.dark #wpbody-content,'
-            . 'html.dark #wpfooter{background-color:#0f1216;}'
+            . 'html.dark #wpfooter{background-color:#0a0a0a;}'
             . '</style>';
     }
 

@@ -14,12 +14,23 @@ class Analytics
 {
     private $table;
 
+    /** Bump when the table schema changes so dbDelta() re-runs once. */
+    const DB_VERSION = '1';
+
+    /** Seconds between WordPress local time and the database clock (cached). */
+    private $db_offset = null;
+
     function __construct()
     {
         global $wpdb;
         $this->table = $wpdb->prefix . 'mcs_analytics';
 
-        $this->create_table();
+        // dbDelta() inspects the live table, so it used to run a round of
+        // schema queries on every request. Run it once per schema version.
+        if (get_option('mcs_analytics_db_version') !== self::DB_VERSION) {
+            $this->create_table();
+            update_option('mcs_analytics_db_version', self::DB_VERSION, false);
+        }
         add_action('rest_api_init', [$this, 'register_rest_routes']);
         add_action('wp_footer', [$this, 'inject_tracking_script']);
     }
@@ -134,14 +145,19 @@ class Analytics
             "SELECT
                 SUM(event_type = 'visitor') AS visitors,
                 SUM(event_type = 'view') AS views,
-                SUM(event_type = 'conversion') AS conversions
+                SUM(event_type = 'conversion') AS conversions,
+                COUNT(DISTINCT CASE WHEN event_type = 'conversion' AND session_id <> '' THEN session_id END) AS converted_sessions
             FROM $table WHERE 1=1 $date_where $widget_where"
         );
 
         $visitors    = (int) ($row->visitors ?? 0);
         $views       = (int) ($row->views ?? 0);
         $conversions = (int) ($row->conversions ?? 0);
-        $rate        = $visitors > 0 ? round(($conversions / $visitors) * 100, 1) : 0;
+        // Share of visits that clicked through to Messenger. Counting raw
+        // clicks against visits went past 100% whenever one visitor clicked
+        // more than once.
+        $converted   = (int) ($row->converted_sessions ?? 0);
+        $rate        = $visitors > 0 ? min(100, round(($converted / $visitors) * 100, 1)) : 0;
 
         return new WP_REST_Response([
             'visitors'        => $visitors,
@@ -162,12 +178,14 @@ class Analytics
         $group_by = in_array($period, ['this_year', 'last_year'], true) ? 'month' : 'day';
         $table    = $this->table;
 
+        // Bucket by the site's local day/month, not the database clock's.
+        $local = $wpdb->prepare('(created_at + INTERVAL %d SECOND)', $this->db_offset());
         if ($group_by === 'month') {
-            $select = "DATE_FORMAT(created_at, '%Y-%m') AS period_key";
-            $group  = "DATE_FORMAT(created_at, '%Y-%m')";
+            $select = "DATE_FORMAT($local, '%Y-%m') AS period_key";
+            $group  = "DATE_FORMAT($local, '%Y-%m')";
         } else {
-            $select = 'DATE(created_at) AS period_key';
-            $group  = 'DATE(created_at)';
+            $select = "DATE($local) AS period_key";
+            $group  = "DATE($local)";
         }
 
         $rows = $wpdb->get_results(
@@ -298,13 +316,34 @@ class Analytics
             $widget_where = $wpdb->prepare(' AND widget_id = %d', (int) $widget_id);
         }
 
+        // The range is in the site's local time; `created_at` is stamped by
+        // the database clock, which may run on another time zone. Shift the
+        // bounds onto the database clock so each event lands on the right day.
+        $offset     = $this->db_offset();
         $date_where = $wpdb->prepare(
             ' AND created_at >= %s AND created_at <= %s',
-            $from . ' 00:00:00',
-            $to . ' 23:59:59'
+            gmdate('Y-m-d H:i:s', strtotime($from . ' 00:00:00 UTC') - $offset),
+            gmdate('Y-m-d H:i:s', strtotime($to . ' 23:59:59 UTC') - $offset)
         );
 
         return [$from, $to, $widget_where, $date_where];
+    }
+
+    /**
+     * Seconds to add to a `created_at` value (database clock) to get WordPress
+     * local time. Rounded to the nearest 15 minutes — every real time zone
+     * offset is a multiple of that — so the few seconds between the two clock
+     * reads never leak into the result.
+     */
+    private function db_offset(): int
+    {
+        if ($this->db_offset === null) {
+            global $wpdb;
+            $db_now          = strtotime($wpdb->get_var('SELECT NOW()') . ' UTC');
+            $wp_now          = strtotime(current_time('mysql') . ' UTC');
+            $this->db_offset = $db_now ? (int) (round(($wp_now - $db_now) / 900) * 900) : 0;
+        }
+        return $this->db_offset;
     }
 
     private function resolve_period($period, $date_from = '', $date_to = '')
@@ -407,20 +446,28 @@ class Analytics
 var trackUrl=<?php echo $url_json; ?>;
 function getDevice(){var ua=navigator.userAgent;if(/tablet|ipad|playbook|silk/i.test(ua))return"other";if(/mobile|android|iphone|ipod|blackberry|iemobile|opera mini/i.test(ua))return"mobile";return"desktop";}
 var device=getDevice();
-function track(eventType,widgetId,sessionId){fetch(trackUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({event_type:eventType,widget_id:widgetId||0,device_type:device,session_id:sessionId||"",page_url:window.location.pathname})}).catch(function(){});}
-function getOrCreateSession(){var key="mcs_sid";var sid=sessionStorage.getItem(key);if(!sid){sid=Math.random().toString(36).slice(2)+Date.now().toString(36);sessionStorage.setItem(key,sid);}return sid;}
-var sid=getOrCreateSession();
-if(!sessionStorage.getItem("mcs_visited")){sessionStorage.setItem("mcs_visited","1");track("visitor",0,sid);}
-function setupTracking(){
-var bubbles=document.querySelectorAll(".mSupport_bubble .mSupport_button");
-if(!bubbles.length)return;
-if("IntersectionObserver"in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){var wid=entry.target.getAttribute("data-widget-id")||0;track("view",wid,sid);observer.unobserve(entry.target);}});},{threshold:0.5});bubbles.forEach(function(el){observer.observe(el);});}
+/* keepalive: a click that opens Messenger in the same tab navigates away at once; without it the request is cancelled and the conversion lost. */
+function track(eventType,widgetId,sessionId){try{fetch(trackUrl,{method:"POST",keepalive:true,headers:{"Content-Type":"application/json"},body:JSON.stringify({event_type:eventType,widget_id:widgetId||0,device_type:device,session_id:sessionId||"",page_url:window.location.pathname})}).catch(function(){});}catch(e){}}
+/* sessionStorage throws in some privacy modes; fall back to a per-page id instead of stopping all tracking. */
+function store(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v);}catch(e){}return null;}
+var sid=store("mcs_sid");if(!sid){sid=Math.random().toString(36).slice(2)+Date.now().toString(36);store("mcs_sid",sid);}
+if(!store("mcs_visited")){store("mcs_visited","1");track("visitor",0,sid);}
+/* Conversion = a click that actually goes to Messenger: an m.me/messenger.com link, or a chat control that wraps one (send button, multi-agent row, shortcode/Gutenberg/Elementor button). The floating bubble only opens/closes the popup, so on its own it is not a conversion. */
+var MSG='a[href*="m.me/"],a[href*="messenger.com/"]';
 document.addEventListener("click",function(e){
-var link=e.target.closest(".better_chat_support_link,.mSupport__send-message,.mSupport_button,.chat-link,.better_chat_support_multi_user");if(link){track("conversion",0,sid);return;}
-var anchor=e.target.closest('a[href*="m.me/"],a[href*="messenger.com/"]');if(anchor){track("conversion",0,sid);return;}
+var t=e.target;if(!t||!t.closest)return;
+var hit=t.closest(MSG);
+if(!hit){var c=t.closest(".better_chat_support_link,.mSupport__send-message,.better_chat_support_multi_user,.mSupport_button,.chat-link");if(c&&c.querySelector(MSG))hit=c;}
+if(hit)track("conversion",0,sid);
 },{passive:true});
+/* Views: the floating bubble scrolling into sight, once per page. */
+function setupViews(){
+var bubbles=document.querySelectorAll(".mSupport_bubble .mSupport_button");
+if(!bubbles.length||!("IntersectionObserver"in window))return;
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){track("view",entry.target.getAttribute("data-widget-id")||0,sid);observer.unobserve(entry.target);}});},{threshold:0.5});
+bubbles.forEach(function(el){observer.observe(el);});
 }
-if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",setupTracking);}else{setupTracking();}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",setupViews);}else{setupViews();}
 })();</script>
 <?php
     }

@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-24 12:52+0000\n"
+"POT-Creation-Date: 2026-09-29 04:39+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -187,11 +187,11 @@ msgstr ""
 msgid "Showing %1$s of %2$s icons"
 msgstr ""
 
-#: src/Admin/Dashboard.php:205, src/Admin/SettingsController.php:749, src/Admin/SettingsController.php:759, src/Admin/SettingsController.php:769, src/Admin/SettingsController.php:779, src/Admin/SettingsController.php:789, src/Admin/SettingsController.php:799
+#: src/Admin/Dashboard.php:205, src/Admin/SettingsController.php:576, src/Admin/SettingsController.php:586, src/Admin/SettingsController.php:596, src/Admin/SettingsController.php:606, src/Admin/SettingsController.php:616, src/Admin/SettingsController.php:626
 msgid "I am online"
 msgstr ""
 
-#: src/Admin/Dashboard.php:206, src/Admin/SettingsController.php:750, src/Admin/SettingsController.php:760, src/Admin/SettingsController.php:770, src/Admin/SettingsController.php:780, src/Admin/SettingsController.php:790, src/Admin/SettingsController.php:800
+#: src/Admin/Dashboard.php:206, src/Admin/SettingsController.php:577, src/Admin/SettingsController.php:587, src/Admin/SettingsController.php:597, src/Admin/SettingsController.php:607, src/Admin/SettingsController.php:617, src/Admin/SettingsController.php:627
 msgid "I am offline"
 msgstr ""
 
@@ -1779,68 +1779,56 @@ msgstr ""
 msgid "Google Web Fonts"
 msgstr ""
 
-#: src/Admin/SettingsController.php:148
+#: src/Admin/SettingsController.php:139
 msgid "Please enter a valid email."
 msgstr ""
 
-#: src/Admin/SettingsController.php:295
+#: src/Admin/SettingsController.php:286
 msgid "ago"
 msgstr ""
 
-#: src/Admin/SettingsController.php:503
-msgid "WordPress User"
-msgstr ""
-
-#: src/Admin/SettingsController.php:617
+#: src/Admin/SettingsController.php:444
 msgid "No plugin specified."
 msgstr ""
 
-#: src/Admin/SettingsController.php:633
+#: src/Admin/SettingsController.php:460
 msgid "Could not retrieve plugin information from WordPress.org."
 msgstr ""
 
-#: src/Admin/SettingsController.php:652
+#: src/Admin/SettingsController.php:479
 msgid "Plugin installation failed. Please try again."
 msgstr ""
 
-#: src/Admin/SettingsController.php:681
+#: src/Admin/SettingsController.php:508
 msgid "Invalid plugin specified."
 msgstr ""
 
-#: src/Admin/SettingsController.php:687
+#: src/Admin/SettingsController.php:514
 msgid "Plugin is not installed."
 msgstr ""
 
-#: src/Admin/SettingsController.php:716
+#: src/Admin/SettingsController.php:543
 msgid "Plugin activation failed. Please try again."
 msgstr ""
 
-#: src/Admin/SettingsController.php:745, src/Admin/SettingsController.php:795
+#: src/Admin/SettingsController.php:572, src/Admin/SettingsController.php:622
 msgid "Technical support"
 msgstr ""
 
-#: src/Admin/SettingsController.php:755
+#: src/Admin/SettingsController.php:582
 msgid "Marketing support"
 msgstr ""
 
-#: src/Admin/SettingsController.php:765
+#: src/Admin/SettingsController.php:592
 msgid "Sales support"
 msgstr ""
 
-#: src/Admin/SettingsController.php:775
+#: src/Admin/SettingsController.php:602
 msgid "Product manager"
 msgstr ""
 
-#: src/Admin/SettingsController.php:785
+#: src/Admin/SettingsController.php:612
 msgid "Support Manager"
-msgstr ""
-
-#: src/Includes/AutoUpdate.php:392
-msgid "You do not have permission to install plugin updates"
-msgstr ""
-
-#: src/Includes/AutoUpdate.php:392
-msgid "Error"
 msgstr ""
 
 #: src/Admin/Helpers/ReviewNotice.php:66

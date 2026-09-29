@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 2.4.0
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,10 +215,25 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.5.0 – 29 September, 2026 =
+* Update: Admin redesigned to match the ThemeAtelier plugin family (Chat Help, Domain For Sale, Darkify) — neutral colour palette, pill-style top navigation with version shown under the logo, and Settings moved to a gear icon.
+* Update: Floating Chat and Settings pages now use a full-width layout with a sticky section sidebar (with a Get Help link) and a sticky toolbar holding Live Preview, Save and a menu for Reset.
+* Update: Settings are grouped into titled cards, with each field's help text shown directly under its title instead of in a hover tooltip.
+* Update: Modern controls throughout — toggle switches, segmented option buttons, visual bubble-position picker, card-style layout presets, checkboxes and inputs.
+* Update: Pro features are now marked with a clear "PRO" badge and shown as read-only previews.
+* Update: Redesigned Dashboard stat cards and Shortcodes page.
+* Improved: A confirmation message now appears after settings are saved.
+* Improved: Dashboard charts and tables reflow properly on tablet and mobile screens.
+* Fixed: Button Size, Notification Number and Open/Close Transition Effect options now appear in the correct order.
+* Fixed: Preview images for a few field help hints (agent photo, close icon, button border) were not loading.
+* Fixed: Availability time picker and the Quick Setup wizard are now readable in dark mode.
+* Removed: WordPress admin footer text and the Live Demo / Open Docs links from field descriptions on the plugin's admin screens.
+
 = 2.4.0 – 24 August, 2026 =
 * Added: Default agent avatar now shows the agent's initials instead of the plugin's built-in placeholder photo when the Agent Photo Type is set to "Default". "Custom" and "None" work as before.
 * Added: Show Close Icon option for the chat box header — adds a small × button so visitors can close the popup without clicking the floating bubble again.
 * Fixed: When Better Chat Support for Messenger and ChatHelp were both active with their bubbles set to the same side, the two floating bubbles sat on top of each other and both chat boxes could be open at once. The bubbles now stack automatically, and opening one chat box closes and hides the other so the popups no longer overlap.
+* Fixed: PHP 8.1+ deprecation notice ("Automatic conversion of false to array") raised by the database upgrade routine on sites where the settings option had never been saved.
 
 = 2.3.2 – 29 July, 2026 =
 * New: Admin live preview on the Floating Chat page — see your unsaved settings rendered by the real frontend code, with Desktop and Mobile viewports, a full-screen view and one-click refresh.
@@ -365,6 +380,9 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
+= 2.5.0 =
+A fully redesigned, cleaner admin that matches the rest of the ThemeAtelier plugin family, with help text shown inline and a confirmation after saving. No settings change. Recommended for all users.
+
 = 2.4.0 =
 Adds initials-based default agent avatars and a header close button, and fixes overlapping chat bubbles when Better Chat Support and ChatHelp are both active on the same side of the screen.
 

@@ -86,12 +86,12 @@ class Frontend
         wp_enqueue_style('mcs-main');
 
         /* Resolve the selected font family (legacy Codestar array or new flat key). */
-        $typography = $this->get_typography_settings($mcs_options);
+        $typography = self::get_typography_settings($mcs_options);
 
         /* Enqueue the Google Font BEFORE building inline CSS so the face is
            available when the font-family rule applies. */
         if (!empty($typography['family']) && $typography['is_google']) {
-            $this->enqueue_google_font($typography['family']);
+            self::enqueue_google_font($typography['family']);
         }
 
         $custom_css = '';
@@ -101,7 +101,7 @@ class Frontend
 
         /* Add typography CSS that depends on the font being loaded */
         if (!empty($typography['family'])) {
-            $custom_css .= $this->generate_font_css($typography);
+            $custom_css .= self::generate_font_css($typography);
         }
 
         wp_add_inline_style('mcs-main', $custom_css);
@@ -128,7 +128,7 @@ class Frontend
      *
      * @return array{family:string,backup:string,is_google:bool}
      */
-    private function get_typography_settings(array $mcs_options): array
+    public static function get_typography_settings(array $mcs_options): array
     {
         $family    = '';
         $backup    = '';
@@ -149,7 +149,7 @@ class Frontend
         if (!empty($mcs_options['better_chat_support_typography_family'])) {
             $family    = $mcs_options['better_chat_support_typography_family'];
             $backup    = '';
-            $is_google = isset($this->get_google_font_list()[$family]);
+            $is_google = isset(self::get_google_font_list()[$family]);
         }
 
         return compact('family', 'backup', 'is_google');
@@ -159,7 +159,7 @@ class Frontend
      * Load the Google Fonts lookup list (family => [variants, subsets]).
      * Used only to decide whether a selected family needs the Google Fonts API.
      */
-    private function get_google_font_list(): array
+    private static function get_google_font_list(): array
     {
         static $fonts = null;
         if ($fonts !== null) {
@@ -179,12 +179,18 @@ class Frontend
 
     /**
      * Enqueue a Google Font family at its default weight (no weight param).
+     * Shared with the admin live preview (Admin\Rest\PreviewRest), so the
+     * preview and the live site load the exact same stylesheet.
+     *
+     * @return string The enqueued style handle.
      */
-    private function enqueue_google_font(string $font_family): void
+    public static function enqueue_google_font(string $font_family): string
     {
         $font_url_family = str_replace(' ', '+', sanitize_text_field($font_family));
         $font_url = "https://fonts.googleapis.com/css2?family={$font_url_family}&display=swap";
-        wp_enqueue_style('google-font-' . sanitize_key($font_family), $font_url, [], null);
+        $handle = 'google-font-' . sanitize_key($font_family);
+        wp_enqueue_style($handle, $font_url, [], null);
+        return $handle;
     }
 
     /**
@@ -193,7 +199,7 @@ class Frontend
      *
      * @param array{family:string,backup:string} $typography
      */
-    private function generate_font_css(array $typography): string
+    public static function generate_font_css(array $typography): string
     {
         $selector = '.mSupport,.mSupport-multi,.mSupport-multi input, .advance_button, .mSupport__popup__content input, .mSupport__popup__content textarea';
         $family   = sanitize_text_field($typography['family']);

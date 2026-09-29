@@ -21,7 +21,13 @@ function better_chat_support_convert_old_to_new_data_1_3_0($options)
         $options['bubble-position'] = 'bottom_left';
     }
 
-    $mcs_settings = get_option('mcs_settings');
+    // Default to an array: this option does not exist yet on a site that
+    // never opened the Settings tab, and get_option() would return false,
+    // which PHP 8.1+ refuses to auto-convert on the writes below.
+    $mcs_settings = get_option('mcs_settings', array());
+    if (! is_array($mcs_settings)) {
+        $mcs_settings = array();
+    }
     $mcs_settings['license_key'] = $license_key;
     $mcs_settings['cleanup_data_deletion'] = $cleanup_data_deletion;
 
