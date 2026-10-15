@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
 
 if ( ! function_exists( 'BetterChatSupport_get_google_fonts' ) ) {
-  function BetterChatSupport_get_google_fonts() {
+  function BetterChatSupport_get_google_fonts() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Existing public name; renaming would break code that references it.
     return [
       'ABeeZee'=>[['normal','italic'],['latin','latin-ext']],
       'Abel'=>[['normal'],['latin']],

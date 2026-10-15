@@ -64,11 +64,11 @@ class ReviewNotice
             </div>
             <div class="better-chat-support-notice-text">
                 <h3><?php echo esc_html__('Enjoying', 'better-chat-support') ?> <strong><?php echo esc_html__('Better Chat Support', 'better-chat-support') ?></strong>?</h3>
-                <p><?php echo esc_html__('We hope you had a wonderful experience using', 'better-chat-support') ?> <strong><?php echo esc_html__('Better Chat Support', 'better-chat-support') ?></strong>. <?php echo esc_html__('Please take a moment to leave a review on', 'better-chat-support') ?> <a href="https://wordpress.org/support/plugin/better-chat-support/reviews/?filter=5#new-post" target="_blank"><strong><?php echo esc_html__('WordPress.org', 'better-chat-support') ?></strong></a>.
+                <p><?php echo esc_html__('We hope you had a wonderful experience using', 'better-chat-support') ?> <strong><?php echo esc_html__('Better Chat Support', 'better-chat-support') ?></strong>. <?php echo esc_html__('Please take a moment to leave a review on', 'better-chat-support') ?> <a href="https://wordpress.org/support/plugin/better-chat-support/reviews/" target="_blank"><strong><?php echo esc_html__('WordPress.org', 'better-chat-support') ?></strong></a>.
                     <?php echo esc_html__('Your positive review will help us improve. Thank you!', 'better-chat-support') ?> 😊</p>
 
                 <p class="better-chat-support-review-actions">
-                    <a href="https://wordpress.org/support/plugin/better-chat-support/reviews/?filter=5#new-post" target="_blank" class="button button-primary notice-dismissed rate-better-chat-support"><?php echo esc_html__('Ok, you deserve', 'better-chat-support') ?> ★★★★★</a>
+                    <a href="https://wordpress.org/support/plugin/better-chat-support/reviews/" target="_blank" class="button button-primary notice-dismissed rate-better-chat-support"><?php echo esc_html__('Ok, you deserve', 'better-chat-support') ?> ★★★★★</a>
                     <a href="#" class="notice-dismissed remind-me-later"><span class="dashicons dashicons-clock"></span><?php echo esc_html__('Nope, maybe later', 'better-chat-support') ?>
                     </a>
                     <a href="#" class="notice-dismissed never-show-again"><span class="dashicons dashicons-dismiss"></span><?php echo esc_html__('Never show again', 'better-chat-support') ?></a>

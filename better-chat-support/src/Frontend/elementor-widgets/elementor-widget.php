@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
  *
  * @since 1.0
  */
-class Elementor_MCS_Buttons extends \Elementor\Widget_Base
+class Elementor_MCS_Buttons extends \Elementor\Widget_Base // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound -- Existing public name; renaming would break code that references it.
 {
 
     /**

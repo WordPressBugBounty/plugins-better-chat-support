@@ -189,7 +189,7 @@ class Frontend
         $font_url_family = str_replace(' ', '+', sanitize_text_field($font_family));
         $font_url = "https://fonts.googleapis.com/css2?family={$font_url_family}&display=swap";
         $handle = 'google-font-' . sanitize_key($font_family);
-        wp_enqueue_style($handle, $font_url, [], null);
+        wp_enqueue_style($handle, $font_url, [], null); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Google Fonts stylesheet; a version query string would only defeat its caching.
         return $handle;
     }
 

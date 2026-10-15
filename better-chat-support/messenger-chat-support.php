@@ -1,12 +1,15 @@
 <?php
 /*
- *  Plugin Name:    Better Chat Support For Messenger
+ *  Plugin Name:    Better Chat Support for Messenger
  *  Plugin URI:     https://themeatelier.net/downloads/better-chat-support-for-messenger/
  *  Description:    Can easily create Bubble & buttons for messenger chat in any WordPress site. Gutenberg, Elementor and shortcodes supported. 
  *  Author:         ThemeAtelier
  *  Author URI:     http://themeatelier.net/
- *  Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above.
- *  Version:        2.5.0
+ *  Requires at least: 5.7
+ *  Requires PHP:   7.0
+ *  License:        GPLv2 or later
+ *  License URI:    https://www.gnu.org/licenses/gpl-2.0.html
+ *  Version:        2.6.0
  * Text Domain:     better-chat-support
  * Domain Path:     /languages
  */
@@ -21,7 +24,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '2.5.0');
+    define('BETTER_CHAT_SUPPORT_VERSION', '2.6.0');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));
@@ -59,7 +62,7 @@ include_once ABSPATH . 'wp-admin/includes/plugin.php';
 if (! (is_plugin_active('better-chat-support-pro/better-chat-support-pro.php') || is_plugin_active_for_network('better-chat-support-pro/better-chat-support-pro.php'))) {
     better_chat_support();
     // Register block
-    function create_block_better_chat_support_init()
+    function create_block_better_chat_support_init() // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Existing public name; renaming would break code that references it.
     {
         register_block_type_from_metadata(BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Frontend/blocks/');
     }

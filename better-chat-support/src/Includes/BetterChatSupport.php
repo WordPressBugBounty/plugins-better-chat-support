@@ -104,7 +104,6 @@ class BetterChatSupport
     public function init_plugin()
     {
         do_action('better_chat_support_loaded');
-        load_plugin_textdomain('better-chat-support', false, BETTER_CHAT_SUPPORT_DIRNAME . "/languages");
     }
 
     /**
@@ -143,7 +142,7 @@ class BetterChatSupport
     // load text domain from plugin folder
     public function better_chat_support_load_textdomain()
     {
-        load_plugin_textdomain('better-chat-support', false,  BETTER_CHAT_SUPPORT_DIRNAME . '/languages');
+        // Translations are loaded by WordPress itself for plugins hosted on WordPress.org.
     }
 
     public function register_better_chat_support_widget($widgets_manager)

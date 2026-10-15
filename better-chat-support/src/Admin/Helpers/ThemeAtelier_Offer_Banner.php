@@ -67,13 +67,30 @@ class ThemeAtelier_Offer_Banner
 
 		// Define offer durations.
 		$offers = array(
-			'mega_sale_v3'     => array(
-				'id'    => 'mega_sale_v3_2026',
-				'start' => strtotime( '2026-09-01 00:00:00' ),
-				'end'   => strtotime( '2026-10-31 23:59:59' ),
-				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/mega-sale.svg',
-				'link'  => 'https://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support_plugin&utm_medium=offer_banner&utm_campaign=mega_sale_2026#pricing',
+			'halloween_deal'     => array(
+				'id'    => 'halloween_deal_2026',
+				'start' => strtotime( '2026-10-19 00:00:00' ),
+				'end'   => strtotime( '2026-11-05 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/halloween-sale.svg',
+				'link'  => 'http://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support&utm_medium=offer_banner&utm_campaign=halloween_deal_2026',
 			),
+
+			'black_friday_deal'     => array(
+				'id'    => 'black_friday_deal_2026',
+				'start' => strtotime( '2026-11-06 00:00:00' ),
+				'end'   => strtotime( '2026-12-15 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/black-friday-sale.svg',
+				'link'  => 'http://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support&utm_medium=offer_banner&utm_campaign=black_friday_deal_2026',
+			),
+
+			'christmas_deal'     => array(
+				'id'    => 'christmas_deal_2026',
+				'start' => strtotime( '2026-12-20 00:00:00' ),
+				'end'   => strtotime( '2027-01-15 23:59:59' ),
+				'image' => BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/images/christmas-sale.svg',
+				'link'  => 'http://themeatelier.net/downloads/better-chat-support-for-messenger/?utm_source=better_chat_support&utm_medium=offer_banner&utm_campaign=christmas_deal_2026',
+			),
+
 		);
 
 		$active_offers = array();

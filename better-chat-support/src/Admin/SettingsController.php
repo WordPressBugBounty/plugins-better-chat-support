@@ -239,7 +239,7 @@ class SettingsController
             require_once ABSPATH . 'wp-admin/includes/plugin.php';
         }
 
-        $plugins_arr = get_transient('better_chat_support_recommended_plugins');
+        $plugins_arr = get_transient('better_chat_support_recommended_plugins_v2');
 
         if (!is_array($plugins_arr) || empty($plugins_arr)) {
             $plugins_arr = $this->fetch_themeatelier_plugins();
@@ -248,7 +248,7 @@ class SettingsController
             // leave the transient unset so the next page load retries instead of
             // serving a cached empty list for the full 24h window.
             if (!empty($plugins_arr)) {
-                set_transient('better_chat_support_recommended_plugins', $plugins_arr, 24 * HOUR_IN_SECONDS);
+                set_transient('better_chat_support_recommended_plugins_v2', $plugins_arr, 24 * HOUR_IN_SECONDS);
             }
         }
 
@@ -268,9 +268,13 @@ class SettingsController
             $plugin_file = $this->plugin_files[$slug] ?? ($slug . '.php');
             $basename    = $slug . '/' . $plugin_file;
 
-            $image_type = 'png';
-            if ('darkify' === $slug) {
-                $image_type = 'gif?rev=3301202';
+            $icons = isset($plugin['icons']) ? (array) $plugin['icons'] : [];
+            $icon  = '';
+            foreach (['2x', '1x', 'svg', 'default'] as $icon_size) {
+                if (!empty($icons[$icon_size])) {
+                    $icon = $icons[$icon_size];
+                    break;
+                }
             }
 
             $installed = file_exists(WP_PLUGIN_DIR . '/' . $basename);
@@ -279,7 +283,7 @@ class SettingsController
             $out[] = [
                 'slug'           => $slug,
                 'name'           => $plugin['name'],
-                'icon'           => 'https://ps.w.org/' . $slug . '/assets/icon-256x256.' . $image_type,
+                'icon'           => $icon,
                 'description'    => isset($plugin['short_description']) ? $plugin['short_description'] : '',
                 'version'        => isset($plugin['version']) ? $plugin['version'] : '',
                 'activeInstalls' => isset($plugin['active_installs']) ? number_format_i18n($plugin['active_installs']) . '+' : '',
@@ -315,6 +319,7 @@ class SettingsController
             'fields'   => [
                 'slug', 'name', 'version', 'active_installs',
                 'last_updated', 'rating', 'num_ratings', 'short_description', 'author',
+                'icons' => true,
             ],
         ];
 
@@ -349,6 +354,7 @@ class SettingsController
                 'rating'            => isset($pl['rating']) ? $pl['rating'] : 0,
                 'num_ratings'       => isset($pl['num_ratings']) ? $pl['num_ratings'] : 0,
                 'short_description' => isset($pl['short_description']) ? $pl['short_description'] : '',
+                'icons'             => isset($pl['icons']) ? (array) $pl['icons'] : [],
             ];
         }
 

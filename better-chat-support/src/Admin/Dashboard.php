@@ -199,7 +199,9 @@ class Dashboard
                     'No icon selected'          => esc_html__('No icon selected', 'better-chat-support'),
                     'Close'                     => esc_html__('Close', 'better-chat-support'),
                     'Search icons…'             => esc_html__('Search icons…', 'better-chat-support'),
+                    /* translators: %s: the icon search term. */
                     'No icons match "%s".'      => esc_html__('No icons match "%s".', 'better-chat-support'),
+                    /* translators: 1: number of icons shown, 2: total number of icons. */
                     'Showing %1$s of %2$s icons' => esc_html__('Showing %1$s of %2$s icons', 'better-chat-support'),
                     // AgentGroupField
                     'I am online'               => esc_html__('I am online', 'better-chat-support'),
@@ -636,7 +638,7 @@ class Dashboard
             // without a full page reload.
             $typography = self::get_typography_data();
 
-            echo wp_print_inline_script_tag(
+            wp_print_inline_script_tag(
                 'window.mcsAdmin = ' . wp_json_encode($data) . ';' .
                 'window.mcsDashboard = ' . wp_json_encode($legacy) . ';' .
                 'window.mcsChat = { restUrl: ' . wp_json_encode($rest_url) . ', nonce: ' . wp_json_encode($nonce) . ' };' .
@@ -676,7 +678,7 @@ class Dashboard
         $webfonts = [
             'safe' => [
                 'label' => esc_html__('Safe Web Fonts', 'better-chat-support'),
-                'fonts' => apply_filters('BetterChatSupport_field_typography_safewebfonts', [
+                'fonts' => apply_filters('BetterChatSupport_field_typography_safewebfonts', [ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Public hook kept unchanged for backward compatibility.
                     'Arial',
                     'Arial Black',
                     'Helvetica',
@@ -695,13 +697,13 @@ class Dashboard
             ],
             'google' => [
                 'label' => esc_html__('Google Web Fonts', 'better-chat-support'),
-                'fonts' => apply_filters('BetterChatSupport_field_typography_googlewebfonts', $google_fonts),
+                'fonts' => apply_filters('BetterChatSupport_field_typography_googlewebfonts', $google_fonts), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Public hook kept unchanged for backward compatibility.
             ],
         ];
 
-        $defaultstyles = apply_filters('BetterChatSupport_field_typography_defaultstyles', ['normal', 'italic', '700', '700italic']);
+        $defaultstyles = apply_filters('BetterChatSupport_field_typography_defaultstyles', ['normal', 'italic', '700', '700italic']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Public hook kept unchanged for backward compatibility.
 
-        $googlestyles = apply_filters('BetterChatSupport_field_typography_googlestyles', [
+        $googlestyles = apply_filters('BetterChatSupport_field_typography_googlestyles', [ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Public hook kept unchanged for backward compatibility.
             '100'       => 'Thin 100',
             '100italic' => 'Thin 100 Italic',
             '200'       => 'Extra-Light 200',
@@ -723,7 +725,7 @@ class Dashboard
         ]);
 
         return [
-            'webfonts'      => apply_filters('BetterChatSupport_field_typography_webfonts', $webfonts),
+            'webfonts'      => apply_filters('BetterChatSupport_field_typography_webfonts', $webfonts), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Public hook kept unchanged for backward compatibility.
             'defaultstyles' => $defaultstyles,
             'googlestyles'  => $googlestyles,
         ];

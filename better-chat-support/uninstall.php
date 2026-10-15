@@ -43,6 +43,7 @@ function better_chat_support_delete_plugin_data()
 	// Delete plugin cached data (transients).
 	$transients = [
 		'better_chat_support_recommended_plugins',
+		'better_chat_support_recommended_plugins_v2',
 		'themeatelier_plugins',
 	];
 	foreach ($transients as $transient) {
@@ -52,16 +53,16 @@ function better_chat_support_delete_plugin_data()
 
 	// Delete the analytics table.
 	$table_name = $wpdb->prefix . 'mcs_analytics';
-	$wpdb->query("DROP TABLE IF EXISTS `$table_name`");
+	$wpdb->query("DROP TABLE IF EXISTS `$table_name`"); // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Drops the plugin's own analytics table on uninstall; the name is $wpdb->prefix . 'mcs_analytics'.
 }
 
 // The "Clean-up Data on Deletion" toggle is saved in the Advanced settings
 // option (mcs_settings) — read it from there. Only run cleanup when enabled.
-$mcs_settings = get_option('mcs_settings');
+$better_chat_support_settings = get_option('mcs_settings');
 // Default OFF: data is only deleted when the toggle is EXPLICITLY enabled.
 // A missing key, or any falsy/"false"/"0" value, must never trigger cleanup.
-$cleanup_raw                     = is_array($mcs_settings) ? ($mcs_settings['cleanup_data_deletion'] ?? false) : false;
-$better_chat_support_data_delete = (true === $cleanup_raw || 1 === $cleanup_raw || '1' === $cleanup_raw || 'true' === $cleanup_raw);
+$better_chat_support_cleanup_raw                     = is_array($better_chat_support_settings) ? ($better_chat_support_settings['cleanup_data_deletion'] ?? false) : false;
+$better_chat_support_data_delete = (true === $better_chat_support_cleanup_raw || 1 === $better_chat_support_cleanup_raw || '1' === $better_chat_support_cleanup_raw || 'true' === $better_chat_support_cleanup_raw);
 
 if ($better_chat_support_data_delete) {
 	better_chat_support_delete_plugin_data();

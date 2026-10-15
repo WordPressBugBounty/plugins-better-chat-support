@@ -151,7 +151,7 @@ class PreviewRest
         $head = $this->theme_typography_styles() . ob_get_clean() . $font_css;
 
         ob_start();
-        echo $inline_vars;
+        echo $inline_vars; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- A script tag holding one wp_json_encode() value.
         wp_scripts()->do_items(['jquery', 'moment', 'moment-timezone', 'mcs-main']);
         $foot = ob_get_clean();
 

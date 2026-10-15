@@ -2,10 +2,10 @@
 Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
 Tags: facebook messenger, messenger chat, chat button, live chat, customer care
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
-Requires at least: 5.0
-Tested up to: 7.1
+Requires at least: 5.7
+Tested up to: 7.1.3
 Requires PHP: 7.0
-Stable tag: 2.5.0
+Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -215,6 +215,16 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.6.0 – 14 October, 2026 =
+* Improved: The plugin now passes the WordPress.org Plugin Check with no errors or code warnings. Output is escaped throughout, request values are sanitized, and database queries are prepared.
+* Improved: The Help page shows plugin icons provided by the WordPress.org API instead of loading hard-coded remote images.
+* Improved: The review notice now links to the WordPress.org reviews page without pre-selecting a rating.
+* Improved: Translations are loaded by WordPress itself, as they are for every plugin hosted on WordPress.org.
+* Fixed: Analytics date ranges no longer shift if another plugin changes PHP's default time zone.
+* Fixed: The Messenger Button block now declares block API version 3, as WordPress 7.0's iframed editor expects.
+* Fixed: The default shortcode labels were registered under the wrong text domain, so they could not be translated.
+* Update: Minimum WordPress version is now 5.7, which the plugin already needed.
+
 = 2.5.0 – 29 September, 2026 =
 * Update: Admin redesigned to match the ThemeAtelier plugin family (Chat Help, Domain For Sale, Darkify) — neutral colour palette, pill-style top navigation with version shown under the logo, and Settings moved to a gear icon.
 * Update: Floating Chat and Settings pages now use a full-width layout with a sticky section sidebar (with a Get Help link) and a sticky toolbar holding Live Preview, Save and a menu for Reset.

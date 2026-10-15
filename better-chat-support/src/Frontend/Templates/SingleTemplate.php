@@ -121,7 +121,7 @@ class SingleTemplate
 			? ' data-auto-open-timeout="' . esc_attr($auto_open_timeout) . '"'
 			: '';
 
-		echo 'chat-availability" data-timezone="' . esc_attr($select_timezone) . '" data-availability="' . esc_attr($user_availability) . '"' . $timeout_attr . '>';
+		echo 'chat-availability" data-timezone="' . esc_attr($select_timezone) . '" data-availability="' . esc_attr($user_availability) . '"' . $timeout_attr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $timeout_attr is built with esc_attr() above.
 		echo wp_kses_post($bubble_type); ?>
 		<div class="mSupport__popup animation<?php echo esc_attr($animation) ?> ">
 			<?php

@@ -1,5 +1,9 @@
 <?php
 
+if (! defined('ABSPATH')) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Update version.
  */
@@ -23,8 +27,8 @@ function better_chat_support_convert_old_to_new_data_1_2_21($options)
 /**
  * Update old to new data.
  */
-$options = get_option('mcs-opt');
+$options = get_option('mcs-opt'); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Update routine included from DBUpdates, so this variable is local to that method.
 if ($options) {
-    $updated_options = better_chat_support_convert_old_to_new_data_1_2_21($options);
+    $updated_options = better_chat_support_convert_old_to_new_data_1_2_21($options); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Update routine included from DBUpdates, so this variable is local to that method.
     update_option('mcs-opt', $updated_options);
 }

@@ -229,7 +229,7 @@ class Insights {
             $data['tracking_skipped'] = true;
         }
 
-        return apply_filters( $this->client->slug . '_tracker_data', $data );
+        return apply_filters( $this->client->slug . '_tracker_data', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Bundled Appsero SDK, kept as shipped.
     }
 
     /**
@@ -310,9 +310,9 @@ class Insights {
     private function is_local_server() {
         return false;
 
-        $is_local = in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) );
+        $is_local = in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated -- Bundled Appsero SDK, kept as shipped.
 
-        return apply_filters( 'appsero_is_local', $is_local );
+        return apply_filters( 'appsero_is_local', $is_local ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Bundled Appsero SDK, kept as shipped.
     }
 
     /**
@@ -377,13 +377,13 @@ class Insights {
         $notice .= 'We are using Appsero to collect your data. <a href="' . $policy_url . '">Learn more</a> about how Appsero collects and handle your data.</p>';
 
         echo '<div class="updated"><p>';
-            echo $notice;
+            echo wp_kses_post( $notice );
             echo '</p><p class="submit">';
-            echo '&nbsp;<a href="' . esc_url( $optin_url ) . '" class="button-primary button-large">' . $this->client->better_chat_support_trans( 'Allow' ) . '</a>';
-            echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary button-large">' . $this->client->better_chat_support_trans( 'No thanks' ) . '</a>';
+            echo '&nbsp;<a href="' . esc_url( $optin_url ) . '" class="button-primary button-large">' . esc_html( $this->client->better_chat_support_trans( 'Allow' ) ) . '</a>';
+            echo '&nbsp;<a href="' . esc_url( $optout_url ) . '" class="button-secondary button-large">' . esc_html( $this->client->better_chat_support_trans( 'No thanks' ) ) . '</a>';
         echo '</p></div>';
 
-        echo "<script type='text/javascript'>jQuery('." . $this->client->slug . "-insights-data-we-collect').on('click', function(e) {
+        echo "<script type='text/javascript'>jQuery('." . esc_js( $this->client->slug ) . "-insights-data-we-collect').on('click', function(e) {
                 e.preventDefault();
                 jQuery(this).parents('.updated').find('p.description').slideToggle('fast');
             });
@@ -457,7 +457,7 @@ class Insights {
     public function get_post_count( $post_type ) {
         global $wpdb;
 
-        return (int) $wpdb->get_var( "SELECT count(ID) FROM $wpdb->posts WHERE post_type = '$post_type' and post_status = 'publish'");
+        return (int) $wpdb->get_var( $wpdb->prepare( "SELECT count(ID) FROM $wpdb->posts WHERE post_type = %s and post_status = 'publish'", $post_type ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- Bundled Appsero SDK; a single count for the opt-in report.
     }
 
     /**
@@ -471,7 +471,7 @@ class Insights {
         $server_data = array();
 
         if ( isset( $_SERVER['SERVER_SOFTWARE'] ) && ! empty( $_SERVER['SERVER_SOFTWARE'] ) ) {
-            $server_data['software'] = $_SERVER['SERVER_SOFTWARE'];
+            $server_data['software'] = $_SERVER['SERVER_SOFTWARE']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- Bundled Appsero SDK, kept as shipped.
         }
 
         if ( function_exists( 'phpversion' ) ) {
@@ -532,22 +532,22 @@ class Insights {
         foreach ( $plugins as $k => $v ) {
             // Take care of formatting the data how we want it.
             $formatted = array();
-            $formatted['name'] = strip_tags( $v['Name'] );
+            $formatted['name'] = wp_strip_all_tags( $v['Name'] );
 
             if ( isset( $v['Version'] ) ) {
-                $formatted['version'] = strip_tags( $v['Version'] );
+                $formatted['version'] = wp_strip_all_tags( $v['Version'] );
             }
 
             if ( isset( $v['Author'] ) ) {
-                $formatted['author'] = strip_tags( $v['Author'] );
+                $formatted['author'] = wp_strip_all_tags( $v['Author'] );
             }
 
             if ( isset( $v['Network'] ) ) {
-                $formatted['network'] = strip_tags( $v['Network'] );
+                $formatted['network'] = wp_strip_all_tags( $v['Network'] );
             }
 
             if ( isset( $v['PluginURI'] ) ) {
-                $formatted['plugin_uri'] = strip_tags( $v['PluginURI'] );
+                $formatted['plugin_uri'] = wp_strip_all_tags( $v['PluginURI'] );
             }
 
             if ( in_array( $k, $active_plugins_keys ) ) {
@@ -712,13 +712,13 @@ class Insights {
      */
     public function uninstall_reason_submission() {
 
-        if ( ! isset( $_POST['reason_id'] ) ) {
+        if ( ! isset( $_POST['reason_id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Bundled Appsero SDK, kept as shipped.
             wp_send_json_error();
         }
 
         $data                = $this->get_tracking_data();
-        $data['reason_id']   = sanitize_text_field( $_POST['reason_id'] );
-        $data['reason_info'] = isset( $_REQUEST['reason_info'] ) ? trim( stripslashes( $_REQUEST['reason_info'] ) ) : '';
+        $data['reason_id']   = sanitize_text_field( $_POST['reason_id'] ); // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- Bundled Appsero SDK, kept as shipped.
+        $data['reason_info'] = isset( $_REQUEST['reason_info'] ) ? trim( stripslashes( $_REQUEST['reason_info'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- Bundled Appsero SDK, kept as shipped.
 
         $this->client->send_request( $data, 'deactivate' );
 
@@ -739,10 +739,10 @@ class Insights {
 
         $this->deactivation_modal_styles();
         $reasons = $this->get_uninstall_reasons();
-        $custom_reasons = apply_filters( 'appsero_custom_deactivation_reasons', [] );
+        $custom_reasons = apply_filters( 'appsero_custom_deactivation_reasons', [] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Bundled Appsero SDK, kept as shipped.
         ?>
 
-<div class="wd-dr-modal" id="<?php echo $this->client->slug; ?>-wd-dr-modal">
+<div class="wd-dr-modal" id="<?php echo esc_attr( $this->client->slug ); ?>-wd-dr-modal">
     <div class="wd-dr-modal-wrap">
         <div class="wd-dr-modal-header">
             <h3><?php $this->client->_etrans( 'Goodbyes are always hard. If you have a moment, please let us know how we can improve.' ); ?>
@@ -825,11 +825,11 @@ class Insights {
             <div class="wd-dr-modal-reason-input"><textarea></textarea></div>
             <p class="wd-dr-modal-reasons-bottom">
                 <?php
-                       echo sprintf(
+                       echo wp_kses_post( sprintf(
 	                       $this->client->better_chat_support_trans( 'We share your data with <a href="%1$s" target="_blank">Appsero</a> to troubleshoot problems &amp; make product improvements. <a href="%2$s" target="_blank">Learn more</a> about how Appsero handles your data.'),
 	                       esc_url( 'https://appsero.com/' ),
                            esc_url( 'https://appsero.com/privacy-policy' )
-                       );
+                       ) );
                        ?>
             </p>
         </div>
@@ -847,11 +847,11 @@ class Insights {
 <script type="text/javascript">
 (function($) {
     $(function() {
-        var modal = $('#<?php echo $this->client->slug; ?>-wd-dr-modal');
+        var modal = $('#<?php echo esc_js( $this->client->slug ); ?>-wd-dr-modal');
         var deactivateLink = '';
 
         // Open modal
-        $('#the-list').on('click', 'a.<?php echo $this->client->slug; ?>-deactivate-link', function(e) {
+        $('#the-list').on('click', 'a.<?php echo esc_js( $this->client->slug ); ?>-deactivate-link', function(e) {
             e.preventDefault();
 
             modal.addClass('modal-active');
@@ -910,7 +910,7 @@ class Insights {
                 url: ajaxurl,
                 type: 'POST',
                 data: {
-                    action: '<?php echo $this->client->slug; ?>_submit-uninstall-reason',
+                    action: '<?php echo esc_js( $this->client->slug ); ?>_submit-uninstall-reason',
                     reason_id: (0 === $radio.length) ? 'none' : $radio.val(),
                     reason_info: (0 !== $input.length) ? $input.val().trim() : ''
                 },

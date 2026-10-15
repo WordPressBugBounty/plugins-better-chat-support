@@ -55,7 +55,6 @@ class Helpers
 		/********************
 				Js Enqueue
 		 ********************/
-		wp_register_script('moment', array('jquery'), '1.0', true);
 		wp_register_script('moment-timezone', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/moment-timezone-with-data' . $this->min . '.js', array('jquery'), '1.0', true);
 		wp_register_script('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/mSupport-main' . $this->min . '.js', array('jquery'), '1.0', true);
 		wp_register_script('tma-bubble-stack', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/bubble-stack.js', array(), BETTER_CHAT_SUPPORT_VERSION, true);
