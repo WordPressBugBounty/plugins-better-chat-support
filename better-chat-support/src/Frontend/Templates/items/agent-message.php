@@ -2,6 +2,8 @@
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template files are included from inside a method, so these variables are local, not globals. Their names are part of the theme-override contract.
 // don't call the file directly.
 
+use ThemeAtelier\BetterChatSupport\Includes\Helpers;
+
 if (! defined('ABSPATH')) {
     exit;
 }
@@ -19,7 +21,7 @@ if ($agent_message) : ?>
     <div class="sms">
         <div class="sms__text">
             <div class="agent-message">
-                <?php echo wp_kses_post($agent_message); ?>
+                <?php echo wp_kses_post(Helpers::replacement_vars($agent_message)); ?>
             </div>
             <?php
             if ($show_current_time) {

@@ -3,9 +3,9 @@ Contributors: themeatelier, faysal61, shshakib2001, tamimaziz
 Tags: facebook messenger, messenger chat, chat button, live chat, customer care
 Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenger/
 Requires at least: 5.7
-Tested up to: 7.1.3
+Tested up to: 7.1.4
 Requires PHP: 7.0
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Add a Facebook Messenger chat button to WordPress — floating chat bubble, pre-
 
 Better Chat Support for Messenger is a free WordPress plugin that adds a Facebook Messenger chat button to your website. Visitors click the floating chat bubble and start a conversation with you on Messenger in just a few clicks — no coding required.
 
-Turn website visitors into conversations: when someone is browsing your products or services and has a question, they can message you instantly through the floating bubble or any of the call-to-action buttons included in the plugin. You get pre-filled messages, a name-and-message lead form, customizable buttons, availability control based on your timezone, offline messaging, and a built-in analytics dashboard — all in the free version.
+Turn website visitors into conversations: when someone is browsing your products or services and has a question, they can message you instantly through the floating bubble or any of the call-to-action buttons included in the plugin. You get pre-filled messages with dynamic variables, a name-and-message lead form, a guided setup wizard, a live admin preview, customizable buttons, availability control based on your timezone, offline messaging, and a built-in analytics dashboard — all in the free version.
 
 **👁️[Plugin Demo](https://themeatelier.net/downloads/better-chat-support-for-messenger/#shortcode) | 🚀[Pro Version](https://themeatelier.net/downloads/better-chat-support-for-messenger/) | 👩🏼‍💻[Support](https://wordpress.org/support/plugin/better-chat-support/) | 🌟[Rate this plugin](https://wordpress.org/plugins/better-chat-support/reviews/#new-post)**
 
@@ -31,11 +31,20 @@ Facebook Messenger is one of the world's most-used messaging platforms, which ma
 - **Instant replies** — Respond to customers in real time instead of waiting on email or phone.
 - **Save time and money** — Reduce repetitive calls and emails by routing inquiries to one place.
 - **Build relationships** — Faster, friendlier support leads to higher satisfaction and repeat customers.
+- **Quick setup** — A guided setup wizard and live preview get your chat live in under a minute.
 - **Privacy-friendly analytics** — Track visitors, views, and conversions from your own WordPress dashboard, with no third-party service required.
 
 == CORE FEATURES ==
 
 * **Single agent support** – Add a floating chat bubble tied to a single Facebook Messenger account so visitors can reach you instantly.
+
+* **Setup wizard** – A chat-style onboarding wizard collects your Facebook ID, agent name, and greeting message to get Messenger chat live in under a minute.
+
+* **Live preview** – See unsaved settings rendered exactly as visitors will see them, with Desktop and Mobile viewports and a full-screen view.
+
+* **Message variables** – Personalize the agent's greeting with dynamic values such as your site name, the current page title, and the current date and time, inserted from a searchable picker.
+
+* **Lead capture** – Visitors' name-and-message form submissions are saved as leads you can view, filter, and delete from the dashboard.
 
 * **Call-to-action buttons** – Place Messenger buttons anywhere on your site — pages, posts, or sidebars — each with its own independent settings.
 
@@ -62,6 +71,12 @@ Facebook Messenger is one of the world's most-used messaging platforms, which ma
 * **Chat layout options** – Choose between an agent card layout (photo, name, greeting) and a simple button layout depending on your design preference.
 
 * **Device visibility & positioning** – Show or hide the bubble per device (desktop, tablet, mobile) and set independent screen position with pixel-level offset for each.
+
+* **Agent avatar & close button** – Show a custom agent photo or auto-generated initials, and add an × close button to the chat header.
+
+* **Notification badge** – Show or hide a notification badge on the floating button to draw visitors' attention.
+
+* **Works alongside Better WhatsApp Chat Support** – When both plugins are active on the same side, the bubbles stack automatically and only one chat box opens at a time.
 
 * **Theme styles** – Switch between Flat and Custom theme styles, toggle light/dark mode, and upload a custom background image for the chat popup.
 
@@ -157,7 +172,7 @@ When a visitor submits their information through the name/message form on the ch
 
 = Can I customize the look of the bubble? =
 
-Yes. You can choose between Flat and Custom theme styles, pick from 13+ bubble animations, set custom primary and secondary colors, control the bubble icon, tooltip, and add your own CSS.
+Yes. You can choose between Flat and Custom theme styles, pick from 13+ bubble animations, set custom primary and secondary colors, control the bubble icon, tooltip, agent avatar (custom photo or initials), header close button, and add your own CSS.
 
 = Can I set my availability hours? =
 
@@ -215,6 +230,10 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.6.1 – 30 October, 2026 =
+* New: Message variables for the Message From Agent field. An "Insert variable" picker adds dynamic values with a searchable list that explains each one.
+* Improved: Updated frontend asset versioning for stylesheets and scripts to ensure proper cache invalidation.
+
 = 2.6.0 – 14 October, 2026 =
 * Improved: The plugin now passes the WordPress.org Plugin Check with no errors or code warnings. Output is escaped throughout, request values are sanitized, and database queries are prepared.
 * Improved: The Help page shows plugin icons provided by the WordPress.org API instead of loading hard-coded remote images.
@@ -390,6 +409,12 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
+= 2.6.1 =
+Adds message variables ({siteTitle}, {currentTitle}, {date}, {time}) to the agent greeting. Recommended for all users.
+
+= 2.6.0 =
+Passes the WordPress.org Plugin Check, fixes analytics date ranges and block editor compatibility with WordPress 7.0. Minimum WordPress version is now 5.7.
+
 = 2.5.0 =
 A fully redesigned, cleaner admin that matches the rest of the ThemeAtelier plugin family, with help text shown inline and a confirmation after saving. No settings change. Recommended for all users.
 

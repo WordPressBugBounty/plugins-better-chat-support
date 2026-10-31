@@ -9,7 +9,7 @@
  *  Requires PHP:   7.0
  *  License:        GPLv2 or later
  *  License URI:    https://www.gnu.org/licenses/gpl-2.0.html
- *  Version:        2.6.0
+ *  Version:        2.6.1
  * Text Domain:     better-chat-support
  * Domain Path:     /languages
  */
@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '2.6.0');
+    define('BETTER_CHAT_SUPPORT_VERSION', '2.6.1');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));

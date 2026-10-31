@@ -50,13 +50,13 @@ class Helpers
 	 */
 	public function register_all_scripts()
 	{
-		wp_register_style('icofont', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/css/icofont' . $this->min . '.css', array(), '1.0', false);
-		wp_register_style('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/css/mSupport-main' . $this->min . '.css', array(), '1.0', false);
+		wp_register_style('icofont', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/css/icofont' . $this->min . '.css', array(), BETTER_CHAT_SUPPORT_VERSION, false);
+		wp_register_style('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/css/mSupport-main' . $this->min . '.css', array(), BETTER_CHAT_SUPPORT_VERSION, false);
 		/********************
 				Js Enqueue
 		 ********************/
-		wp_register_script('moment-timezone', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/moment-timezone-with-data' . $this->min . '.js', array('jquery'), '1.0', true);
-		wp_register_script('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/mSupport-main' . $this->min . '.js', array('jquery'), '1.0', true);
+		wp_register_script('moment-timezone', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/moment-timezone-with-data' . $this->min . '.js', array('jquery'), BETTER_CHAT_SUPPORT_VERSION, true);
+		wp_register_script('mcs-main', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/mSupport-main' . $this->min . '.js', array('jquery'), BETTER_CHAT_SUPPORT_VERSION, true);
 		wp_register_script('tma-bubble-stack', BETTER_CHAT_SUPPORT_DIR_URL . 'src/Frontend/assets/js/bubble-stack.js', array(), BETTER_CHAT_SUPPORT_VERSION, true);
 	}
 
@@ -308,5 +308,43 @@ class Helpers
 		}
 
 		return true;
+	}
+
+	/**
+	 * Replace the message variables ({siteTitle}, {currentTitle}, {date},
+	 * {time}) in a message.
+	 *
+	 * Must match the picker in MessageTemplateField.jsx. A message without
+	 * tokens is returned unchanged, so existing settings render exactly as
+	 * before.
+	 *
+	 * @param string $message Message with variables.
+	 * @return string
+	 */
+	public static function replacement_vars($message)
+	{
+		$message = (string) $message;
+		if (false === strpos($message, '{')) {
+			return $message;
+		}
+		$remove = function () {
+			return '-';
+		};
+		add_filter('document_title_separator', $remove);
+		$current_title = wp_get_document_title();
+		remove_filter('document_title_separator', $remove);
+
+		$vars = array(
+			'{siteTitle}'    => get_bloginfo('name'),
+			'{currentTitle}' => $current_title,
+			// {date} is the date alone and {time} the time alone, both in the
+			// site's timezone and its Settings → General formats.
+			'{date}'         => wp_date(get_option('date_format', 'F j, Y')),
+			'{time}'         => wp_date(get_option('time_format', 'g:i a')),
+		);
+
+		// strtr() makes a single pass, so a replaced value is never itself
+		// scanned for more variables.
+		return trim(strtr($message, array_map('strval', $vars)));
 	}
 }
