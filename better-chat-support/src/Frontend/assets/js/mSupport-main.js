@@ -33,9 +33,10 @@ let user = document.querySelector(".user");
 
 let today = new Date();
 if (currentTime !== null) {
-  let time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  currentTime.innerText = time;
+  // Zero-pad so 16:02:05 doesn't render as 16:2:5.
+  const pad = (n) => String(n).padStart(2, "0");
+  currentTime.innerText =
+    pad(today.getHours()) + ":" + pad(today.getMinutes()) + ":" + pad(today.getSeconds());
 }
 /******************** 02.OPEN BUTTON  ********************/
 const openChatBtn = () => {

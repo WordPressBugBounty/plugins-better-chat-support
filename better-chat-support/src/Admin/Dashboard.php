@@ -421,7 +421,7 @@ class Dashboard
                     'Chat Agents'               => esc_html__('Chat Agents', 'better-chat-support'),
                     'Add and manage your chat agents. Each agent can have a name, photo, Facebook ID, pre-filled message, timezone, availability, designation, and custom online/offline text.' => esc_html__('Add and manage your chat agents. Each agent can have a name, photo, Facebook ID, pre-filled message, timezone, availability, designation, and custom online/offline text.', 'better-chat-support'),
                     'Agent Photo Type'          => esc_html__('Agent Photo Type', 'better-chat-support'),
-                    'Choose how the agent photo is displayed — Default uses the built-in photo, Custom lets you upload your own, None shows no photo.' => esc_html__('Choose how the agent photo is displayed — Default uses the built-in photo, Custom lets you upload your own, None shows no photo.', 'better-chat-support'),
+                    'Choose how the agent photo is displayed — Default shows initials from the agent name, Custom lets you upload your own, None shows no photo.' => esc_html__('Choose how the agent photo is displayed — Default shows initials from the agent name, Custom lets you upload your own, None shows no photo.', 'better-chat-support'),
                     'Upload an agent photo to display inside the chat bubble.' => esc_html__('Upload an agent photo to display inside the chat bubble.', 'better-chat-support'),
                     'Enter the agent\'s name to display inside the chat bubble.' => esc_html__('Enter the agent\'s name to display inside the chat bubble.', 'better-chat-support'),
                     'Online Subtitle'           => esc_html__('Online Subtitle', 'better-chat-support'),

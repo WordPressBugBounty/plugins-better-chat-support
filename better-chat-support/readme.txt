@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.7
 Tested up to: 7.1.4
 Requires PHP: 7.0
-Stable tag: 2.6.2
+Stable tag: 2.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -216,20 +216,26 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 
 == Screenshots ==
 
-1. Floating Messenger chat bubble with single-agent layout — agent photo, online status, pre-filled greeting message, and a Start Chat button (bottom-right position).
-2. Floating chat bubble with an animated "How can I help?" text label on the trigger button.
-3. Messenger chat bubble in the Custom theme style with a dark background image behind the greeting message.
+1. Floating Messenger chat box, Flat theme with a left-aligned header — agent avatar with online status, name and reply-time subtitle, the greeting message with the current time, a Send Message button, and the "How may I help you?" chat button (bottom-right).
+2. The same chat box with a centered header — avatar, name, and subtitle stacked in the middle.
+3. The Custom theme — the greeting message sits on a patterned background image below the header.
 4. Call-to-action button styles — pill-shaped Messenger buttons (Button Style 2) and dynamic agent cards showing live "I'm available" and "I'm not available" status based on availability hours.
 5. Built-in Analytics Dashboard showing visitors, views, conversions, conversion rate, a performance trendline chart, and a device breakdown — no third-party service required.
-6. Floating Chat settings — General tab with Facebook Page ID, agent greeting message, timezone, and per-day availability hours.
-7. Header & Footer settings — agent photo, name, online and offline subtitles, header alignment, and Send Message button options.
-8. Button settings — floating button style, open/close icons, button size, colors, border, notification badge, tooltip, and screen position.
-9. Style settings — bubble animation, Flat and Custom theme styles, light/dark mode, primary and secondary colors, and Google Font selection.
-10. Visibility settings — show the chat on desktop, tablet, or mobile, and control which pages, posts, or products display the bubble.
-11. Shortcode generator — build a Messenger button with custom labels, colors, timezone, and availability, then copy the ready-made shortcode.
-12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
+6. Floating Chat → General with the Live Preview open — pick a chat layout, set your Facebook ID (with Test Link), write the agent message with the "Insert variable" picker, and set timezone and per-day availability. Every change shows in the preview before you save.
+7. Header & Footer settings — close icon, agent photo (initials, custom upload, or none), agent name, online and offline subtitles, header alignment, Send Message button icon and label, and footer text.
+8. Button settings with the Live Preview — Icon or Simple button style, button label, open and close icons, size presets, and normal/hover colors. Borders, padding, notification badge, tooltip, and screen position follow further down the tab.
+9. Appearance settings — auto-open popup with delay, bubble animation, Flat and Custom themes with a background image, primary, secondary and send button colors, Google Fonts, and a custom CSS selector that opens the chat.
+10. Visibility settings — show the chat everywhere or on desktop, tablet, or mobile only, and set include/exclude rules for pages.
+11. Shortcodes — choose a button style and copy a ready-made `[better_chat_support]` shortcode for any post, page, or widget, with every available attribute listed.
+12. Settings — clean-up data on deletion, open chat in a new tab, analytics data retention, tracking of logged-in editors, and custom CSS and JavaScript editors.
+13. The whole admin panel in dark mode — switch between Light, Dark, or System theme from the header.
 
 == Changelog ==
+= 2.6.3 – 7 November, 2026 =
+* Fixed: The current time in the chat box now always shows two digits for minutes and seconds (16:02:05 instead of 16:2:5).
+* Fixed: The "Agent Photo Type" help text now says that Default shows initials from the agent name, not a built-in photo.
+* Improved: New screenshots of the chat box, the admin panel with Live Preview, and the admin dark mode.
+
 = 2.6.2 – 7 November, 2026 =
 * Improved: Analytics tracking is much lighter. The browser now collects a page's events and sends them together a few seconds after the page loads, instead of one request per event; a click through to Messenger is sent straight away. The server stores each batch with a single database query.
 * Improved: The analytics dashboard loads in one request instead of four and reads daily totals instead of every individual event. New visits from today appear as soon as you reload the dashboard, and it shows when the numbers were last updated.
@@ -420,7 +426,7 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
-= 2.7.0 =
+= 2.6.2 =
 Makes analytics far lighter on your server and adds a data retention setting. Existing analytics are kept and rolled up automatically in the background. Recommended for all users.
 
 = 2.6.1 =
