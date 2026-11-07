@@ -108,7 +108,7 @@ class Dashboard
             'better-chat-support-admin-dashboard',
             BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/css/better-chat-support-admin.css',
             [],
-            BETTER_CHAT_SUPPORT_VERSION
+            BETTER_CHAT_SUPPORT_VERSION . '.' . filemtime(BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Admin/assets/css/better-chat-support-admin.css')
         );
 
         $min = defined('WP_DEBUG') && WP_DEBUG ? '' : '.min';
@@ -302,6 +302,21 @@ class Dashboard
                     'Completely remove all plugin data when the plugin is deleted.' => esc_html__('Completely remove all plugin data when the plugin is deleted.', 'better-chat-support'),
                     'Open in New Tab'           => esc_html__('Open in New Tab', 'better-chat-support'),
                     'Open the Messenger chat link in a new browser tab when clicked.' => esc_html__('Open the Messenger chat link in a new browser tab when clicked.', 'better-chat-support'),
+                    // Analytics settings
+                    'Analytics Data Retention'  => esc_html__('Analytics Data Retention', 'better-chat-support'),
+                    'How long to keep individual analytics events. Daily totals are kept, so older reports still work.' => esc_html__('How long to keep individual analytics events. Daily totals are kept, so older reports still work.', 'better-chat-support'),
+                    '30 days'                   => esc_html__('30 days', 'better-chat-support'),
+                    '90 days'                   => esc_html__('90 days', 'better-chat-support'),
+                    '180 days'                  => esc_html__('180 days', 'better-chat-support'),
+                    '1 year'                    => esc_html__('1 year', 'better-chat-support'),
+                    '2 years'                   => esc_html__('2 years', 'better-chat-support'),
+                    'Keep forever'              => esc_html__('Keep forever', 'better-chat-support'),
+                    'Track Logged-in Editors'   => esc_html__('Track Logged-in Editors', 'better-chat-support'),
+                    'Count visits from logged-in users who can edit posts, such as admins and editors. Off by default, so your own visits do not skew the numbers.' => esc_html__('Count visits from logged-in users who can edit posts, such as admins and editors. Off by default, so your own visits do not skew the numbers.', 'better-chat-support'),
+                    // Analytics dashboard
+                    'Your earlier analytics are being prepared in the background. Older dates will fill in over the next few minutes.' => esc_html__('Your earlier analytics are being prepared in the background. Older dates will fill in over the next few minutes.', 'better-chat-support'),
+                    'Last updated'              => esc_html__('Last updated', 'better-chat-support'),
+                    'Analytics are being prepared.' => esc_html__('Analytics are being prepared.', 'better-chat-support'),
                     'Custom CSS'                => esc_html__('Custom CSS', 'better-chat-support'),
                     'Add your own CSS to override or extend the default chat styling.' => esc_html__('Add your own CSS to override or extend the default chat styling.', 'better-chat-support'),
                     '/* Your custom CSS here */' => esc_html__('/* Your custom CSS here */', 'better-chat-support'),
@@ -679,7 +694,8 @@ class Dashboard
             'better-chat-support-admin-dashboard',
             BETTER_CHAT_SUPPORT_DIR_URL . 'src/Admin/assets/js/better-chat-support-admin.js',
             [],
-            BETTER_CHAT_SUPPORT_VERSION,
+            // Bust the browser cache on every rebuild, not just on a version bump.
+            BETTER_CHAT_SUPPORT_VERSION . '.' . filemtime(BETTER_CHAT_SUPPORT_DIR_PATH . 'src/Admin/assets/js/better-chat-support-admin.js'),
             true
         );
     }

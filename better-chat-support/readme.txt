@@ -5,7 +5,7 @@ Donate Link: https://themeatelier.net/downloads/better-chat-support-for-messenge
 Requires at least: 5.7
 Tested up to: 7.1.4
 Requires PHP: 7.0
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -230,6 +230,17 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 12. Advanced settings — clean-up data on deletion, open chat in a new tab, and add custom CSS and JavaScript to the chat widget.
 
 == Changelog ==
+= 2.6.2 – 7 November, 2026 =
+* Improved: Analytics tracking is much lighter. The browser now collects a page's events and sends them together a few seconds after the page loads, instead of one request per event; a click through to Messenger is sent straight away. The server stores each batch with a single database query.
+* Improved: The analytics dashboard loads in one request instead of four and reads daily totals instead of every individual event. New visits from today appear as soon as you reload the dashboard, and it shows when the numbers were last updated.
+* Improved: Daily totals are built in the background. After updating, earlier analytics are rolled up automatically, and the dashboard shows a notice until that finishes.
+* Improved: Removed four database indexes on the analytics table that no report used, and added one on the event date. Saving events is faster and the table is smaller.
+* New: "Analytics Data Retention" setting (Settings → Advanced). Individual events older than the chosen period (default 90 days) are deleted in small batches in the background. Daily totals are kept, so reports for older dates keep working.
+* New: "Track Logged-in Editors" setting, off by default. Visits from admins, editors and authors are no longer counted unless you turn it on.
+* New: Search engine crawlers, uptime monitors and automated browsers are no longer counted.
+* Security: The tracking endpoint now only accepts requests from your own site with a valid site token, limits each visitor to 60 requests a minute, and caps the events per request.
+* Developer: New WP-CLI command `wp bcs-analytics` (status, migrate, aggregate, cleanup). New filters: `better_chat_support_analytics_rate_limit`, `better_chat_support_analytics_global_rate_limit`, `better_chat_support_analytics_client_key`, `better_chat_support_analytics_allowed_hosts`, `better_chat_support_analytics_is_bot`.
+
 = 2.6.1 – 30 October, 2026 =
 * New: Message variables for the Message From Agent field. An "Insert variable" picker adds dynamic values with a searchable list that explains each one.
 * Improved: Updated frontend asset versioning for stylesheets and scripts to ensure proper cache invalidation.
@@ -409,6 +420,9 @@ That depends on your settings. The plugin has a "Clean up data on deletion" opti
 * Initial release
 
 == Upgrade Notice ==
+= 2.7.0 =
+Makes analytics far lighter on your server and adds a data retention setting. Existing analytics are kept and rolled up automatically in the background. Recommended for all users.
+
 = 2.6.1 =
 Adds message variables ({siteTitle}, {currentTitle}, {date}, {time}) to the agent greeting. Recommended for all users.
 

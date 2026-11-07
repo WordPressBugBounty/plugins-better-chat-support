@@ -9,7 +9,7 @@
  *  Requires PHP:   7.0
  *  License:        GPLv2 or later
  *  License URI:    https://www.gnu.org/licenses/gpl-2.0.html
- *  Version:        2.6.1
+ *  Version:        2.6.2
  * Text Domain:     better-chat-support
  * Domain Path:     /languages
  */
@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!defined('BETTER_CHAT_SUPPORT_VERSION')) {
-    define('BETTER_CHAT_SUPPORT_VERSION', '2.6.1');
+    define('BETTER_CHAT_SUPPORT_VERSION', '2.6.2');
 }
 if (!defined('BETTER_CHAT_SUPPORT_DIRNAME')) {
     define('BETTER_CHAT_SUPPORT_DIRNAME', dirname(__FILE__));
@@ -45,6 +45,10 @@ if (!defined('BETTER_CHAT_SUPPORT_DEMO_URL')) {
 if (!defined('BETTER_CHAT_SUPPORT_DOCS_URL')) {
     define('BETTER_CHAT_SUPPORT_DOCS_URL', 'https://docs.themeatelier.net/docs/better-chat-support-pro/');
 }
+
+// Analytics tables and background jobs. Free and Pro share them.
+register_activation_hook(__FILE__, ['ThemeAtelier\\BetterChatSupport\\Admin\\Analytics', 'activate']);
+register_deactivation_hook(__FILE__, ['ThemeAtelier\\BetterChatSupport\\Admin\\Analytics', 'deactivate']);
 
 function better_chat_support()
 {

@@ -51,9 +51,19 @@ function better_chat_support_delete_plugin_data()
 		delete_site_transient($transient);
 	}
 
-	// Delete the analytics table.
-	$table_name = $wpdb->prefix . 'mcs_analytics';
-	$wpdb->query("DROP TABLE IF EXISTS `$table_name`"); // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Drops the plugin's own analytics table on uninstall; the name is $wpdb->prefix . 'mcs_analytics'.
+	// Delete the analytics tables: raw events and the daily summaries.
+	foreach (['mcs_analytics', 'mcs_analytics_daily', 'mcs_analytics_daily_dims'] as $better_chat_support_table) {
+		$table_name = $wpdb->prefix . $better_chat_support_table;
+		$wpdb->query("DROP TABLE IF EXISTS `$table_name`"); // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Drops the plugin's own analytics tables on uninstall; names are $wpdb->prefix plus a constant.
+	}
+	foreach (['mcs_analytics_db_version', 'mcs_analytics_state', 'mcs_analytics_legacy_until'] as $option_name) {
+		delete_option($option_name);
+	}
+	// Job locks and cached dashboard reports.
+	$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE 'mcs\\_analytics\\_lock\\_%' OR option_name LIKE '\\_transient\\_mcs\\_an\\_%' OR option_name LIKE '\\_transient\\_timeout\\_mcs\\_an\\_%'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-off cleanup of the plugin's own options on uninstall.
+	foreach (['mcs_analytics_aggregate', 'mcs_analytics_cleanup', 'mcs_analytics_migrate'] as $better_chat_support_hook) {
+		wp_unschedule_hook($better_chat_support_hook);
+	}
 }
 
 // The "Clean-up Data on Deletion" toggle is saved in the Advanced settings
